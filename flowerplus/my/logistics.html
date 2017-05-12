@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<!-- saved from url=(0025)http://t.flowerplus.cn/kd -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+	<title>物流查询</title>
+	<link rel="stylesheet" href="css/m.css">
+	<script src="js/jquery.js"></script>
+
+</head>
+<body>
+	<style type="text/css">
+body{
+	background: #e5e5e5;
+}
+h1{
+	background: #f0f0f0;
+	padding:1.3rem 1rem;
+	font-size: 1.7rem;
+	font-weight: bold;
+	border-bottom:1px solid #ddd;
+	position: relative;
+}
+
+.searchbox{
+	margin:2rem 1.5rem;
+	position: relative;
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	border-radius: 5px;
+	overflow: hidden;
+
+}
+.searchbox input{
+	width:100%;
+	height:5rem;
+	font-size:18px;
+	padding:0 1rem;
+	border-radius: 0;
+	border:0 none;
+	background: #f8f8f8;
+	-webkit-appearance:none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-transition:all .3s ease-out;
+	transition:all .3s ease-out;
+
+}
+.searchbox input::-webkit-input-placeholder{
+	line-height: 2rem;
+	font-size: 14px;
+	color:#ccc;
+}
+.searchbox input:focus{
+	background: #fff;
+}
+
+.searchbox button{
+	position: absolute;
+	right:0px;
+	top:0px;
+	height:5rem;
+	border:0 none;
+	background:#f73f65;
+	color: #fff;
+	font-size:18px;
+	font-weight: bold;
+	border:0 none;
+	/*padding:0 2rem;	*/
+	width:8rem;
+	-webkit-appearance:none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-transition:all .ss ease-out;
+	transition:all .2s ease-out;
+	z-index: 100;
+}
+.searchbox button:active{
+	background: #d53f65;
+}
+.kditem{
+	position: relative;
+	overflow: hidden;
+	margin:0 1.5rem;
+	border-radius: 5px;
+	margin-bottom: 25px;
+	background: #fff;
+}
+.kditem dl{
+	padding:15px 0;
+	line-height: 1.8em;
+	overflow:hidden;
+	border-bottom:1px solid #e2e2e2;
+}
+.kditem dt{
+	float: left;
+	padding-left:15px;
+	width:90px;
+	color:#888;
+}
+.kditem dd{
+	margin-left:100px;
+	overflow: hidden
+}
+/*.showroute{
+	display: inline-block;
+	background: #f0f0f0;
+	border-radius: 3px;
+	padding:6px 15px;
+	background: rgb(85,194,232);
+	color:#fff;
+}*/
+.showroute{
+	display: block;
+	padding:15px 0;
+	text-align: center;
+	color: #f73f65
+}
+.routes{
+	display: none;
+	margin:0 0;
+	padding:15px 0;
+	background: #fff;
+	border-top:1px solid #e5e5e5;
+}
+.route-items{
+	padding:0;
+}
+.route-items li{
+	overflow: hidden;
+}
+.route-items .times{
+	float: left;
+	width: 90px;
+	padding:1px 25px 0 15px;
+	position: relative;
+	color: #999
+	
+}
+.route-items .times strong{
+	color:#000;
+	font-size: 18px;
+	line-height: 18px;
+}
+.route-items .context{
+	margin-left:90px;
+	padding-left:25px;
+	padding-right:10px;
+	overflow: hidden;
+	min-height: 70px;
+	padding-bottom:25px;
+	border-left:1px solid #e5e5e5;
+}
+.route-items .times::before{
+	content: "";
+	width:15px;
+	height:15px;
+	background: #e5e5e5;
+	border-radius: 50%;
+	position: absolute;
+	right:-8px;
+	top:0px;
+}
+
+#clearall{
+	position: absolute;
+	right:8rem;
+	height:5rem;
+	top:0;
+	width:5rem;
+	background:  url(imgs/iconfont-close.png) center no-repeat;
+	background-size:14px;
+	display: none;
+
+	-webkit-appearance:none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+
+
+}
+
+</style>
+	<div class="page-wrap">
+		<!-- <h1>物流查询</h1>
+	-->
+	<div class="searchbox">
+		<input type="tel" name="mob" id="mob" class="inp" autocomplete="off" value="" placeholder="收货人手机号码">
+		<a href="javascript:;" id="clearall" style="display: none;"></a>
+		<button id="getkd" type="button">查询</button>
+	</div>
+	<div id="kdlist"></div>
+</div>
+<script>
+
+	document.addEventListener("touchstart",function(){});
+	function isLocalStorage(){
+		return typeof window.localStorage == "object";
+	}
+
+	function getHistory(){
+		if(!isLocalStorage()){
+			return "";
+		}
+
+		return window.localStorage.getItem("flower_kd_mob");
+
+	}
+	function addHistory(mob){
+		if(!isLocalStorage()){
+			return;
+		}
+		window.localStorage.setItem("flower_kd_mob",mob);
+
+	}
+
+	$("#clearall").bind("click",function(){
+		$("#mob").val("");
+		addHistory("");
+	})
+	window.setInterval(function(){
+		if($("#mob").val().length>0){
+			$("#clearall").show();
+		}else{
+			$("#clearall").hide();
+		}
+	},100);
+	function getkd(){
+		var mob=$("#mob").val().replace(/\s/g,'');
+		if(mob==''){
+			$("#mob").focus();
+			return;
+		}
+		addHistory(mob);		
+		$("#kdlist").html('<p style="color:#999;text-align:center;padding:10px 0">正在查询...</p>');
+		$.get("/kd/getkd",{mob:mob},function(v){
+			$("#kdlist").html(v);
+		});
+	}
+	function getroute(){//alert(32);
+		//console.log($(this));
+		var id=$(this).attr("data-id");
+		var express_com=$(this).attr("data-express-com");
+		var express_id=$(this).attr("data-express-id");
+		var p=$(".routes[data-id='"+id+"']").show();
+		//$(this).html("正在查询...");
+		var btn=$(this);
+		p.html('<p style="color:#999;text-align:center">正在查询...</p>');
+		$.get('/kd/getroute',{express_com:express_com,express_id:express_id},function(v){
+			p.html(v);
+			btn.html("刷新").show();
+		})
+	}
+	$("#getkd").bind("click",getkd);
+	$("body").delegate(".query_route","click",getroute);
+	getkd();
+	
+	(function(){
+		$("#mob").val(getHistory()).blur();
+	})();
+</script>
+
+</body>
+</html>

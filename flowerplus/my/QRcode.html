@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)http://t.flowerplus.cn/wx_cs/my_code -->
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="keywords" content="花+,花加,flowerplus,鲜花,鲜花订阅">
+  <meta name="description" content="一周一花，用鲜花点亮生活,提供98元单品鲜花包月服务、168元混合鲜花包月服务和花艺周边配件、花艺课程服务。">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+  <title>我的二维码</title>
+  <link rel="stylesheet" href="css/m_web.css">
+  <script charset="utf-8" src="js/v.js"></script>
+  <script async="" src="js/analytics.js"></script>
+  <script src="js/hm.js"></script>
+  <script async="" src="js/sensorsdata.min.js"></script>
+
+  <link rel="stylesheet" href="css/weui.css">
+  <link rel="stylesheet" href="css/jquery-weui.css">
+  <script src="js/jquery-2.1.4.js"></script>
+  <script src="js/jquery-weui.js"></script>
+  <script src="js/jweixin-1.2.0.js"></script>
+  <script src="js/m.js"></script>
+
+</head>
+<body ontouchstart="">
+  <div class="page">
+    <link rel="stylesheet" type="text/css" href="css/m.css">
+    <link rel="stylesheet" type="text/css" href="css/m_web(1).css">
+    <link rel="stylesheet" type="text/css" href="css/code.css">
+    <div class="page">
+      <ul class="header-top">
+        <li class="current" style="width:100%">
+          <a href="http://t.flowerplus.cn/wx_cs/my_code">我的二维码</a>
+        </li>
+<!--         <li class="">
+          <a href="http://t.flowerplus.cn/wx_cs/get_my_orders_orders">已下单的人</a>
+        </li>
+        <li class="">
+          <a href="http://t.flowerplus.cn/wx_cs/get_my_code_convert">我的兑换码</a>
+        </li> -->
+      </ul>
+      <div class="yqm-conout">
+        <p class="tit">邀请好友得鲜花奖励</p>
+        <p class="mb20 p15">
+          恭喜您成为flowerplus带盐人！好友扫描你的专属二维码链接，成功邀请3个好友下单,您将获得1束混合单次鲜花奖励，可叠加，无上限~
+          <span style="color:red;">备注：按照下单人数统计,扫自己的码不会算在任何带盐人内的哦!</span>
+        </p>
+        <p class="tc m5">长按分享或保存</p>
+        <p class="tc m5">专属二维码</p>
+        <div class="Img" style="margin-top:10px;padding:0 15px">
+          <img onclick="previewimg(this)" src="imgs/94418949.jpg" alt="我的二维码"></div>
+        <div class="yqm-but">
+          <p>
+            如您的二维码过期
+            <img src="imgs/H-right.png" alt="" width="20px" height="20px" style="margin:0 10px">
+            <span onclick="gengxin()" style="color:#FF6699;font-size:20px;">更新</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--  弹窗   -->
+    <div class="w-out" style="display:none;">
+      <div class="w-in">
+        <p style="text-align:right;display:none">
+          <a href="javascript:void(0)" class="close"></a>
+        </p>
+        <div class="w-in-header"></div>
+        <p id="content_code"></p>
+      </div>
+    </div>
+    <!--  弹窗  -->
+    <div id="loadingdetail" style="position: fixed; width: 70px; height: 70px; top: 50%; left: 50%; margin-top: -18px; margin-left: -35px; text-align: center; border-radius: 3px; background: rgba(0, 0, 0, 0.8); color: rgb(255, 255, 255); z-index: 555; padding-top: 15px; display: none;">
+      <img src="imgs/jz.gif" alt="" style="width:40px;height:40px"></div>
+    <script>
+FP.hideAllNonBaseMenuItem();
+$(function() {
+    create_my_code();
+})
+function create_my_code() {
+      $('#loadingdetail').show();
+      FP.ajaxPost('/wx_cs/get_my_code',{},function(d) {
+          $('.Img').find('img').attr('src',d.data);
+          $('#loadingdetail').hide();
+      })
+}
+function previewimg(obj){
+  var that = $(obj);
+  wx.previewImage({
+      current: that.attr('src'),
+      urls: [
+        that.attr('src')
+      ]
+    });
+}
+// ok  waining  waiting
+function gengxin() {
+  $('.w-out').find('div').find('div').removeClass('waining','ok').addClass('waiting');
+  $('#content_code').text('更新中...');
+  $('.w-out').show();
+  $.post('/wx_cs/get_my_code',{},function(d) {
+    if (d.f== true) {
+        $('#content_code').text('更新成功');
+        $('.w-out').find('div').find('div').removeClass('waiting').addClass('ok');
+        $('.close').parent('p').show();
+    }else{
+      $('.w-out').find('div').find('div').removeClass('waiting').addClass('waining');
+      $('.close').parent('p').show();
+    }
+  },'json')
+}
+$(".close").click(function(event) {
+    event.stopPropagation();
+    $('.w-out').hide();
+    window.location.reload();
+        
+});
+</script>
+
+  </div>
+  <script>
+var page_type = '';
+var sat = 'cb037e036c03aad3';
+var sap = 'default';
+var sau = 'http://flowerplus.cloud.sensorsdata.cn:8006/sa?token='+sat+'&project='+sap;
+(function(para) {
+  var p = para.sdk_url, n = para.name, w = window, d = document, s = 'script',x = null,y = null;
+  w['sensorsDataAnalytic201505'] = n;
+  w[n] = w[n] || function(a) {return function() {(w[n]._q = w[n]._q || []).push([a, arguments]);}};
+  var ifs = ['track','quick','register','registerPage','registerOnce','registerSession','registerSessionOnce','trackSignup', 'trackAbtest', 'setProfile','setOnceProfile','appendProfile', 'incrementProfile', 'deleteProfile', 'unsetProfile', 'identify','login','logout'];
+  for (var i = 0; i < ifs.length; i++) {
+    w[n][ifs[i]] = w[n].call(null, ifs[i]);
+  }
+  if (!w[n]._t) {
+    x = d.createElement(s), y = d.getElementsByTagName(s)[0];
+    x.async = 1;
+    x.src = p;
+    y.parentNode.insertBefore(x, y);
+    w[n].para = para;
+  }
+})({
+  sdk_url: '//static2.flowerplus.cn/Static/js/sa/sensorsdata.min.js',
+  name: 'sa',
+  server_url: sau
+  // ,
+  // debug_mode:true,
+  // debug_mode_upload:false
+});
+
+
+sa.quick('autoTrackWithoutProfile', {});
+
+
+</script>
+  
+  <script type="text/javascript">
+function ga_buy(){ga("send",{hitType:"event",eventCategory:"订购流程",eventAction:"立即购买",eventLabel:"详情页购买"})}
+function ga_submit(){ga("send",{hitType:"event",eventCategory:"订购流程",eventAction:"确认下单",eventLabel:"订单填写页"})}
+function ga_cancle(){ga("send",{hitType:"event",eventCategory:"订购流程",eventAction:"取消订单",eventLabel:"订单确认页"})}
+function ga_pay(id,product_name,payment){ga("send",{hitType:"event",eventCategory:"订购流程",eventAction:"去支付",eventLabel:"订单确认页"});ga("require","ecommerce");ga("ecommerce:addTransaction",{"id":id,"affiliation":product_name,"revenue":payment,});ga("ecommerce:send")};
+</script>
+
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport">
+    <title>吐槽&amp;建议</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <style>
+    body{
+        font-family:'微软雅黑';
+        background:#e2e2e2;
+        margin:0 auto;
+        padding:10px;
+    }
+    .content-body {
+        background-color: rgba(255,255,255,.98);
+        padding: 20px 15px;
+        margin: 0 auto;
+        border-radius: 5px;
+        box-shadow: 0 1px 2px rgba(0,0,0,.3);
+        max-width: 640px;
+    }
+    .form-group label {line-height:30px;text-align:left;}
+    .form-control{
+        -webkit-appearance:none;
+        box-shadow: 0 0 0;
+    }
+    select.form-control{
+        background: #fff url(/Static/img/mdown.png) no-repeat 97% center;
+        background-size: 12px;
+    }
+    .error {color: red;}
+    </style>
+</head>
+<body>
+    <div class="containter content-body">
+        <div>
+            <form class="form-horizontal" role="form" method="post" id="sendForm" novalidate="novalidate">
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <img src="imgs/ftimg.jpg" style="width:100%;"></div>
+                </div>
+                <p>如果需要解决问题，请找客服提交工单，这里仅用于收集客户建议.</p>
+                <div class="form-group">
+                    <label for="feedbackType" class="col-xs-4">反馈类型:</label>
+                    <div class="col-xs-8">
+                        <select class="form-control" name="feedbackType" id="feedbackType">
+                            <option value="1">质量问题</option>
+                            <option value="2">物流问题</option>
+                            <option value="3">产品建议</option>
+                            <option value="4">功能使用</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group" id="feedbackSub" style="display:none">
+                    <label for="feedbackSubType" class="col-xs-4">吐槽类别:</label>
+                    <div class="col-xs-8">
+                        <select class="form-control" name="feedbackSubType" id="feedbackSubType">
+                            <option value="">请选择吐槽类别</option>
+                            <option value="1">送达后没有通知本人</option>
+                            <option value="2">送花时间延误</option>
+                            <option value="3">打扰了我的休息</option>
+                            <option value="4">快递导致物品破损</option>
+                            <option value="5">快递小哥态度差！</option>
+                            <option value="6">物流信息不准确</option>
+                            <option value="7">其他</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group" id="feedbackSubp" style="display:none">
+                    <label for="feedbackSubproduct" class="col-xs-4">吐槽类别:</label>
+                    <div class="col-xs-8">
+                        <select class="form-control" name="feedbackSubproduct" id="feedbackSubproduct">
+                            <option value="">请选择吐槽类别</option>
+                            <option value="1">98/168套餐</option>
+                            <option value="2">398高端套餐</option>
+                            <option value="3">周边小物</option>
+                            <option value="4">系统</option>
+                            <option value="5">其他</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-xs-4">你的邮箱:</label>
+                    <div class="col-xs-8">
+                        <input type="email" class="form-control" name="email" id="email"></div>
+                </div>
+                <div class="form-group">
+                    <label for="mobile" class="col-xs-4">收花人手机:</label>
+                    <div class="col-xs-8">
+                        <input type="tel" class="form-control" name="mobile" id="mobile"></div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <textarea class="form-control" name="content" id="content" placeholder="反馈内容请写在这里..." rows="5"></textarea>
+                    </div>
+                </div>
+                <div class="">
+                    <button id="btnSubmit" type="submit" class="btn btn-lg btn-primary btn-block">发 送</button>
+                </div>
+                <div class="col-xs-offset-3 col-xs-9">
+                    <p id="err" style="padding:20px 0" class="error"></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+$('#feedbackType').bind('change',function (e) {
+     if ($('#feedbackType').val()==2) {
+        $('#feedbackSub').show();
+     }else {
+        $('#feedbackSub').hide();
+     }
+     if($(this).val() == 3){
+        $('#feedbackSubp').show();
+     }else {
+        $('#feedbackSubp').hide();
+     }
+});
+
+// 判断手机号码
+jQuery.validator.addMethod("checkmobile", function(value, element) { 
+  return  value.match(/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/);   
+    }, "你的手机格式不正确！"); 
+
+$('#sendForm').validate({
+    rules: {
+        email: {
+            required: true,
+            email: true
+        },
+        content: 'required',
+        mobile:{checkmobile:true}
+    },
+    messages: {
+        email: {
+            required: '你的邮箱不能为空',
+            email: '你的邮箱地址错误'
+        },
+        content: '反馈内容不能为空'
+    },
+    submitHandler: function () {
+        if ($('#sendForm').data('processing')) {
+            return;
+        }
+
+        var type =$('#feedbackType').val();
+        var subType =$('#feedbackSubType').val();
+        var subTypep = $('#feedbackSubproduct').val();
+        if (type==2&&subType=="") {
+            alert("请选择吐槽类型，我们将会更加快速的了解你的建议哦！");
+            return;
+        }
+        if(type==3&&subTypep==""){
+            alert("请选择吐槽类型，我们将会更加快速的了解你的建议哦！");
+            return;
+        }
+        if(type == 3){
+            var postData = {
+                feedbacktype: $('#feedbackType').val(),
+                feedbacksubproduct: $('#feedbackSubproduct').val(),
+                from: $('#email').val(),
+                content: $('#content').val(),
+                mobile: $('#mobile').val()
+            };
+        }else{
+            var postData = {
+                feedbacktype: $('#feedbackType').val(),
+                feedbacksubtype: $('#feedbackSubType').val(),
+                from: $('#email').val(),
+                content: $('#content').val(),
+                mobile: $('#mobile').val()
+            };
+        }
+
+        $.ajax({
+            type: 'post',
+            url: '/help/sendFeedback',
+            data: postData,
+            dataType: 'json',
+            beforeSend: function () {
+                $('#btnSubmit').prop('disabled', true).html("发送中...");
+            },
+            success: function (ajax) {
+                $('#btnSubmit').prop('disabled', false).html("发 送");
+                if (ajax.f === 'SUCCESS') {
+                    location.href = '/help/feedback_success';
+                } else {
+                    $('#err').html(ajax.data);
+                }
+            }
+        });
+    }
+});
+</script>
+
+</body>
+</html>

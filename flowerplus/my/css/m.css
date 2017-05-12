@@ -1,0 +1,198 @@
+/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+html{font-family:Arial,Verdana,Sans-serif;;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:bold}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
+html{font: 62.5% Arial,sans-serif;}
+body{
+	/*-webkit-user-select: none;*/
+	font-size:1.4rem;
+	-webkit-text-size-adjust: none;
+	color: #333;
+	position: relative;
+	height:100%;
+	width:100%;
+	background:#fff;
+	-webkit-font-smoothing: antialiased;
+}
+*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;-webkit-tap-highlight-color:transparent;
+	outline: none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);}
+article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {font-family:"Helvetica Neue",Helvetica,"Microsoft YaHei",Arial,sans-serif!important;}
+a{text-decoration:none;}
+input,input:focus,
+button,button:focus{
+	outline:none !important;
+}
+*, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+div, p, ul, ol, dl, dt, dd, h1, h2, h3, h4, h5, h6 {
+	list-style:none;
+	margin: 0;
+	padding: 0;
+	text-indent: 0;
+}
+img{border:0;vertical-align:middle;/*width:100%;height:auto;*/}
+/*上，下边框*/
+		.tBor:before,
+		.bBor:after{
+			position:absolute;
+			content: "";
+			height:1px;
+			background:#ccc;
+			left:0;
+			right:0;
+		}
+		.tBor:before{
+			top:0;
+		}
+		.bBor:after{
+			bottom:0;
+		}
+
+		/*左，右边框*/
+		.lBor:before,
+		.rBor:after{
+			position:absolute;
+			content: "";
+			width:1px;
+			background:#ccc;
+			top:0;
+			bottom:0;
+		}
+		.lBor:before{
+			left:0;
+		}
+		.rBor:after{
+			right:0;
+		}
+		
+		.trblBor:after{
+			position:absolute;
+			content:"";
+			top:0;
+			left:0;
+			-webkit-box-sizing:border-box;
+			-moz-box-sizing:border-box;
+			box-sizing:border-box;
+			width:100%;
+			height:100%;
+			border:1px solid #ccc;
+			point-events:none;
+		}
+@media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx), (-ms-high-contrast:active), (-ms-high-contrast:none) {
+
+			/*上，下边框*/
+			.tBor:before,
+			.bBor:after{
+				-webkit-transform:scaleY(.5);
+				-ms-transform:scaleY(.5);
+				-o-transform:scaleY(.5);
+				transform:scaleY(.5);
+			}
+
+			/*左，右边框*/
+			.lBor:before,
+			.rBor:after{
+				-webkit-transform:scaleX(.5);
+				-ms-transform:scaleX(.5);
+				-o-transform:scaleX(.5);
+				transform:scaleX(.5);
+			}
+
+			/*四边边框*/
+			.trblBor:after{
+				width:200%;
+				height:200%;
+				-webkit-transform:scale(.5);
+				-ms-transform:scale(.5);
+				-o-transform:scale(.5);
+				transform:scale(.5);
+			}
+
+			/*上，左边框, 四边边框*/
+			.tBor:before,
+			.lBor:before,
+			.trblBor:after{
+				-webkit-transform-origin:0 0;
+				-moz-transform-origin:0 0;
+				-ms-transform-origin:0 0;
+				-o-transform-origin:0 0;
+				transform-origin:0 0;
+			}
+
+			/*下，右边框*/
+			.bBor:after,
+			.rBor:after{
+				-webkit-transform-origin:100% 100%;
+				-moz-transform-origin:100% 100%;
+				-ms-transform-origin:100% 100%;
+				-o-transform-origin:100% 100%;
+				transform-origin:100% 100%;
+			}
+		}
+
+		/* 解决1.5屏幕下某些边框不显式问题 */
+		@media (-webkit-device-pixel-ratio: 1.5){
+			/*上，下边框*/
+			.tBor:before,
+			.bBor:after{
+				-webkit-transform:scaleY(.6666);
+				-ms-transform:scaleY(.6666);
+				-o-transform:scaleY(.6666);
+				transform:scaleY(.6666);
+			}
+
+			/*左，右边框*/
+			.lBor:before,
+			.rBor:after{
+				-webkit-transform:scaleX(.6666);
+				-ms-transform:scaleX(.6666);
+				-o-transform:scaleX(.6666);
+				transform:scaleX(.6666);
+			}
+
+			/*四边框*/
+			.trblBor:after{
+		        width:150%;
+		        height:150%;
+				-webkit-transform:scale(.6666);
+				-ms-transform:scale(.6666);
+				-o-transform:scale(.6666);
+				transform:scale(.6666);
+			}
+		}
+
+		@media (-webkit-device-pixel-ratio: 3){
+			/*上，下边框*/
+			.tBor:before,
+			.bBor:after{
+				-webkit-transform:scaleY(.3333);
+				-ms-transform:scaleY(.3333);
+				-o-transform:scaleY(.3333);
+				transform:scaleY(.3333);
+			}
+
+			/*左，右边框*/
+			.lBor:before,
+			.rBor:after{
+				-webkit-transform:scaleX(.3333);
+				-ms-transform:scaleX(.3333);
+				-o-transform:scaleX(.3333);
+				transform:scaleX(.3333);
+			}
+			/*四边框*/
+			.trblBor:after{
+		        width:300%;
+		        height:300%;
+				-webkit-transform:scale(.3333);
+				-ms-transform:scale(.3333);
+				-o-transform:scale(.3333);
+				transform:scale(.3333);
+			}
+		}
+
+.weui_dialog_visible,.weui_dialog,.weui_toast{
+ left:50%!important;
+ top:50%!important;
+ -webkit-transform:scale(1) translate(-50%,-50%) !important;
+ transform:scale(1) translate(-50%,-50%) !important;
+}
+

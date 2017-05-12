@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)http://t.flowerplus.cn/front_ticket/ticket_list?ticket_type=10 -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta name="keywords" content="花+,花加,flowerplus,鲜花,鲜花订阅">
+	<meta name="description" content="一周一花，用鲜花点亮生活,提供98元单品鲜花包月服务、168元混合鲜花包月服务和花艺周边配件、花艺课程服务。">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+	<title>联系客服-售前</title>
+	<link rel="stylesheet" href="css/weui.css">
+	<link rel="stylesheet" href="css/jquery-weui.css">
+	<link rel="stylesheet" href="css/m_web.css">
+  <script charset="utf-8" src="js/v.js"></script>
+  <script async="" src="js/analytics.js"></script>
+  <script src="js/hm.js"></script>
+  <script async="" src="js/sensorsdata.min.js"></script>
+  <script src="js/jquery.js"></script>
+  <script src="js/jweixin-1.2.0.js"></script>
+  <script src="js/m.js"></script>
+  <script src="js/tongji.js"></script>
+</head>
+<body ontouchstart="">
+	<style type="text/css">
+body{background:#ECF0F3;list-style: none;}
+.content{height:100%;margin-top: 45px;font-size: 14px;}
+.content .title{height:145px;background: #fff;border-bottom:1px solid #ECF0F3;clear: both;margin-bottom: 8px;}
+.content .title li{margin-top:5px;}
+.small_title{display: inline-block;font-size:16px;margin-left:20px;margin-top:10px;font-family: 黑体;text-overflow:ellipsis;width:250px; white-space:nowrap; text-overflow:ellipsis; -o-text-overflow:ellipsis; overflow: hidden;}
+.title .three{margin-left: 8px;}
+.content .add_ticket{position: fixed;bottom: 10px;margin:0 auto;}
+.state{margin-left: 43%;font-weight:500;}
+.question{margin-left: 5px;}
+.anniu{height: 42px;position: fixed;bottom: 0px;background-color: rgba(255, 255, 255, 0.8);font-size: 14px;border-top:1px solid #F0F0F0;width:100%;}
+.anniu li{line-height: 42px;text-align: center;}
+
+.tab_title{height: 42px;position: fixed;top: 0px;background-color: rgba(255, 255, 255, 0.8);font-size: 14px;border-top:1px solid #F0F0F0;width:100%;}
+.tab_title li{float:left;width:50%;text-align: center;margin-top:8px;}
+
+.ellips{width:97%;margin-left: 10px;text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;color:#838184;}
+.mengban{height:100%;width:100%;background:rgba(128, 138, 135, 0.8);position: absolute;z-index: 100;top:0px;}
+.label-info {
+    background-color: #5bc0de;
+}
+
+.label {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+.shouqian{color:#04BE02;}
+</style>
+	<div style="width:100%;height:100%;">
+		<div class="tab_title">
+			<li class="front_pay" style="color:#04BE02;border-right:1px solid #d0d0d0;">售前</li>
+			<li class="last_pay" style="color:grey">售后</li>
+		</div>
+		<div class="content">
+			<div style="text-align:center;font-size:18px;color:#ADADA7;font-weight:300;position: fixed;left: 50%;top: 50%;transform: translateX(-50%) translateY(-50%);-webkit-transform: translateX(-50%) translateY(-50%);">
+				<li stlye="margin-top:-10px;">
+					<img style="width:60px;height:60px;" src="imgs/gongdan.png"></li>
+				<span>暂无记录</span>
+				<li>点击下方联系</li>
+			</div>
+			<div class="anniu">
+				<a href="question_before_add.html" style="color:#04BE02;font-size:14px;" class="weui_btn">
+					<li>我要咨询</li>
+				</a>
+			</div>
+		</div>
+	</div>
+	<script>
+
+      // $(document).on("click", "#show-actions", function() {
+      //   $.actions({
+      //     actions: [
+      //       {
+      //         text: "售后",
+      //         className: "redcolor",
+      //         onClick: function() {
+      //           window.location.href="/front_ticket/add_ticket";
+      //         }
+      //       },
+      //       {
+      //         text: "售前",
+      //         className: 'shouqian',
+      //         onClick: function() {
+      //           window.location.href="/front_ticket/pay_front?ticket_type=10";
+      //         }
+      //       }
+      //     ]
+      //   });
+      // });
+
+$('.title').click(function(){
+	var ticket_id = $(this).attr('ticket_id');
+	window.location.href="/front_ticket/ticket_detail?ticket_id="+ticket_id;
+});
+
+// $('.continue').click(function(){
+// 	$('.mengban').show();
+// 	return false;
+// 	var ticket_type = 10;
+// 	switch(ticket_type){
+// 		case 10:
+// 			window.location.href="/front_ticket/pay_front?ticket_type=10";
+// 			break;
+// 		case 20:
+// 			window.location.href="/front_ticket/pay_front?ticket_type=20";
+// 			break;
+// 		case 30:
+// 			window.location.href="/front_ticket/add_ticket";
+// 			break;
+// 		default:
+// 			window.location.href="/front_ticket/add_ticket";
+// 			break;
+// 	}
+// });
+
+$('.front_pay').click(function(){
+	window.location.href="";
+});
+$('.middle_pay').click(function(){
+	window.location.href="";
+});
+$('.last_pay').click(function(){
+	window.location.href="";
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="鲜花,鲜花订阅" >
+    <meta name="description" content="">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>登录</title>
+    <link rel="stylesheet" href="css/m_web.css">
+
+    <script src="js/jquery.js"></script>
+    <script src="js/jweixin-1.2.0.js"></script>
+    <script src="js/m.js"></script>
+
+    <script src="js/tongji.js"></script>
+</head>
+<body ontouchstart="">
+    <div class="page">
+        <style type="text/css">
+    body{
+        background: #555!important;
+    }
+    .page{
+        background: #555;
+        box-shadow: 0 0 0;
+    }
+    .loginbox{
+        margin:100px 0;
+        text-align: center;
+    }
+    #imgwrap{
+        width:180px;
+        min-height: 180px;
+        margin:0 auto;
+        /*border:1px solid #ccc;*/
+        box-shadow: 0 1px 1px rgba(0,0,0,.5);
+        background: #fff;
+        
+    }
+    #imgwrap img{
+        width: 100%;
+        vertical-align: middle;
+    }
+    .loginbox-tip{
+        margin:20px 0;
+        /*border:1px solid #222;*/
+        padding:5px 15px;
+        display: inline-block;
+        border-radius: 20px;
+        background-color: #444;
+        color: #fff;
+        text-shadow: 0 0 1px rgba(0,0,0,1);
+        box-shadow: inset 0 0 2px rgba(0,0,0,.5);
+    }
+</style>
+        <div class="loginbox">
+            <div id="imgwrap"></div>
+            <div class="loginbox-tip">使用微信扫码登录</div>
+            <div style="text-align: center">
+                <a href="/uclogin/loginmob" style="color:#ccc;padding:15px;display: inline-block;">使用手机号码登录</a>
+            </div>
+        </div>
+        <script>
+    ;(function(){
+        function qrlogin(){
+            var id="",url="",imgurl="",t=0,imgwrap="",redirect_url="";
+            var setLogin=function(){
+                id=((Math.random()*100000000000000000000)).toString().substring(0,10);
+                url=_web_base+"my/qrlogin/?id="+id;
+                imgurl=_web_base+"/qrpng.html?content="+encodeURIComponent(url);
+                var img=$("<img/>").bind("load",qrload).attr("src",imgurl).appendTo("#"+imgwrap);
+            };
+
+            var qrload=function(){
+                checklogin(++t);
+            };
+            var checklogin=function(_t){
+                if(_t!=t){
+                    return;
+                }
+                FP.ajaxPost('/uclogin/qrlogincheck',{id:id},
+                    function(v){
+                        if(v.f){
+                            $(".loginbox-tip").html("登录成功,正在跳转...");
+                            setTimeout(function(){
+                                window.location.replace(redirect_url||v.data);
+                            },500);
+                            
+                        }else{
+                            if(v.data!=="=="){
+                                alert(v.data);
+                            }
+                            checklogin(t);
+                        }
+                    },
+                    function(){
+                        checklogin(t);
+                    });
+            };
+            this.init=function(_imgwrap,_redirect_url){
+                if(imgwrap==""){
+                    redirect_url=_redirect_url;
+                    imgwrap=_imgwrap;
+                    setLogin();
+                }
+            };
+        }
+
+        window.qrlogin=new qrlogin();
+        
+    })();
+qrlogin.init("imgwrap","");
+</script>
+
+    </div>
+</body>
+
+</html>

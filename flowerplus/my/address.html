@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)http://t.flowerplus.cn/buy/confirm?sku=0i2_1_0_0&_t=1489542385767 -->
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta name="keywords" content="花+,花加,flowerplus,鲜花,鲜花订阅">
+	<meta name="description" content="一周一花，用鲜花点亮生活,提供98元单品鲜花包月服务、168元混合鲜花包月服务和花艺周边配件、花艺课程服务。">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+	<title>购买</title>
+	<link rel="stylesheet" href="css/m_web.css">
+	<script charset="utf-8" src="js/v.js"></script>
+	<script async="" src="js/analytics.js"></script>
+	<script src="js/hm.js"></script>
+	<script async="" src="js/sensorsdata.min.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/jweixin-1.2.0.js"></script>
+	<script src="js/m.js"></script>
+
+
+	<script src="js/tongji.js"></script>
+</head>
+
+<body ontouchstart="">
+	<div class="page">
+		<!--BEGIN 购买表单-->
+
+		<link rel="stylesheet" type="text/css" href="css/zfk.css">
+		<style>
+			.delivery_date2 {
+				padding: 15px;
+				border-bottom: 1px solid #e5e5e5;
+			}
+
+			.delivery_date2 strong {
+				display: inline-block;
+				font-weight: normal;
+				padding-bottom: 15px;
+			}
+
+			.delivery_date2 span {
+				display: inline-block;
+				padding: 6px 15px;
+				border-radius: 4px;
+				border: 1px solid #ccd2d5;
+				margin: 0 10px 10px 0;
+				color: #404040;
+				font-size: 16px;
+				text-align: center;
+				cursor: default;
+				-webkit-tap-highlight-color: transparent;
+				transition: all .2s ease-out;
+			}
+
+			.delivery_date2 p {
+				font-size: 12px;
+				color: #999;
+				border-top: 1px solid #e5e5e5;
+				margin-top: 7px;
+				padding-top: 7px;
+			}
+
+			.delivery_date2 span.select {
+				border-color: #f73f65;
+				color: #f73f65;
+			}
+			/* 新加的样式 */
+
+			.bt10 {
+				border-top: 10px solid #eee;
+			}
+
+			.bb10 {
+				border-bottom: 10px solid #eee;
+			}
+
+			.pinfo-wrap {
+				margin-left: 0;
+				width: 100%;
+				padding: 0;
+			}
+
+			.flex {
+				display: -webkit-flex;
+				display: flex;
+				-webkit-flex-direction: row;
+				flex-direction: row;
+				justify-content: space-between;
+			}
+		</style>
+		<div id="buyWrap" style="display: none;">
+			<!-- 头部的地址部位开始-->
+			<div class="delivery_wrap">
+				<!-- 没填写内容模块开始 -->
+				<div class="delivery_no_address">请填写收货地址</div>
+				<!-- 没填写内容模块结束 -->
+				<!-- 已写内容模块开始 -->
+				<div class="delivery_content" style="display:none">
+					<div style="float:left;width:40px;font-weight:bold;color:#fff;">送至</div>
+					<div style="margin-left:40px;overflow:hidden;color:#fcfcfc" id="addressinfo"></div>
+					<!-- <div class="delivery_name" style='font-size:14px;'>
+					收货人：
+					<span></span>
+				</div>
+				<div class="delivery_address clearfix">
+					<p class="f" style="width:90%">
+						收货地址：
+						<span></span>
+					</p>
+				</div>
+				<div class="delivery_mob">
+					<span style="color:#fff"></span>
+				</div>
+				-->
+				</div>
+				<!-- 已写内容模块结束-->
+			</div>
+			<!-- 代收点部分开始 -->
+			<div class="delivery_tip" style="display:none">
+				<span>收货不方便时，可选择免费代收服务</span>
+			</div>
+			<!-- 代收点部分结束 -->
+			<!-- 头部的地址部位结束-->
+
+
+
+
+			<!-- 优惠码 / 兑换码 -->
+			<p class="bb10"></p>
+
+			<div style="margin:20px 0 0 0;text-align:center;font-size:16px">
+				付款金额:
+				<span class="confirm-price" id="payment" style="font-size:18px">￥672</span>
+			</div>
+			<div style="text-align:center;display:none" id="event_xin">
+				已优惠
+				<strong></strong> 元，并免费获得一个花瓶。
+			</div>
+			<a id="payandsubmit" href="javascript:;">确认下单</a>
+			<div style="text-align: center;padding:20px">
+				<img src="./收货地址_files/ucenterlogo.png" style="height:24px;width:89px"></div>
+		</div>
+
+
+		<!--BEGIN 选择地址-->
+		<div class="Shipping_ads" style="">
+			<div class="deliver-address-title" style="padding:18px 0;font-weight: normal;font-size: 18px;height:auto;line-height:18px">
+				收货地址
+				<a class="deliver-close" href="javascript:;"></a>
+			</div>
+
+			<div id="deliver-address-con1" style="display:block">
+				<dl class="deliver-item">
+					<dt>收货人</dt>
+					<dd>
+						<input type="text" id="receiver_name" placeholder="姓名"></dd>
+				</dl>
+				<dl class="deliver-item">
+					<dt>手机</dt>
+					<dd>
+						<input type="tel" id="receiver_mobile" placeholder="收货人手机"></dd>
+				</dl>
+				<dl class="deliver-item">
+					<dt>所在地区</dt>
+					<dd class="address_area">
+						<select class="form-control" id="receiver_state" name="receiver_state">
+<option index="0" value="选择省份">选择省份</option>
+<option index="1" value="上海">上海</option>
+<option index="2" value="北京">北京</option>
+<option index="3" value="江苏">江苏</option>
+<option index="4" value="浙江">浙江</option>
+<option index="5" value="广东">广东</option>
+<option index="6" value="四川">四川</option>
+<option index="7" value="天津">天津</option>
+<option index="8" value="重庆">重庆</option>
+<option index="9" value="河南">河南</option>
+<option index="10" value="湖北">湖北</option>
+<option index="11" value="湖南">湖南</option>
+<option index="12" value="河北">河北</option>
+<option index="13" value="安徽">安徽</option>
+<option index="14" value="福建">福建</option>
+<option index="15" value="江西">江西</option>
+<option index="16" value="山东">山东</option>
+</select>
+						<select class="form-control" id="receiver_city" name="receiver_city">
+<option index="0" value="选择城市">选择城市</option>
+</select>
+						<select class="form-control" id="receiver_district" name="receiver_district">
+<option index="0" value="选择区县">选择区县</option>
+</select>
+					</dd>
+				</dl>
+				<dl class="deliver-item">
+					<dt>详细地址</dt>
+					<dd>
+						<input type="text" id="receiver_address" placeholder="街道门牌信息"></dd>
+				</dl>
+				<!-- <p style="color:#999;padding:5px 15px">目前开通的区域为江浙沪、北京、广东和四川。</p>
+-->
+				<div class="deliver-save-wrap">
+					<button class="deliver-save">保存</button>
+				</div>
+				<dl class="address_log">
+					<dt>历史</dt>
+				</dl>
+			</div>
+		</div>
+
+		<script type="text/html" id="address_tpl">
+			<dd address-id="{id}">
+				<div>{receiver_state}{receiver_city}{receiver_district}{receiver_address}</div>
+				<div>{receiver_name} {receiver_mobile}</div>
+			</dd>
+		</script>
+		<script type="text/javascript" src="js/address.b.js"></script>
+		<!-- 运费 -->
+		<script type="text/javascript" src="js/postfee.js"></script>
+		<script>
+			var adds = [];
+			var selectedAddress = {};
+			$.address_b.list[0] = {
+				n: '选择省份',
+				c: [{
+					n: '选择城市',
+					a: ['选择区县']
+				}]
+			};
+			$.address_b("receiver_state", "receiver_city", "receiver_district");
+			$(".delivery_wrap").bind("click", function(e) {
+				e.stopPropagation();
+				$("#buyWrap").hide();
+				$(".Shipping_ads").show();
+				return false;
+			});
+			$(".deliver-close").bind("click", function(e) {
+				e.stopPropagation();
+				$("#buyWrap").show();
+				$('body,html').scrollTop(0);
+				$(".Shipping_ads").hide();
+			});
+			$(".deliver-save").bind("click", function(e) {
+				var receiver_name = $("#receiver_name").val().replace('/^\s|\s$/g', '');
+				var receiver_mobile = $("#receiver_mobile").val().replace('/^\s|\s$/g', '');
+				var receiver_state = $("#receiver_state").val();
+				var receiver_city = $("#receiver_city").val();
+				var receiver_district = $("#receiver_district").val();
+				var receiver_address = $("#receiver_address").val().replace('/^\s|\s$/g', '');
+				// if(!confirm('确认地址和手机准确吗？\n'+receiver_state+receiver_city+receiver_district+receiver_address+'\n'+receiver_name+receiver_mobile)){
+				// 	return;
+				// }
+				e.stopPropagation();
+				var address = {
+					receiver_name: receiver_name,
+					receiver_mobile: receiver_mobile,
+					receiver_state: receiver_state,
+					receiver_city: receiver_city,
+					receiver_district: receiver_district,
+					receiver_address: receiver_address
+				};
+				if (address.receiver_name == "") {
+					FP.showError("请填写收货人姓名！");
+					return;
+				}
+				if (address.receiver_mobile == "") {
+					FP.showError("请填写收货人手机！");
+					return;
+				}
+				if (!/^1\d{10}$/.test(address.receiver_mobile)) {
+					FP.showError("收货人手机号码格式错误！");
+					return;
+				}
+				if (address.receiver_state == "" || address.receiver_state == "选择省份") {
+					FP.showError("选择省份");
+					return;
+				}
+				if (address.receiver_city == "" || address.receiver_city == "选择城市") {
+					FP.showError("选择城市");
+					return;
+				}
+				if (address.receiver_district == "" || address.receiver_district == "选择区县") {
+					FP.showError("选择区县");
+					return;
+				}
+
+				if (address.receiver_address == "") {
+					FP.showError("详细地址！");
+					return;
+				}
+				var btn = $(this).prop("disabled", true);
+				$.post('/buy/addaddress', address, function(v) {
+					if (v.f) {
+						//getAddress();
+						$("#receiver_name").val("");
+						$("#receiver_mobile").val("");
+						$("#receiver_address").val("");
+						$.address_b("receiver_state", "receiver_city", "receiver_district");
+						adds = v.list;
+						updateAddressList();
+						selectAddress(v.id);
+
+					} else {
+						FP.showError(v.data);
+					}
+					btn.prop("disabled", false);
+				}, "json");
+			});
+
+			function selectAddress(id) {
+				//用首页的data记录选择的配送类型
+				data.express_type = "express";
+				data.address_id = id;
+				data.daishou_station_id = 0;
+				data.daishou_taker_name = "";
+				data.daishou_taker_mobile = "";
+
+				$(".delivery_no_address").hide();
+				$(".delivery_content").show();
+				$(".address_log dd").removeClass("add-sel");
+				$(".address_log dd[address-id='" + id + "']").addClass("add-sel");
+
+				var address = {};
+				for (var i in adds) {
+					if (adds[i].id == id) {
+						address = adds[i];
+					}
+				}
+				$(".delivery_name span").html(address.receiver_name);
+				$(".delivery_mob span").html(address.receiver_mobile);
+				$(".delivery_address span").html(address.receiver_state + " " + address.receiver_city + " " + address.receiver_district + " " + address.receiver_address);
+				$("#addressinfo").html(address.receiver_state + "" + address.receiver_city + "" + address.receiver_district + "" + address.receiver_address + "<br>" + address.receiver_name + " " + address.receiver_mobile);
+				selectedAddress = address;
+				$.get('/buy/updateaddressusedtime/', {
+					id: id
+				}, null);
+				whenAddressChange();
+				// 同时先刷新内容
+				get_lis();
+				$('.arrival-time').hide();
+				$('#select-but').find('span').removeClass('current select');
+				//关闭视图，推荐代收点。
+				closeViewWhenSeleted(address.receiver_city, address.receiver_address);
+			}
+
+			function getAddress() {
+				$.get("/buy/getaddress", null, function(v) {
+					adds = v;
+					updateAddressList();
+					if (adds.length > 0) {
+						selectAddress(adds[0].id);
+					}
+				}, "json");
+			}
+
+			function updateAddressList() {
+				var tpl = $("#address_tpl").html();
+				$(".address_log dd").remove();
+				for (var i in adds) {
+					var item = tpl;
+					item = item.replace("{id}", adds[i].id);
+					item = item.replace("{receiver_name}", adds[i].receiver_name);
+					item = item.replace("{receiver_mobile}", adds[i].receiver_mobile);
+					item = item.replace("{receiver_state}", adds[i].receiver_state);
+					item = item.replace("{receiver_city}", adds[i].receiver_city);
+					item = item.replace("{receiver_district}", adds[i].receiver_district);
+					item = item.replace("{receiver_address}", adds[i].receiver_address);
+					$(".address_log").append(item);
+				}
+			}
+
+			$(".address_log").delegate("dd", "click", function() {
+				selectAddress($(this).attr("address-id"));
+			});
+
+			function closeViewWhenSeleted(city, address) {
+				//推荐代收点
+				$("#buyWrap").show();
+				$('body,html').scrollTop(0);
+				$(".Shipping_ads").hide();
+
+				var bool = city.indexOf("上海");
+				if (bool >= 0) {
+					$(".delivery_tip").css('display', 'block');
+				} else {
+					$(".delivery_tip").css('display', 'none');
+				}
+			}
+
+			getAddress();
+		</script>
+		<!--END 选择地址-->
+
+
+
+
+
+
+
+		<script type="text/javascript" src="js/api"></script>
+		<script type="text/javascript" src="js/getscript"></script>
+
+
+</body>
+
+</html>

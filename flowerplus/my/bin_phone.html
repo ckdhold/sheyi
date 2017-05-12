@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)http://t.flowerplus.cn/my/mobilephone -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta name="keywords" content="花+,花加,flowerplus,鲜花,鲜花订阅">
+	<meta name="description" content="一周一花，用鲜花点亮生活,提供98元单品鲜花包月服务、168元混合鲜花包月服务和花艺周边配件、花艺课程服务。">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+	<title>绑定手机</title>
+	<link rel="stylesheet" href="css/m_web.css">
+  <script charset="utf-8" src="js/v.js"></script>
+  <script async="" src="js/analytics.js"></script>
+  <script src="js/hm.js"></script>
+  <script async="" src="js/sensorsdata.min.js"></script>
+  <script src="js/jquery.js"></script>
+  <script src="js/jweixin-1.2.0.js"></script>
+  <script src="js/m.js"></script>
+  <script src="js/tongji.js"></script>
+</head>
+<body ontouchstart="">
+	<div class="page">
+		<style>
+.inp{
+	padding:10px;
+	color:#000;
+}
+
+.mb15{
+	margin-bottom:15px;
+}
+</style>
+		<div class="padding_15">
+			<div>
+				<input class="inp mb15" type="tel" name="mobile" id="mobile" autocomplete="off" placeholder="手机号码">
+				<button class="btn mb15" id="btnSendCode" disabled="">发送验证码</button>
+			</div>
+			<div style="display: none" id="checkcodeWrap">
+				<input class="inp mb15" type="tel" name="checkcode" id="checkcode" autocomplete="off" placeholder="短信验证码">
+				<button class="btn mb15" id="btnCheckCode" disabled="">确认绑定</button>
+			</div>
+		</div>
+		<script>
+$("#mobile").bind("input",function(){
+	if(/^1\d{10}$/.test($(this).val())){
+		$("#btnSendCode").prop("disabled",false);
+	}else{
+		$("#btnSendCode").prop("disabled",true);
+	}
+});
+
+$("#checkcode").bind("input",function(){
+	if(/^\d{4}$/.test($(this).val())){
+		$("#btnCheckCode").prop("disabled",false);
+	}else{
+		$("#btnCheckCode").prop("disabled",true);
+	}
+});
+
+$("#btnSendCode").bind("click",function(){
+	var mobile=$("#mobile").val();
+	if(!/^1\d{10}$/.test(mobile)){
+		FP.showError("手机号码错误");
+		return;
+	}
+	var btn=$(this).prop("disabled",true);
+	$("#mobile").prop("disabled",true);
+	$.post("/my/sendcheckcode/",{mobile:mobile},function(v){
+		if(v.f){
+			$("#checkcodeWrap").show();
+			startTimer(60);
+		}else{
+			FP.showError(v.data);
+			btn.prop("disabled",false);
+			$("#mobile").prop("disabled",false);
+		}
+	},"json");
+});
+
+function startTimer(times){
+	if(times>0){
+		$("#btnSendCode").html(times+"秒");
+		window.setTimeout("startTimer("+(times-1)+")",1000);
+	}else{
+		$("#btnSendCode").html("发送验证码");
+		$("#btnSendCode").prop("disabled",false);
+		$("#mobile").prop("disabled",false);
+
+	}
+}
+
+$("#btnCheckCode").bind("click",function(v){
+	var checkcode=$("#checkcode").val();
+	if(!/^\d{4}$/.test(checkcode)){
+		FP.showError("验证码错误");
+		return;
+	}
+	var btn=$(this).prop("disabled",true);
+	$.post("/my/bindmobilephone/",{checkcode:checkcode},function(v){
+		if(v.f){
+			//window.location.replace("/my/myinfo");
+			history.go(-1);
+		}else{
+			FP.showError(v.data);
+			btn.prop("disabled",false);
+		}
+	},"json");
+});
+</script>
+
+	</div>
+
+</body>
+</html>

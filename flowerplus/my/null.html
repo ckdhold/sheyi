@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://t.flowerplus.cn/my/addresshistory -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta name="keywords" content="花+,花加,flowerplus,鲜花,鲜花订阅">
+	<meta name="description" content="一周一花，用鲜花点亮生活,提供98元单品鲜花包月服务、168元混合鲜花包月服务和花艺周边配件、花艺课程服务。">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+	<title>历史地址</title>
+	<link rel="stylesheet" href="css/m_web.css">
+  <script charset="utf-8" src="js/v.js"></script>
+  <script async="" src="js/analytics.js"></script>
+  <script src="js/hm.js"></script>
+  <script async="" src="js/sensorsdata.min.js"></script>
+  <script src="js/jquery.js"></script>
+  <script src="js/jweixin-1.2.0.js"></script>
+  <script src="js/m.js"></script>
+  <script src="js/tongji.js"></script>
+</head>
+<body ontouchstart="">
+	<div class="page">
+		<style type="text/css">
+	.addressitem{
+		padding:15px 30px 15px 15px;
+		border-bottom: 1px solid #e5e5e5;
+		line-height: 2em;
+		position: relative;
+	}
+	.receiver_1{
+
+	}
+	.receiver_2{
+
+	}
+	.delete-all{
+		display: block;
+		box-sizing: border-box;
+		width: 100%;
+		background: #a00;
+		color: #fff;
+		border:0 none;
+		border-radius: 5px;
+		padding:10px 0;
+
+	}
+	.address-remove{
+		position: absolute;
+		right:15px;
+		top:30px;
+		display: inline-block;
+		width:18px;
+		height:18px;
+		text-indent: -999px;
+		overflow: hidden;
+		background: url(imgs/iconfont-close-tiny.png) no-repeat center;
+		background-size: cover;
+
+	}
+</style>
+		<div id="noorders" style="position: fixed; top: 0px; left: 0px; right: 0px; bottom: 0px; text-align: center; padding-top: 100px; background: rgb(240, 240, 240);">
+			<img src="imgs/iconfont-empty.png" width="64px">
+			<p style="margin-top:30px">没有记录</p>
+		</div>
+
+		<div id="addresslist"></div>
+		<div class="padding_15" id="delete_all_wrap" style="display: none">
+			<button class="delete-all">清空所有历史记录</button>
+		</div>
+		<div id="loading" style="position: relative; line-height: 6rem; text-align: center; color: rgb(170, 170, 170); border-top: 1px dashed rgb(229, 229, 229); display: none;">加载中...</div>
+		<script id="itemTmp" type="text/html">
+<div class="addressitem">
+<div><strong>{receiver_name}</strong> {receiver_mobile}</div>
+<div>{receiver_state} {receiver_city} {receiver_district} {receiver_address}</div>
+<a class="address-remove" href="javascript:;" data-id="{data-id}">删除</a>
+</div>
+</script>
+		<script>
+function getList(){
+	$("#addresslist").empty();
+	$("#loading").show();
+	$("#delete_all_wrap").hide();
+	$.get('/my/getaddresslist',null,function(v){
+		$("#loading").hide();
+		var itemTmp=$("#itemTmp").html();
+		var ctl=$("#addresslist");
+		if(v.length==0){
+			$("#noorders").show();
+		}else{
+			$("#delete_all_wrap").show();
+		}
+		for(var i in v){
+			var html=itemTmp;
+			var data=v[i];
+			html=html.replace('{receiver_name}',data['receiver_name']);
+			html=html.replace('{receiver_mobile}',data['receiver_mobile']);
+			html=html.replace('{receiver_state}',data['receiver_state']);
+			html=html.replace('{receiver_city}',data['receiver_city']);
+			html=html.replace('{receiver_district}',data['receiver_district']);
+			html=html.replace('{receiver_address}',data['receiver_address']);
+			html=html.replace('{data-id}',data['id']);
+			ctl.append(html);
+		}
+	},"json");
+}
+
+getList();
+
+$("#addresslist").delegate(".address-remove","click",function(){
+	$.post("/my/addressremove",{id:$(this).attr("data-id")},function(){
+		getList();
+	})
+});
+
+$(".delete-all").bind("click",function(){
+	$.get("/my/clearaddress",null,function(){
+		getList();
+	})
+})
+
+</script>
+
+	</div>
+
+</body>
+</html>

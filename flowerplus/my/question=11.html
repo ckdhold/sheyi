@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://t.flowerplus.cn/wx_cs/question?id=20 -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<title>配送日期顺延</title>
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta http-equiv="cleartype" content="on">
+	<link rel="stylesheet" href="css/weui.css">
+
+	<link rel="stylesheet" href="css/jquery-weui.css">
+	<!-- <link rel="stylesheet" href="/Static/weui/css/question.css">
+	-->
+	<link rel="stylesheet" href="css/question_2.css">
+	<script src="js/hm.js"></script>
+	<script src="js/jquery-2.1.4.js"></script>
+	<script src="js/jquery-weui.js"></script>
+	
+	<style type="text/css">
+	/** {
+		-webkit-tap-highlight-color:transparent
+	}*/
+    .weui_panel_hd{
+      font-size: 16px;
+      font-weight: bolder;
+      line-height: 24px;
+      color: black;
+    }
+    #reason p{
+      display: block;
+      -webkit-margin-before: 1em;
+      -webkit-margin-after: 1em;
+      -webkit-margin-start: 0px;
+      -webkit-margin-end: 0px;
+    }
+    .weui_btn.weui_btn_mini {
+      padding: 0px;
+    }
+    .weui_media_desc img{
+    	/*margin: 0 auto;*/
+    	align-self: center;;
+    	/*margin-top: 20px;*/
+    }
+    
+</style>
+</head>
+
+<body>
+	<div class="weui_panel weui_panel_access">
+		<div class="weui_panel_hd">配送日期顺延</div>
+		<div class="weui_panel_bd">
+			<div class="weui_media_box weui_media_text">
+				<p class="weui_media_desc" style="color: rgb(0, 128, 0);font-size: 15px;">温馨答案</p>
+				<p style="white-space: normal;">
+					<br></p>
+				<p style="white-space: normal;"> <strong style="white-space: normal;">自助操作方法：</strong>
+				</p>
+				<p style="white-space: normal;">进入会员中心》服务中找到您的订单，在订单详情页下方点击“修改/顺延”，然后操作配送日期顺延（无限制）</p>
+				<p style="white-space: normal;">
+					<br></p>
+				<p style="white-space: normal;">注意事项：需至少提前收货日2日18:00前操作，超过截止时间无法修改，望谅解。</p>
+				<p style="white-space: normal;">
+					<a href="http://t.flowerplus.cn/my/?winzoom=1.125" target="_self" title="会员中心快捷入口" textvalue="会员中心快捷入口">会员中心快捷入口</a>
+					<br></p>
+				<p style="white-space: normal;">
+					<br></p>
+				<p style="white-space: normal;">
+					<br></p>
+				<p style="white-space: normal;">
+					<br></p>
+			</div>
+			<div class="praise">
+				<div class="result wx" id="feedback_b">
+					<a href="javascript:void(0)" onclick="feedback(1)" class=""> <i class="icon-like"></i>
+						已解决
+					</a>
+					<a href="javascript:void(0)" onclick="feedback(0)"> <i class="icon-repost"></i>
+						未解决
+					</a>
+				</div>
+				<div class="result wx" id="feedback_b_z" style="display:none">
+					<a href="javascript:void(0)" class="current acive">
+						<i class="icon-like"></i>
+						已解决
+					</a>
+					<a href="javascript:void(0)">
+						<i class="icon-repost"></i>
+						未解决
+					</a>
+				</div>
+				<div class="result wx" id="feedback_b_z_c" style="display:none">
+					<a href="javascript:void(0)">
+						<i class="icon-like"></i>
+						已解决
+					</a>
+					<a href="javascript:void(0)" class="current acive">
+						<i class="icon-repost"></i>
+						未解决
+					</a>
+				</div>
+				<div class="reason" id="reason" style="display:none">
+					<p>
+						<span>未解决原因（最多可选二项）</span>
+					</p>
+					<div class="xx wx">
+						<a href="javascript:void(0)" onclick="setreason(this,&#39;描述不清晰&#39;)">描述不清晰</a>
+						<a href="javascript:void(0)" onclick="setreason(this,&#39;操作后未解决&#39;)">操作后未解决</a>
+						<a href="javascript:void(0)" onclick="setreason(this,&#39;规则不合理&#39;)">规则不合理</a>
+						<a href="javascript:void(0)" onclick="setreason(this,&#39;功能不好用&#39;)">功能不好用</a>
+					</div>
+				</div>
+				<!-- <div class="other wx" id="otherreason" state="售中" onclick="showother()" style="display:none">
+				<a href="javascript:void(0)">其它原因 »</a>
+			</div>
+			-->
+		</div>
+	</div>
+
+</div>
+<!--  -->
+<!-- <div style="margin: 5px;color: #6d6d6d;">咨询</div>
+-->
+<div class="weui_cells weui_cells_access" style="margin-bottom: 1px;">
+<a href="http://t.flowerplus.cn/front_ticket/ticket_list" class="weui_cell">
+	<div class="weui_cell_bd weui_cell_primary">
+		<p style="color:red;">联系客服</p>
+	</div>
+	<div class="weui_cell_ft"></div>
+</a>
+</div>
+<div style="width:100%;height:20px;"></div>
+<!-- <div class="weui_cells weui_cells_access" style="margin-bottom: 1px;">
+<a class="weui_cell" href="javascript:;" onclick="close_all()">
+<div class="weui_cell_bd weui_cell_primary">
+	<p>联系在线客服</p>
+</div>
+<div class="weui_cell_ft"></div>
+</a>
+</div>
+-->
+<script type="text/javascript">
+  $(function() {
+  	WeixinJSBridge.call('hideOptionMenu');
+	WeixinJSBridge.call("hideToolbar");
+  })
+  var reason_num = 0;
+  url = './send_data';
+  var is_solve = '';
+  var name = "配送日期顺延";
+  var ask_num = "20";
+  var question_id = "20";
+	function feedback(c)
+	{
+		// alert(c);return false;
+		document.getElementById("feedback_b").style.display = 'none';
+		if(c == 1)
+		{
+			document.getElementById("feedback_b_z").style.display = 'block';
+		}
+		else
+		{
+			document.getElementById("feedback_b_z_c").style.display = 'block';
+			document.getElementById("reason").style.display = 'block';
+			document.getElementById("otherreason").style.display = 'block';
+			document.getElementById('otherreason').scrollIntoView();
+		}
+		$('.result').addClass('unclick');
+		data = {'question_id':question_id,'is_solve':1,'name':name,'our_reason':'已解决','ask_num':ask_num};
+		if (c == 1) {
+			$.post(url,data,function(d) {
+		        if (d == 'not_ok') {
+		        	$.alert('系统问题,请重试');
+		        }
+		    })
+		}
+	}
+	var setreasonnum = 0;
+	var setreasontxt = '';
+	function setreason(obj,reasontxt)
+	{
+		if(setreasontxt != '' && setreasontxt.indexOf(reasontxt) >= 0)
+		{
+			return '';
+		}
+		if(setreasonnum >= 2)
+		{
+			return '';
+		}
+		$(obj).addClass('current');
+		setreasonnum++;
+		if(setreasonnum == 2)
+		{
+			$('.xx').addClass('unclick');
+		}
+		if(setreasonnum > 3)
+		{
+			$('.xx').addClass('unclick');
+			$.alert('最多只能选择两个!');
+		}
+	    data = {'question_id':question_id,'is_solve':2,'name':name,'our_reason':reasontxt,'ask_num':ask_num};
+	    $.post(url,data,function(d) {
+	        if (d == 'not_ok') {
+	        	$.alert('系统问题,请重试');
+	        }
+	    })
+	}
+	function showother() {
+		var state = $('#otherreason').attr('state');
+		if(state == '售后'){
+		   window.location.href="/front_ticket/add_ticket";
+		}
+		else if (state == '售中') {
+			window.location.href="/front_ticket/pay_front?ticket_type=20";
+		}
+		else if (state == '售前') {
+			window.location.href="/front_ticket/pay_front?ticket_type=10";
+		}
+		else{
+		   window.location.href = "./other_question?name=配送日期顺延&ask_num=20&question_id=20";
+		}
+	}
+	function close_all() {
+		// alert(111);
+		$.post('./sold_all',{},function (d) {
+				WeixinJSBridge.invoke('closeWindow',{},function(res){});
+		})
+	}
+	function go_ticket() {
+		window.location.href="http://t.flowerplus.cn/front_ticket/add_ticket";
+	}
+	// 售后
+	function go_ticket_after() {
+		window.location.href="/front_ticket/add_ticket";
+	}
+	// 售前
+	function go_ticket_before() {
+		window.location.href="/front_ticket/pay_front?ticket_type=10";
+	}
+	// 售中
+	function go_ticket_middle() {
+		window.location.href="/front_ticket/pay_front?ticket_type=20";
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<!-- saved from url=(0025)http://t.flowerplus.cn/my -->
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="keywords" content="花+,花加,flowerplus,鲜花,鲜花订阅">
+    <meta name="description" content="一周一花，用鲜花点亮生活,提供98元单品鲜花包月服务、168元混合鲜花包月服务和花艺周边配件、花艺课程服务。">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>会员中心</title>
+    <link rel="stylesheet" href="css/m_web.css">
+    <script charset="utf-8" src="js/v.js"></script>
+    <script async="" src="js/analytics.js"></script>
+    <script src="js/hm.js"></script>
+    <script async="" src="js/sensorsdata.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/jweixin-1.2.0.js"></script>
+    <script src="js/m.js"></script>
+    <script src="js/tongji.js"></script>
+</head>
+
+<body ontouchstart="">
+    <div class="page">
+        <style>
+        .top-pic {
+            overflow: hidden;
+            display: block;
+            color: #333;
+        }
+        
+        .top-avatar {
+            background: url('imgs/pass1.jpg') no-repeat center;
+            top: 50%;
+            left: 15px;
+            transform: translate(0, -50%);
+            -webkit-transform: translate(0, -50%);
+            margin: 0;
+            line-height: 100px;
+            background-size: 100px;
+            -webkit-background-size: 100px;
+        }
+        
+        .top-pic {
+            background-image: none;
+            background-color: #fff;
+            height: 130px;
+            border-bottom: 10px solid #f0f0f0;
+            position: relative;
+        }
+        
+        u.jt {
+            display: inline-block;
+            font-size: 20px;
+            height: 1em;
+            width: 1em;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            margin-top: -10px;
+            transform: rotate(45deg) scale(.5);
+            transform-origin: left left;
+            -webkit-transform-origin: left left;
+            border-style: solid;
+            border-width: 2px;
+            border-color: #999 #999 transparent transparent;
+        }
+        
+        u.jt {
+            content: " ";
+            display: inline-block;
+            height: 6px;
+            width: 6px;
+            border-width: 1px 1px 0 0;
+            border-color: #C8C8CD;
+            border-style: solid;
+            -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+            transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+            position: absolute;
+            top: 50%;
+            margin-top: -4px;
+            right: 15px;
+        }
+        
+        u.jtbig {
+            border-width: 2px 2px 0 0;
+            height: 10px;
+            width: 10px;
+            margin-top: -7px;
+        }
+        
+        .myinfo_l {
+            position: absolute;
+            top: 50%;
+            left: 120px;
+            transform: translate(0, -50%);
+            -webkit-transform: translate(0, -50%);
+        }
+        
+        .myinfo_l .uname {
+            text-align: left;
+            padding-left: 5px;
+            font-size: 18px
+        }
+        
+        .orders-status,
+        .top-uinfo {
+            padding-top: 0;
+        }
+        
+        .top-uinfo .orders-status p.menulist {
+            border-bottom: 0px solid #e5e5e5;
+        }
+        
+        .top-uinfo .orders-status p.menulist a {
+            display: block;
+            padding: 15px 15px 15px 48px;
+            color: #444450;
+            text-align: left;
+            position: relative;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            margin-bottom: 15px;
+        }
+        
+        .bt10 {
+            border-top: 10px solid #f0f0f0!important;
+        }
+        
+        .f-set span:after {
+            content: "";
+            width: 6px;
+            height: 6px;
+            left: -8px;
+            top: 50%;
+            position: absolute;
+            margin-top: -3px;
+            border-radius: 50%;
+            background: #ff0000;
+        }
+        
+        .nbb {
+            border-bottom: 0px solid #e5e5e5!important;
+        }
+        
+        .menulist a span.jfc {
+            right: 40px;
+            top: 17px;
+        }
+        
+        .p_span {
+            right: 35px!important;
+            font-size: 14px;
+        }
+        
+        body {
+            background: #f0f0f0;
+            font-size: 15px;
+        }
+        
+        .menulist,
+        .top-uinfo {
+            background: #fff;
+        }
+        
+        .myfoot {
+            text-align: center;
+            padding: 20px
+        }
+        
+        .myfoot a {
+            color: #666;
+        }
+        
+        .bindmobile {
+            display: inline-block;
+            padding: 0 10px;
+            border-radius: 20px;
+            background: #e00;
+            color: #fff;
+            line-height: 1.6em;
+            background-color: #fb839e;
+            background-size: 16px;
+            font-size: 14px;
+        }
+        
+        .iconfont-gd {
+            background: url("imgs/iconfont-kf.png") center no-repeat;
+            background-size: 18px;
+        }
+        
+        .icon-wl {
+            background: url("imgs/iconfont-wl.png") center no-repeat;
+            background-size: 18px;
+        }
+        
+        .icon-set {
+            background: url("imgs/iconfont-dx.png") center no-repeat;
+            background-size: 18px;
+        }
+        
+        .icon-jifen {
+            background: url("imgs/iconfont-jf.png") center no-repeat;
+            background-size: 18px;
+        }
+        
+        .icon-feedback {
+            background: url("imgs/iconfont-tc.png") center no-repeat;
+            background-size: 18px;
+        }
+        
+        .icon-quan {
+            background: url("imgs/iconfont-q.png") center no-repeat;
+            background-size: 18px;
+        }
+        
+        .icon-mygift {
+            background: url("imgs/iconfont-g.png") center no-repeat;
+            background-size: 18px;
+        }
+        
+        .icon-orders {
+            background: url("imgs/icon-allorders.png") center no-repeat;
+            background-size: 17px;
+        }
+        
+        .icon-qrcode {
+            background: url("imgs/qrcode.png") center no-repeat;
+            background-size: 17px;
+        }
+        
+        .icon-dh {
+            background: url("imgs/dh.png") center no-repeat;
+            background-size: 20px;
+        }
+        
+        .myinfo_l .telphone {
+            background: url("imgs/iconfont-phone.png") 5px center no-repeat;
+            padding-left: 20px;
+            height: 30px;
+            line-height: 30px;
+            color: #666;
+            background-size: 9px;
+        }
+        
+        .icon-tg {
+            background: url("imgs/iconfont-tg.png") center no-repeat;
+            background-size: 20px;
+        }
+        
+        .icon-gift {
+            background: url("imgs/icongift.png") center no-repeat;
+            background-size: 20px;
+        }
+        
+        .orders-status a {
+            border-right: 0px solid #f0f0f0;
+        }
+        
+        .orders-status strong {
+            border-bottom: 0px solid #ccc;
+        }
+        
+        .orders-status strong {
+            font-weight: normal;
+            color: #444450;
+        }
+        
+        .orders-status-b {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        
+        .orders-status-b a {
+            display: block;
+            width: 28%;
+            text-align: center;
+            padding: 0;
+            border-right: 0px solid #f0f0f0;
+        }
+        
+        .menulist a {
+            border-bottom: 0px solid #e5e5e5;
+            -webkit-transition: background-color .3s ease-out;
+            transition: background-color .3s ease-out;
+        }
+        
+        .double11 {
+            width: 40px;
+            height: auto;
+            margin-right: 5px;
+            position: absolute;
+            right: 80px;
+            top: 50%;
+            transform: translate(0, -50%);
+            -webkit-transform: translate(0, -50%);
+            display: block;
+        }
+        
+        .my-judge {
+            display: block;
+            padding: 8px;
+            color: #fff;
+            background: #ffbd5f;
+            position: relative;
+            border-bottom: 10px solid #f0f0f0;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+        
+        .my-judge>u.jt {
+            border-color: #fff;
+        }
+        
+        .foot {
+            background-color: #f5f5f5;
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .foot>.link>a {
+            text-decoration: none;
+            color: #515151;
+            display: inline-block;
+            min-width: 60px;
+            padding: 0 10px;
+            border-right: 1px solid #999;
+        }
+        
+        .foot>.link>a:last-child {
+            border-right: 0;
+        }
+        
+        .foot>.copy {
+            text-align: center;
+            padding: 0 30px;
+            font-size: 12px;
+            color: #515151;
+            margin-top: 10px;
+        }
+        
+        .daipingjia {
+            color: red;
+        }
+        
+        .top-pic .account {
+            position: absolute;
+            right: 25px;
+            height: 12px;
+            font-size: 12px;
+            top: 50%;
+            right: 25px;
+            margin-top: -10px;
+            color: #333;
+        }
+        </style>
+        <a href="account.html" class="top-pic">
+            <span class="account">我的账户</span> <u class="jt"></u>
+            <div class="top-avatar"></div>
+            <div class="myinfo_l">
+                <div class="uname" style="">用户1</div>
+                <div class="bindmobile">绑定手机即送1积分</div>
+            </div>
+        </a>
+        <!--  -->
+        <div class="top-uinfo">
+            <div class="orders-status">
+                <p class="menulist">
+                    <a href="http://t.flowerplus.cn/my/orders" class="borderBottom"> <i class="icon-orders"></i> <u class="jt"></u> 全部订单
+                    </a>
+                </p>
+                <div class="orders-status-b">
+                    <a class="daifukuan" href="wait_pay.html">
+            0 <strong>待付款</strong>
+          </a>
+                    <a class="fuwuzhong" href="http://t.flowerplus.cn/my/orders/?status=2">
+            0 <strong>服务中</strong>
+          </a>
+                    <a class="yiwancheng" style="border:0 none" href="http://t.flowerplus.cn/my/orders/?status=3">
+            0
+            <strong>已完成</strong>
+          </a>
+                    <a class="daipingjia" href="http://t.flowerplus.cn/my/ships_judge">
+            0
+            <strong>待评价</strong>
+          </a>
+                </div>
+            </div>
+        </div>
+        <div class="menulist nbb">
+            <a href="contact_before.html" class="borderBottom"> <i class="iconfont-gd"></i>
+                <u class="jt"></u> 联系客服
+            </a>
+            <a href="logistics.html" class="nbb">
+                <i class="icon-wl"></i>
+                <u class="jt"></u> 查询物流
+            </a>
+            <a href="null.html" class="bt10 borderBottom">
+                <i class="icon-jifen"></i>
+                <u class="jt"></u> 我的积分
+                <!-- <span class="jfc">0</span>
+      -->
+            </a>
+            <a href="null.html" class="borderBottom">
+                <i class="icon-quan"></i>
+                <u class="jt"></u> 我的优惠券
+            </a>
+            <a href="QRcode.html" class="borderBottom">
+                <i class="icon-qrcode"></i>
+                <u class="jt"></u> 我的二维码
+            </a>
+            <a href="redpacket.html" class="borderBottom">
+                <i class="icon-mygift"></i>
+                <u class="jt"></u> 我的红包
+                <!-- <span class="p_span">他人赠送的订单在这里查询</span>
+    -->
+            </a>
+            <!-- <a href="/my/addresshistory">
+  <i class="icon-addresshistory"></i>
+  历史地址
+</a>
+-->
+            <!-- <a href="http://static2.flowerplus.cn/f1003">
+<i class="icon-hua"></i>
+情人节兑换
+<span>23号起停止兑换</span>
+</a>
+-->
+            <!-- <a href="/my/daishouvip">
+<i class="icon-daishouvip"></i>
+代收门店会员认证卡
+</a>
+-->
+            <!-- <a href="/my/mygroup" class="bt10 borderBottom">
+<i class="icon-tg"></i>
+<u class="jt"></u>
+我的闺蜜团
+</a>
+-->
+            <a href="logistics.html" class="bt10 borderBottom">
+                <i class="icon-gift"></i>
+                <u class="jt"></u> 收花人或第三方订单查询
+            </a>
+            <a href="change.html" class="borderBottom">
+                <i class="icon-dh"></i>
+                <u class="jt"></u> 兑换卡兑换
+                <span class="p_span">非代言人活动兑换码</span>
+            </a>
+            <a href="advice.html" class="nbb">
+                <i class="icon-feedback"></i>
+                <u class="jt"></u> 吐槽&amp;建议
+            </a>
+            <!-- <a href="/my/myinfo">
+<i class="icon-myinfo"></i>
+我的帐号
+</a>
+-->
+        </div>
+        <div class="foot">
+            <div class="link" style="margin:0px auto 20px">
+                <a href="">首页</a>
+                <a href="index.html">会员中心</a>
+                <a href="question.html">常见问题</a>
+            </div>
+            <!-- <div>
+<img src="http://static2.flowerplus.cn/Static/web/v1/Images/mob5.png" style="height:24px;width:89px;display:inline-block;"></div>
+-->
+            <p class="copy">
+                © 2017 上海科技有限公司
+                <br>沪ICP备199999号</p>
+        </div>
+        <script>
+        $(function() {
+            $('#send').click(function() {
+                $.ajax({
+                    type: "post",
+                    url: "192.168.1.108:8080/sheyi/user/add.do",
+                    data: {
+                        result.data.nickname: $("#nickname").val(),
+                        result.data.headimgurl: $("#headimgurl").val()
+                    },
+                    dataType: "json",
+                });
+            });
+        });
+        </script>
+    </div>
+</body>
+
+</html>

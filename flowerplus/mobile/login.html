@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="鲜花,鲜花订阅" >
+    <meta name="description" content="">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>登录</title>
+    <link rel="stylesheet" href="css/m_web.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/jweixin-1.2.0.js"></script>
+    <script src="js/m.js"></script>
+
+    <script src="js/tongji.js"></script>
+</head>
+<body ontouchstart="">
+    <div class="page">
+        <link rel="stylesheet" href="css/login.css">
+
+        <section class="login-page">
+            <div class="wrap">
+                <!-- 输入验证码 -->
+                <div id="input-code" class="input-container borderBottom">
+                    <input class="acc-input txt-input" id="uclogin_vcode" maxlength="4" type="number" pattern="[0-9]*" placeholder="请输入验证码">
+                    <span class="code-box">
+                        <img src="picture/8fdea0259f5140349527cf2b22dabd14.gif"/>
+                    </span>
+                </div>
+                <!-- 获取短信验证码 -->
+                <div class="input-container borderBottom">
+                    <div class="input-box" >
+                        <input type="tel" class="acc-input" id="uclogin_mobile" maxlength="11" placeholder="请输入手机号" ></div>
+                    <button class="mesg-code" disabled id="SendCode">获取验证码</button>
+                </div>
+                <div class="input-container borderBottom">
+                    <input class="acc-input" pattern="[0-9]*" maxlength="5" id="uclogin_scode" placeholder="请输入短信验证码"></div>
+                <a href="javascript:;" class="btn" id="submit">登入</a>
+                <p class="or">OR</p>
+                <div style="text-align: center" class="wecode">
+                    <a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx47577fb089a4a930&redirect_uri=sheyi.summer9.com/sheyi/user/add.do&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect">
+                        <img src="picture/index-px-wx1.png" alt="" style="width:28px;margin-right:10px">使用微信授权登录</a>
+                </div>
+            </div>
+        </section>
+        <script>
+// 判断手机号码
+$("#uclogin_mobile").bind("input",function(){
+    if(/^1\d{10}$/.test($(this).val())){
+        $("#SendCode").prop("disabled",false);
+    }else{
+        $("#SendCode").prop("disabled",true);
+    }
+});
+$("#SendCode").bind("click",function(){
+    sendCode();
+});
+$("#submit").bind("click",function(){
+    if(isloading){
+        return;
+    }
+    var data={uclogin_scode:$("#uclogin_scode").val()};
+    if(data.uclogin_scode==""){
+        FP.showError("请填写短信验证码!");
+        return;
+    }
+    isloading=true;
+    FP.ajaxPost(
+        '/uclogin/logincheck/',
+        data,
+        function(v){
+            isloading=false;
+            if(v.f){
+                flushvcode();
+                window.location.replace(v.data);
+            }else{
+                FP.showError(v.data);
+            }
+            
+        },
+        function(){
+            isloading=false;
+            FP.showError("请重试");
+        }
+    );
+});
+
+//发送验证码
+var wait=60,isloading=false;
+function sendCode(){    
+    if(isloading){
+        return;
+    }
+    isloading=true;
+    FP.ajaxPost(
+        '/uclogin/getsmscode/',
+        {uclogin_vcode:$("#uclogin_vcode").val(),uclogin_mobile:$("#uclogin_mobile").val()},
+        function(v){
+            isloading=false;
+            if(v.f){
+                flushTimer(wait);
+            }else{
+                FP.showError(v.data);
+            }
+            
+        },
+        function(){
+            isloading=false;
+            FP.showError("请重试");
+        }
+    );
+}
+
+function flushTimer(t){
+    if(t<=0){
+        $("#SendCode").html("获取验证码");
+        $("#SendCode").prop("disabled",false);
+        $("#uclogin_mobile").prop("disabled",false);
+    }else{
+        t--;  
+        $("#SendCode").text(t+"秒");
+        $("#uclogin_mobile").prop("disabled",true);                  
+        setTimeout(function(){flushTimer(t)},1000);
+    }
+}
+function flushvcode(){
+    $("#uclogin_vcode").val("");
+    $(".code-box img").attr("src","/uclogin/vcode/?_t="+(new Date()).getTime());
+}
+$(".code-box img").bind("click",function(){flushvcode();})
+
+</script></div>
+</body>
+
+</html>

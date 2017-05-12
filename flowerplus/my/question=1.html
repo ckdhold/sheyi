@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://t.flowerplus.cn/wx_cs/sec?id=20 -->
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title></title>
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="cleartype" content="on">
+  <link rel="stylesheet" href="css/weui.css">
+  <link rel="stylesheet" href="css/jquery-weui.css">
+  <link rel="stylesheet" href="css/test.css">
+  <script src="js/hm.js"></script>
+  <script src="js/jquery-2.1.4.js"></script>
+  <script src="js/jquery-weui.js"></script>
+
+  <style type="text/css">
+  .weui_grids{
+    padding-top: 10px;
+  }
+  .weui_grids a{
+    background-color: white;
+  }
+  *{
+    color: black;
+  }
+  .weui_cell_bd p{
+    font-size: 16px;
+  }
+  .weui_grid_label{
+    font-size: 14px;
+    color: #646464;
+  }
+  
+</style>
+</head>
+
+<body>
+  <div class="weui_cells weui_cells_access">
+    <a class="weui_cell" onclick="go_url_new(&#39;11&#39;,&#39;配送日期顺延&#39;)">
+      <div class="weui_cell_bd weui_cell_primary">
+        <p>配送日期顺延</p>
+      </div>
+      <div class="weui_cell_ft"></div>
+    </a>
+    <a class="weui_cell" onclick="go_url_new(&#39;101&#39;,&#39;取消顺延&#39;)">
+      <div class="weui_cell_bd weui_cell_primary">
+        <p>取消顺延</p>
+      </div>
+      <div class="weui_cell_ft"></div>
+    </a>
+    <a class="weui_cell" onclick="go_url_new(&#39;89&#39;,&#39;更改送达时间（周六/周一）&#39;)">
+      <div class="weui_cell_bd weui_cell_primary">
+        <p>更改送达时间（周六/周一）</p>
+      </div>
+      <div class="weui_cell_ft"></div>
+    </a>
+    <a class="weui_cell" onclick="go_url_new(&#39;99&#39;,&#39;已转赠的顺延或修改时间&#39;)">
+      <div class="weui_cell_bd weui_cell_primary">
+        <p>已转赠的顺延或修改时间</p>
+      </div>
+      <div class="weui_cell_ft"></div>
+    </a>
+    <a class="weui_cell" onclick="go_url_new(&#39;17&#39;,&#39;修改收货地址/手机&#39;)">
+      <div class="weui_cell_bd weui_cell_primary">
+        <p>修改收货地址/手机</p>
+      </div>
+      <div class="weui_cell_ft"></div>
+    </a>
+    <a class="weui_cell" onclick="go_url_new(&#39;98&#39;,&#39;已转赠的修改地址/手机&#39;)">
+      <div class="weui_cell_bd weui_cell_primary">
+        <p>已转赠的修改地址/手机</p>
+      </div>
+      <div class="weui_cell_ft"></div>
+    </a>
+    <a class="weui_cell" onclick="go_url_new(&#39;105&#39;,&#39;如何删除历史地址&#39;)">
+      <div class="weui_cell_bd weui_cell_primary">
+        <p>如何删除历史地址</p>
+      </div>
+      <div class="weui_cell_ft"></div>
+    </a>
+  </div>
+  <div class="weui_cells weui_cells_access" style="margin-bottom: 1px;">
+    <a href="http://t.flowerplus.cn/front_ticket/ticket_list" class="weui_cell">
+      <div class="weui_cell_bd weui_cell_primary">
+        <p style="color:red;">联系客服</p>
+      </div>
+      <div class="weui_cell_ft"></div>
+    </a>
+  </div>
+  <div style="width:100%;height:20px;"></div>
+  <!-- <div class="weui_cells weui_cells_access">
+  <a class="weui_cell" href="javascript:;">
+    <div class="weui_cell_bd weui_cell_primary">
+      <p>cell standard</p>
+    </div>
+    <div class="weui_cell_ft">说明文字</div>
+  </a>
+</div>
+-->
+<!-- 九宫格 -->
+
+<script type="text/javascript">
+  $(function() {
+    WeixinJSBridge.call('hideOptionMenu');
+    WeixinJSBridge.call("hideToolbar");
+  })
+  function go_url_new(key,ask) {
+    if (ask == '手机查件') {
+      // 目前是测试地址
+        window.location.href = "http://t.flowerplus.cn/kd";
+    }
+    else{
+      window.location.href = "question="+key+".html";
+    }
+  }
+</script>
+</body>
+</html>

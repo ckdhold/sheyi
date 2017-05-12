@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)http://t.flowerplus.cn/my/redpacket -->
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="keywords" content="花+,花加,flowerplus,鲜花,鲜花订阅">
+  <meta name="description" content="一周一花，用鲜花点亮生活,提供98元单品鲜花包月服务、168元混合鲜花包月服务和花艺周边配件、花艺课程服务。">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+  <title>我的红包</title>
+  <link rel="stylesheet" href="cssweui.css">
+  <link rel="stylesheet" href="cssjquery-weui.css">
+  <link rel="stylesheet" href="cssm_web.css">
+
+  <script charset="utf-8" src="js/v.js"></script>
+  <script async="" src="js/analytics.js"></script>
+  <script src="js/hm.js"></script>
+  <script async="" src="js/sensorsdata.min.js"></script>
+  <script src="js/jquery-2.1.4.js"></script>
+  <script src="js/jquery-weui.js"></script>
+  <script src="js/jweixin-1.2.0.js"></script>
+  <script src="js/m.js"></script>
+  <script src="js/tongji.js"></script>
+</head>
+<body ontouchstart="">
+  <div class="page">
+    
+    <style type="text/css">
+    body{
+        background:#f5f5f5;
+    }
+    a {
+    text-decoration: none;
+}
+    .exchange>.none{
+         padding-top:70px;
+         text-align:center;
+     }
+     .exchange>.none p{
+     margin-bottom:30px;
+    }
+
+
+.bt10{
+  border-top:10px solid #f2f2f2!important;
+}
+.p52{
+  padding:15px 20px!important;
+}
+.p15{
+  padding:15px!important;
+}
+.pt15{
+  padding:15px 0!important;
+}
+.ye{
+  color:#f4891e!important;
+}
+.blue{
+  color:#297dbd!important;
+}
+.success,.c-gift-tit{
+  text-align:center;
+  color:#ff3e41;
+  font-size:18px;
+  padding-top:50px;
+  font-weight:bold;
+}
+.success-link{
+  text-align:center;
+  margin-top:20px;
+}
+.success-link a{
+  font-size:14px;
+  display:inline-block;
+  margin:0 20px;
+  color:#5b71c7;
+}
+
+.longtap,.c-gift-tip{
+  text-align:center;
+  margin:20px auto 40px;
+  color:#666;
+}
+.erwei{
+  width:100%;
+  margin:0 auto;
+}
+.erwei img{
+  padding:0 15px;
+  width: 100%;
+  height:auto;
+}
+.ex-header{
+  background:#fff;
+  text-align:center;
+}
+.ex-header a{ 
+  margin:0 15px;
+  font-size:16px;
+  line-height:40px;
+  display:inline-block;
+  color:#333; 
+}
+.ex-header a.current{
+  color:#fe5377;
+  border-bottom:2px solid #fe5377;
+}
+.exchange{
+  padding:30px 15px 0px 15px;
+}
+.exchange-list{
+  width:100%;
+  padding:15px 15px 25px 15px;
+  background-color:#fff;
+  background-position:left bottom;
+  background-image:url(../Image/bg.jpg);
+  background-repeat:repeat-x;  
+  display:-webkit-flex;
+    display:flex;
+  margin-bottom:15px;
+  border-left:1px solid #d3d3d3;
+  border-right:1px solid #d3d3d3;
+  border-top:1px solid #d3d3d3;
+  background-size:16px 7px;
+  -webkit-background-size:16px 7px;
+  position:relative;
+}
+.exchange-list img{
+  width:64px;
+    height:64px;
+    margin-right:10px; 
+}
+.exchange-list p{
+   color:#666;
+   font-size:12px;
+   color:#666;
+}
+.exchange-list p.tit{
+  color:#333;
+  font-size:16px;
+}
+.exchange-list a{
+  padding:5px 15px;
+  display:inline-block;
+  background:#ff5d7c;
+  color:#fff;
+  font-size:12px;
+  position:absolute;
+  right:15px;
+  bottom:20px;
+}
+.main-list{
+  width:100%;
+  padding:10px 15px 5px 15px;
+  background-color:#fff;
+  border:1px solid #d3d3d3;
+}
+.main-list dt{
+    border-bottom:1px dotted #d0d0d0;
+    padding-bottom:5px;
+}
+.main-list dd{
+  padding:15px 0px 15px 75px;
+  position:relative;
+  text-align:right;
+}
+.main-list dd img{
+  position:absolute;
+  left:0;
+  top:15px;
+  width:60px;
+  height:60px;
+  background:pink;
+}
+.main-list dd div>p{
+    text-align:left;
+    margin-bottom:10px;
+    font-size:14px;
+}
+.main-list a{
+  padding:5px 10px;
+    border:1px solid #fd6687;
+    color:#fd6687;
+    background:#fff;
+    border-radius:3px;
+    font-size:12px;
+    margin-top:20px;
+    margin-left:10px;
+}
+.main-list a.cur{
+  color:#fff;
+  background:#fd6687;
+}
+.push-red {
+    width:80%;
+    height:45px;
+    line-height:45px;
+    text-align:center;
+    color:#fff;
+    background:#ff5d7c;
+    position:fixed;
+    left:10%;
+    bottom:20px;
+    font-size:16px;
+    border:0;
+    border-radius:30px;
+    box-shadow:0 0px 1px rgba(0,0,0,.2);
+}
+.submit,.get-gift{
+    display:block;      
+  color:#fff; 
+  text-align:center;
+  background:#f85570; 
+}
+.gift-label{
+  margin-bottom:10px;
+}
+.gift-infor,.gift-infor dd{
+  border:1px solid #ddd;
+  display:-webkit-flex;
+  display:flex;
+  justify-content:space-between;
+  -webkit-justify-content:space-between;
+}
+.gift-infor{
+  padding:30px 15px;
+}
+.gift-infor dt{
+  margin-top:5px;
+}
+.gift-infor dd{
+  border:0px solid #ddd;
+  overflow:hidden;
+  justify-content:center;
+  -webkit-justify-content:center;
+}
+.gift-infor dd p{
+  padding:5px 20px;
+  border:1px solid #ddd;
+  color:#333;
+  border-radius:45px;
+  margin-left:20px;
+  cursor:pointer;
+}
+.gift-infor dd p.current{
+  background:#1b1b1b;
+  color:#fff;
+  border:1px solid #1b1b1b;
+}
+.gift-text{
+  border:1px solid #ddd;
+  width:100%;
+  padding:13px 0 13px 15px;
+  background:#fff;
+  font-size:16px;
+  appearance: none;
+    -webkit-appearance: none;
+    border-radius:0;
+}
+.gift-place{
+  display:-webkit-flex;
+  display:flex;
+  justify-content:space-between;
+  -webkit-justify-content:space-between;
+}
+.gift-place>div{
+  width:33.3%;
+  position:relative;
+  padding:0 15px 0 20px;
+}
+.gift-control{
+    display:block;
+    width:100%;
+    padding:7.5px 12px;
+    font-size:14px;
+    color: #555;
+    background-color:#fff;
+    background-image:none;
+    border:1px solid #ddd;
+    border-radius:0;
+    appearance: none;
+    -webkit-appearance: none
+}
+.select-place:after {
+    border-bottom: 1px solid #a09fa3;
+    border-left: 1px solid #a09fa3;
+    width: 8px;
+    height: 8px;
+    background: transparent;
+    position: absolute;
+    content: ' ';
+    right: 25px;
+    top: 50%;
+    margin-top: -7px;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.t-are{
+  padding:15px;
+}
+textarea {
+    border: 0 none;
+    width: 100%;
+    height: 120px;
+    padding: 10px;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    resize: none;
+    border-radius:0px;
+    border:1px solid #ddd;
+}
+.get-gift{
+  display:block;    
+  color:#fff;
+  width:60%;
+  height:45px;
+  line-height:45px;
+  border-radius:30px;
+  margin:0px auto;  
+  text-align:center;
+  background:rgb(248,85,112);
+  border:0;
+  font-size:16px;
+}
+.get-gift-out button:disabled{
+  background:rgba(248,85,112,0.4);
+}
+
+</style>
+    <div class="page">
+      <!--     <div class="exchange" style="display:none">
+      <div class="none">
+        <p>暂未收到礼物</p>
+        <a href="/product/detail?id=1186" class="ye">给好友送礼物</a>
+      </div>
+    </div>
+    -->
+    <div class="ex-header">
+      <a href="javascript:void(0)" class="current">我发的红包</a>
+      <a href="javascript:void(0)" class="">我收到的红包</a>
+    </div>
+    <div class="exchange-out" style="margin-bottom: 60px; display: block;">
+      <div class="exchange">
+        <div class="none">
+          <p>暂未发出红包</p>
+        </div>
+      </div>
+    </div>
+    <div class="exchange-out" style="margin-bottom: 60px; display: none;">
+      <div class="exchange">
+        <div class="none">
+          <p>暂未收到红包</p>
+        </div>
+      </div>
+    </div>
+    <a href="http://t.flowerplus.cn/product/detail?id=1186" class="push-red">发红包</a>
+  </div>
+  <script>
+    var is_runing = false;
+    $(".to_exchange").click(function(){
+        if(is_runing){
+            return;
+        }
+        var productid = $(this).attr('productid');
+        if(productid == ''){
+            $.alert('兑换异常刷新页面重试');
+            return;
+        }
+        is_runing = true;
+        var _submit=function(){
+            var sku_id=productid+'i0';
+            var inputs=[];
+            inputs.push($("<input>",{name:"sku",value:sku_id}));
+            inputs.push($("<input>",{name:"_t",value:(new Date().getTime())}));
+            $("<form>",{method:"get",action:_web_base+"buy/confirm"}).append(inputs).appendTo("body").css({opacity:0}).submit();
+        }
+        FP.ajaxPost(
+            _web_base+"product/productstatus/",
+            {id:productid},
+            function(v){
+                if(v.f){
+                    _submit();
+                }else{
+                    FP.showError(v.data);
+                }
+                is_runing=false;
+            },
+            function(){
+                _submit();
+            }
+        );
+    });
+        $(".ex-header a").click(function(event) {
+             $(this).addClass('current').siblings().removeClass('current');
+            $(this).parent(".ex-header").siblings('.exchange-out').eq($(this).index()).show().siblings('.exchange-out').hide();
+        });
+
+</script>
+
+</div>
+
+</body>
+</html>

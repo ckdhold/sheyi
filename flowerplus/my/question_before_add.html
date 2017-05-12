@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)http://t.flowerplus.cn/front_ticket/pay_front?ticket_type=10 -->
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="keywords" content="花+,花加,flowerplus,鲜花,鲜花订阅">
+  <meta name="description" content="一周一花，用鲜花点亮生活,提供98元单品鲜花包月服务、168元混合鲜花包月服务和花艺周边配件、花艺课程服务。">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+  <title>新增问题-售前</title>
+  <link rel="stylesheet" href="css/weui.css">
+  <link rel="stylesheet" href="css/jquery-weui.css">
+  <link rel="stylesheet" href="css/m_web.css">
+  <script charset="utf-8" src="js/v.js"></script>
+  <script async="" src="js/analytics.js"></script>
+  <script src="js/hm.js"></script>
+  <script async="" src="js/sensorsdata.min.js"></script>
+  <script src="js/jquery.js"></script>
+  <script src="js/jweixin-1.2.0.js"></script>
+  <script src="js/m.js"></script>
+  <script src="js/tongji.js"></script>
+</head>
+<body ontouchstart="">
+  <div class="page">
+    <style type="text/css">
+body{background:#ECF0F3;font-family:"Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB",Arial,"STHeitiSC-Light","Microsoft Yahei","微软雅黑",sans-serif;width:100%;}
+.content{height:100%;}
+.content .weui_cell{background:#fff;}
+.weui_select option{text-align: center;font-size: 14px;}
+.weui_cells{margin-top: 10px;}
+.part1_upload{border-bottom:1px solid #d0d0d0;background: #fff;min-height: 130px;}
+.part1_upload_title{text-align: center;}
+.choose_image{width:80px;height:80px;border:1px dashed #c0c0c0;border-radius:6px;float:left;margin-left: 20px;color:#d0d0d0;margin-top:8px;font-size:12px;margin-bottom: 10px;}
+.choose_image p{text-align: center;}
+.choose_tip img{width:20px;height:20px;margin-left:28px;margin-top: 18px;}
+
+.image_body{float:left;margin-left:20px;margin-top:8px;}
+.image_src{width:80px;height:80px;border-radius:6px;}
+.img_close img{width:18px;height:18px;position: relative;top:-90px;right:-67px;}
+
+.mengban{height:100%;width:100%;background:rgba(128, 138, 135, 0.8);position: absolute;z-index: 100;top:0px;left:0;overflow-x:hidden;}
+input{color:#838184;font-size:15px;}
+.top{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;background:#fff;position:relative;}
+.top a{display: block;
+    width:50%;
+    text-align: center;
+    padding: 0;
+    color:grey;
+    line-height:40px;
+    }
+.top a.current1{color:#04BE02;border-bottom: 1px solid #04BE02}
+.top:after{
+  position:absolute;
+  content:"";
+  left:50%;
+  top:7.5px;
+  width:1px;
+  height:25px;
+  border-left:1px solid #d0d0d0;
+}
+</style>
+    <div class="top">
+      <a href="javascript:;" class="current1">售前</a>
+      <a href="http://t.flowerplus.cn/front_ticket/add_ticket">售后</a>
+    </div>
+    <div class="content">
+      <form action="http://t.flowerplus.cn/front_ticket/insert_front" id="form" method="post" enctype="multipart/form-data">
+        <div class="weui_cells weui_cells_access">
+          <a class="weui_cell question" data="question" href="javascript:;">
+            <div class="weui_cell_bd weui_cell_primary">
+              <p>
+                问题详情:
+                <input name="question" style="margin-left:15px;border:0;width:60%;" class="ques_span1" readonly="readonly"></p>
+              <p class="d_select" style="color:#04BE02;font-size:14px;position:absolute;right:10px;top:13px;">请选择</p>
+              <input class="secquesid" name="secquesid" type="hidden"></div>
+          </a>
+        </div>
+        <div class="weui_cells weui_cells_access" style="display:none;" id="receive_mobile">
+          <a class="weui_cell" href="javascript:;">
+            <div class="weui_cell_bd weui_cell_primary">
+              <p>
+                收花人手机:
+                <input class="phone" placeholder="请输入手机号" name="phone" style="margin-left:15px;border:0;width:60%;"></p>
+            </div>
+          </a>
+        </div>
+
+        <div class="weui_cells weui_cells_form">
+          <div class="weui_cell">
+            <div class="weui_cell_bd weui_cell_primary">
+              <textarea style="color:#838184;font-size:15px;" name="describe" onkeyup="font_number()" id="TextArea1" class="weui_textarea" placeholder="请告诉我们您遇到的问题,客服收到后会回复您。" rows="3"></textarea>
+              <div class="weui_textarea_counter">
+                <span id="textCount">0</span>
+                /300
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="part1_upload">
+          <p class="part1_upload_title">请上传照片（非必传）</p>
+          <!--  @if($is_android)
+      <p class="android_tip">（安卓用户如无法上传图片请刷新本页面）</p>
+        @endif -->
+        <div class="show_image" id="showImage">
+          <!--  @if($category && $category->
+          cover_img)
+          <div class="image_body">
+            <input type="hidden" name='upload_image_1' id="upload_image_1" value="">
+            <img class="image_src" src="">
+            <div class="img_close1">
+              <img src="/Static/img/close1.png"></div>
+          </div>
+          @endif -->
+          <div class="choose_image" id="chooseImage">
+            <div class="choose_tip">
+              <img src="imgs/add_image.png"></div>
+            <p class="choose_font">上传图片</p>
+            <p class="choose_font">（最多三张）</p>
+          </div>
+          <div style="clear:both;"></div>
+        </div>
+      </div>
+      <input type="hidden" name="cid" value="4418949">
+      <input type="hidden" name="openid" value="ooSgyt7sHWnGgLGRdf4K8rQJ90JE">
+      <input type="hidden" name="ticket_type" value="10">
+      <a onclick="form_sub()" href="javascript:;" style="width:340px;margin-top:20px;margin-bottom:245px;" class="weui_btn weui_btn_primary form_sub">提交问题</a>
+    </form>
+    <div class="mengban" style="display: none;"></div>
+  </div>
+  <script>
+wx.ready(function () {
+  var images = {
+      localId: [],
+      serverId: []
+    };
+
+    document.querySelector('#chooseImage').onclick = function () {
+      wx.chooseImage({
+        success: function (res) {
+          images.localId = res.localIds;
+         // $.alert('已选择 ' + res.localIds.length + ' 张图片');
+          sdk_upload();
+        },
+      });
+    };
+    // 5.3 上传图片
+    var sdk_upload = function () {
+      if (images.localId.length == 0) {
+        $.alert('请选择图片');
+        return;
+      }
+      var i = 0, length = images.localId.length;
+      var len = 3 - get_image();
+      if(len<length){
+        $.alert('您还能上传'+len+'张照片');
+        length = len;
+        $('#chooseImage').addClass('hide');
+      }
+      if(length==0){
+        return '';
+      }
+      if(len>=length){
+        //$.alert('您还可以上传'+(len-length)+'张照片');
+        if(len==length){
+          $('#chooseImage').addClass('hide');
+        }
+      }
+      images.serverId = [];
+      function upload() {
+        wx.uploadImage({
+          localId: images.localId[i].toString(),
+          success: function (res) {
+            i++;
+                        images.serverId.push(res.serverId);
+            $('#chooseImage').before("<div class='image_body'><img onclick='previewimg(this)' class='image_src' src='"+images.localId[i-1]+"'><div onclick='img_close(this)' class='img_close'><img src='/Static/img/close1.png'></div><input type='hidden' name='upload_image[]' value='"+res.serverId+"'></div>");  
+            if (i < length) {
+              upload();
+            }
+          },
+          fail: function (res) {
+            $.alert(JSON.stringify(res));
+          }
+        });
+      }
+      upload();
+    };
+});
+wx.error(function (res) {
+  $.alert(res.errMsg);
+//$.alert('亲，上传图片失败！');
+});
+
+function previewimg(obj){
+  var that = $(obj);
+  wx.previewImage({
+      current: that.attr('src'),
+      urls: [
+        that.attr('src')
+      ]
+    });
+}
+
+function img_close(obj){
+  var that = $(obj);
+  //找出图片的张数
+  $.confirm("确认要删除图片？", function() {
+    that.parent('div').remove();
+    $('#chooseImage').removeClass('hide');
+  }, function() {
+  //点击取消后的回调函数
+  });
+}
+
+
+function get_image(){
+  var len = 0;
+  var obj = $('#upload_image_1');
+  if ( obj.length > 0 ) { 
+    len = 1;
+  }
+  len = len + $("input[name='upload_image[]']").length;
+  return len;
+}
+
+// 问题
+$('.mengban').hide();
+$('.question').click(function(){
+  var ticket_type = 10;
+  var cid = 4418949;
+  $.ajax({
+      async: false,
+      type:"POST",
+      data: 'ticket_type='+ticket_type+'&cid='+cid,
+      url:"/front_ticket/search_front/",
+      dataType: "json",
+      success:function(datas){
+        if(datas.fail == 1){
+          if(datas.ticket_type == 10){
+              $.confirm("1小时内只能提交一个售前问题,如果有问题请在原问题下,咨询！我们会尽快处理的哦", function() {
+              window.location.href="/front_ticket/ticket_list?ticket_type=10";
+            });
+          }
+          if(datas.ticket_type == 20){
+              $.confirm("1小时内只能提交一个售中问题,如果有问题请在原问题下,咨询！我们会尽快处理的哦", function() {
+              window.location.href="/front_ticket/ticket_list?ticket_type=20";
+            });
+          }
+          
+        }else{
+          if(datas.length > 0){
+            for(var i in datas){
+              var html = '';
+              html += '<label onclick="wenti2(this)" class="weui_cell weui_check_label ques" for="x11">\
+                        <div class="weui_cell_bd weui_cell_primary ">\
+                          <p pid='+datas[i].pid+' cate_id='+datas[i].id+' class="wenti">'+datas[i].name+'</p>\
+                        </div>\
+                      </label>';
+              $('.mengban').append(html);
+            }
+            $('.mengban').show();
+          }else{
+            $.alert('暂时没有详情');
+          }
+        }
+      }
+  });
+});
+
+function wenti2(obj){
+  var that = $(obj).children('.weui_cell_bd').children('.wenti');
+  var quesid = that.attr('cate_id');
+  if(that.attr('pid') == 200){
+    $('#receive_mobile').show();
+    switch(quesid){
+        case '95':
+          $('#TextArea1').attr('placeholder','请提供新用户的收件人电话及推荐人的收件人电话');
+          break;
+        case '99':
+          $('#TextArea1').attr('placeholder','请提供需要修改的日期');
+          break;
+        case '100':
+          $('#TextArea1').attr('placeholder','请提供需要修改的次数及新地址');
+          break;
+        default:
+          $('#TextArea1').attr('placeholder','问题描述(必填)');
+          break;
+    }
+  }else{
+    $('#receive_mobile').hide();
+  }
+  // $.ajax({
+  //     async: false,
+  //     type:"POST",
+  //     data: "ship_id="+ship_id+"&secquesid="+quesid,
+  //     url:"/front_ticket/have_ticket/",
+  //     dataType: "json",
+  //     success:function(datas){
+  //       if(datas.success == '1'){
+              $('.ques_span1').val(that.text());
+              $('.secquesid').val(quesid);
+              $('.secquesid').attr('pid',that.attr('pid'));
+              $('.ques').remove();
+              $('.d_select').hide();
+              $('.mengban').hide();
+  //        }else{
+  //           if( == 1){
+  //             $.alert('本次问题详情投诉,已由您或买花人创建');
+  //           }else{
+  //             $.alert('本次问题详情投诉,已由您或收花人创建');
+  //           }
+  //           $('.ques').remove();
+  //           $('.mengban').hide();
+  //       }
+  //     }
+  // });
+}
+$('.mengban').click(function(){
+  $('.ques').remove();
+  $(this).hide();
+});
+
+function form_sub(){
+ if($('.ques_span1').val() == ''){
+  $.alert('问题详情不能为空');
+  return false;
+ }
+ if($('#TextArea1').val().length < 8){
+  $.alert('为了客服宝宝快速解决您的问题，请尽量超过8个字的描述！');
+  return false;
+ }
+ if($('.secquesid').attr('pid') == 200){
+  var phone = $('.phone').val();
+  if(!isphone(phone)){
+    $.alert('手机号格式不正确');
+    return;
+  }
+ }
+    $('#form').submit();
+    $('.form_sub').text('提交中...');
+    $('.form_sub').css("background","#B3B3B3");
+    $('.form_sub').removeAttr('onclick');
+}
+
+
+function font_number(){
+  var curLength=$("#TextArea1").val().length; 
+  if(curLength>300)
+  { 
+  var num=$("#TextArea1").val().substr(0,300);
+  $("#TextArea1").val(num);
+  $.alert("超过字数限制，多出的字将被截断！" );
+  } 
+  else 
+  { 
+  $("#textCount").text(0+$("#TextArea1").val().length); 
+  } 
+}
+
+
+function isphone(inputString)
+{
+    var partten = /^1[3,4,5,7,8]\d{9}$/;
+    var fl=false;
+    if(partten.test(inputString))
+    {
+         //alert('是手机号码');
+         return true;
+    }
+    else
+    {
+         return false;
+         //alert('不是手机号码');
+    }
+}
+</script>
+
+</div>
+<script>
+var page_type = '';
+var sat = 'cb037e036c03aad3';
+var sap = 'default';
+var sau = 'http://flowerplus.cloud.sensorsdata.cn:8006/sa?token='+sat+'&project='+sap;
+(function(para) {
+  var p = para.sdk_url, n = para.name, w = window, d = document, s = 'script',x = null,y = null;
+  w['sensorsDataAnalytic201505'] = n;
+  w[n] = w[n] || function(a) {return function() {(w[n]._q = w[n]._q || []).push([a, arguments]);}};
+  var ifs = ['track','quick','register','registerPage','registerOnce','registerSession','registerSessionOnce','trackSignup', 'trackAbtest', 'setProfile','setOnceProfile','appendProfile', 'incrementProfile', 'deleteProfile', 'unsetProfile', 'identify','login','logout'];
+  for (var i = 0; i < ifs.length; i++) {
+    w[n][ifs[i]] = w[n].call(null, ifs[i]);
+  }
+  if (!w[n]._t) {
+    x = d.createElement(s), y = d.getElementsByTagName(s)[0];
+    x.async = 1;
+    x.src = p;
+    y.parentNode.insertBefore(x, y);
+    w[n].para = para;
+  }
+})({
+  sdk_url: '//static2.flowerplus.cn/Static/js/sa/sensorsdata.min.js',
+  name: 'sa',
+  server_url: sau
+  // ,
+  // debug_mode:true,
+  // debug_mode_upload:false
+});
+
+
+sa.quick('autoTrackWithoutProfile', {});
+
+
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?deb1341df19187ec5a232b519d62c8a9";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-93082500-1', 'auto');
+          ga('send', 'pageview');
+</script>
+<script type="text/javascript">
+function ga_buy(){ga("send",{hitType:"event",eventCategory:"订购流程",eventAction:"立即购买",eventLabel:"详情页购买"})}
+function ga_submit(){ga("send",{hitType:"event",eventCategory:"订购流程",eventAction:"确认下单",eventLabel:"订单填写页"})}
+function ga_cancle(){ga("send",{hitType:"event",eventCategory:"订购流程",eventAction:"取消订单",eventLabel:"订单确认页"})}
+function ga_pay(id,product_name,payment){ga("send",{hitType:"event",eventCategory:"订购流程",eventAction:"去支付",eventLabel:"订单确认页"});ga("require","ecommerce");ga("ecommerce:addTransaction",{"id":id,"affiliation":product_name,"revenue":payment,});ga("ecommerce:send")};
+</script>
+
+</body>
+</html>

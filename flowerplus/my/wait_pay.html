@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://t.flowerplus.cn/my/orders/?status=1 -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta name="keywords" content="花+,花加,flowerplus,鲜花,鲜花订阅">
+	<meta name="description" content="一周一花，用鲜花点亮生活,提供98元单品鲜花包月服务、168元混合鲜花包月服务和花艺周边配件、花艺课程服务。">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+	<title>待付款订单</title>
+	<link rel="stylesheet" href="css/m_web.css">
+  <script charset="utf-8" src="js/v.js"></script>
+  <script async="" src="js/analytics.js"></script>
+  <script src="js/hm.js"></script>
+  <script async="" src="js/sensorsdata.min.js"></script>
+  <script src="js/jquery.js"></script>
+  <script src="js/jweixin-1.2.0.js"></script>
+  <script src="js/m.js"></script>
+  <script src="js/tongji.js"></script>
+</head>
+<body ontouchstart="">
+	<div class="page">
+
+		<div id="noorders" style="position:fixed;top:0;left:0;right:0;bottom:0;text-align:center;padding-top:100px;background:#f0f0f0;display:none">
+			<img src="imgs/iconfont-empty.png" width="64px">
+			<p style="margin-top:30px">您暂时还没有订单，去逛逛吧</p>
+		</div>
+
+		<div id="loadingdetail" style="display:none;position:fixed;z-index:10;width:70px;height:35px;line-height:35px;top:50%;left:50%;margin-top:-18px;margin-left:-35px;text-align:center;border-radius:3px;background:rgba(0,0,0,.8);color:#fff">加载中</div>
+
+		<div id="orderlist">
+			<dl class="order-list" data-id="3764619">
+				<dt>
+					W2017031509472044189491362 <strong class="aright"><a href="order_detail.html"><span class="btn-pay">去付款</span></a></strong> 
+				</dt>
+				<dd class="pinfo-wrap">
+					<div class="pinfo-image">
+						<img src="imgs/zhutud20160908.jpg"></div>
+					<div class="pinfo-content">
+						<div class="pinfo-title">简花·单品鲜花月套餐</div>
+						<div class="pinfo-sku">订几个月:1个月;送达日期:周六送达</div>
+					</div>
+					<!-- <div class="pinfo-price">￥{price}</div>
+				-->
+			</dd>
+			<dd>
+				<span class="confirm-price">￥99.00</span>
+				<span class="aright">2017-3-15</span>
+			</dd>
+		</dl>
+	</div>
+	<div id="loading" style="position: relative; line-height: 6rem; text-align: center; color: rgb(102, 102, 102); display: none;">加载中...</div>
+	<script id="itemTmp" type="text/html">
+<dl class="order-list" data-id="{id}">
+	<dt>{out_id}<strong class="aright">{status-text}</strong></dt>
+	<dd class="pinfo-wrap">
+		<div class="pinfo-image"><img src="{pic_path}"></div>
+		<div class="pinfo-content">
+			<div class="pinfo-title">{title}</div>
+			<div class="pinfo-sku">{sku_properties_name}</div>
+		</div>
+		<!-- <div class="pinfo-price">￥{price}</div> -->
+	</dd>
+	<dd><span class="confirm-price">￥{payment}</span>
+		<span class="aright">{created}</span>
+	</dd>
+</dl>
+</script>
+
+
+
+
+</div>
+
+</body>
+</html>

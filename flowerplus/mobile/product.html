@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="keywords" content="鲜花,鲜花订阅,简花·单品鲜花月套餐" >
+	<meta name="description" content="">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+	<title>简花·单品鲜花月套餐</title>
+	<link rel="stylesheet" href="css/m_web.css">
+
+	<script src="js/jquery.js"></script>
+	<script src="js/jweixin-1.2.0.js"></script>
+	<script src="js/m.js"></script>
+
+	<script src="js/tongji.js"></script>
+</head>
+<body ontouchstart="">
+	<div class="page">
+		<div class="comm-pics">
+			<div id="swip">
+				<a href="javascript:;">
+					<img data-src="picture/zhutud120160908.jpg" src=""></a>
+				<a href="javascript:;">
+					<img data-src="picture/zhutud420161011.jpg" src=""></a>
+				<a href="javascript:;">
+					<img data-src="picture/zhutud120161011.jpg" src=""></a>
+				<a href="javascript:;">
+					<img data-src="picture/zhutud220161011.jpg" src=""></a>
+			</div>
+			<div class="swip-nav"></div>
+			<script src="js/pic_swip.js"></script>
+		</div>
+		<script type="text/javascript">
+	function echo_month(v){
+		switch(v){
+			case "1个月":
+							document.write("1个月(4束)");
+						break;
+			case "3个月":
+							document.write("3个月(12束)");
+						break;
+			case "6个月":
+							document.write("6个月(24束)");
+						break;
+			case "12个月":
+							document.write("12个月(48束)");
+						break;
+			default:
+			document.write(v);
+			break;
+
+		}
+	}
+</script>
+		<div class="produt-head">
+			<div class="produt-title">简花·单品鲜花月套餐</div>
+			<div class="produt-subtitle">每周一束，每月4次，品种随机(新用户送花瓶)</div>
+			<div class="produt-price">
+				￥ <strong id="price">99-1260</strong>
+			</div>
+		</div>
+		<ul class="sku">
+			<li>
+				<dl>
+					<dt style="font-size:12px;color:#333;padding-bottom:5px">
+						订几个月:
+						<a style="color:#f6325b;margin-left:15px;"></a>
+					</dt>
+					<dd class="sku-item" sku-name="订几个月"  data-key="0">
+						<span data-key="0">
+							<script type="text/javascript">echo_month("1个月");</script>
+						</span>
+						<span data-key="1">
+							<script type="text/javascript">echo_month("3个月");</script>
+						</span>
+						<span data-key="2">
+							<script type="text/javascript">echo_month("6个月");</script>
+						</span>
+						<span data-key="3">
+							<script type="text/javascript">echo_month("12个月");</script>
+						</span>
+					</dd>
+				</dl>
+			</li>
+			<div style="margin-left:8%;font-size:17px;margin-bottom:5px;">随套餐优惠换购</div>
+			<li>
+				<dl>
+					<dt style="font-size:12px;color:#333;padding-bottom:5px">
+						花剪:
+						<a style="color:#f6325b;margin-left:15px;">原价79元</a>
+					</dt>
+					<dd class="sku-item" sku-name="花剪"  data-key="1">
+						<span data-key="0">
+							<script type="text/javascript">echo_month("花剪(梦幻粉)+59元");</script>
+						</span>
+						<span data-key="1">
+							<script type="text/javascript">echo_month("花剪(魅惑紫)+59元");</script>
+						</span>
+						<span data-key="2">
+							<script type="text/javascript">echo_month("花剪(Tiffany蓝)+59元");</script>
+						</span>
+					</dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt style="font-size:12px;color:#333;padding-bottom:5px">
+						独家配方保鲜液:
+						<a style="color:#f6325b;margin-left:15px;">独立包装,每次用一包,每包5ml</a>
+					</dt>
+					<dd class="sku-item" sku-name="独家配方保鲜液"  data-key="2">
+						<span data-key="0">
+							<script type="text/javascript">echo_month("1组/4包+5元");</script>
+						</span>
+					</dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt style="font-size:12px;color:#333;padding-bottom:5px">
+						加购花瓶:
+						<a style="color:#f6325b;margin-left:15px;">新用户免费送不用拍</a>
+					</dt>
+					<dd class="sku-item" sku-name="加购花瓶"  data-key="3">
+						<span data-key="0">
+							<script type="text/javascript">echo_month("蓝调花瓶+20元");</script>
+						</span>
+					</dd>
+				</dl>
+			</li>
+		</ul>
+		<div class="line-l"></div>
+		<div class="product-detail">
+			<div id="desc"></div>
+
+			<div>
+				<a href="#">
+					<img style="max-width:100%" src="picture/918.jpg"/>
+				</a>
+				<a href="#">
+					<img style="max-width:100%" src="picture/bottom2.jpg"/>
+				</a>
+
+				<img style="max-width:100%" src="picture/bottom4.jpg"/>
+			</div>
+		</div>
+		<div class="buy-wrap" style="z-index: 9999">
+			<a class="buy-tohome tBor" href=""></a>
+			<a class="buy-submit " href="#">立即购买</a>
+		</div>
+		<div class="fixmask"></div>
+
+		<div class="page-barcode">
+			<img src="picture/mobile.png"></div>
+
+	</div>
+</body>
+
+</html>
