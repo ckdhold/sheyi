@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="keywords" content="包月鲜花,订阅鲜花" >
+  <meta name="description" content="">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+  <title>奢忆</title>
+
+  <script src="js/tongji.js"></script>
+  <link rel="stylesheet" href="css/swiper.min.css">
+  <link rel="stylesheet" href="css/index.css">
+
+  <script type="text/javascript" src="js/jquery-1.8.3.min.js?_t=1"></script>
+  <script src="js/jweixin-1.0.0.js"></script>
+  <script src="m.js"></script>
+  <script type="text/javascript" src="js/swiper.jquery.min.js"></script>
+  <script type="text/javascript" src="js/swipe.js"></script>
+
+</head>
+<body>
+  <div class="swiper-container">
+    <div class="swiper-wrapper" id="poster">
+
+
+    </div>
+    <div class="swiper-pagination"></div>
+    <a class="ucenter" href="login.html">个人中心</a>
+  </div>
+<script type="text/javascript">
+$.ajax({
+	url:"http://sheyi.summer9.com/sheyi/poster/load.do",
+	type:"post",
+	data:{},
+	dataType:"json",
+	success:function(result){
+		if(result.status==1){
+			//alert(result.msg);
+		}
+		var posters=result.data;
+		
+		for(var i=0;i<posters.length;i++){
+			var poster=posters[i];
+			var id=poster.id;
+			var href=poster.href;
+			var imgsrc=poster.imgsrc;
+			var index=i;
+			 var sli='<div class="swiper-slide" >'+
+		            '<a href="'+href+'" class="banner-mob">'+'<img src="'+imgsrc+'" >'+'</a></div>';
+		         
+			
+			//将sli字符串转换成jQuery对象li元素
+				var $li=$(sli);
+				//将li元素添加到笔记本ul列表区
+				$("#poster").append($li);
+			
+		}
+	},
+	error:function(){
+	//	alert("加载失败！")
+	}
+ });
+</script>
+<script type="text/javascript">
+$(function(){
+
+	$.ajax({
+		url:"http://sheyi.summer9.com/sheyi/combo/loadall.do",
+		type:"post",
+		data:{},
+		dataType:"json",
+		success:function(result){
+			if(result.status==1){
+				//alert(result.msg);
+			}
+			var combos=result.data;
+			
+			for(var i=0;i<combos.length;i++){
+				var combo=combos[i];
+				var id=combo.id;
+				var name=combo.name;
+				var price=combo.price;
+				var introduce=combo.introduce;
+				var showimgsrc=combo.showimgsrc;
+				
+				 var sli= '<a class="tcItem" href="http://sheyi.summer9.com/sheyi/sheyi/combo.html?comboid='+id+'">'+
+		            '<div class="tcImage"><img src="'+showimgsrc+'" alt="'+name+'">'+
+		            '<i class="icon11"></i>'+
+		            '</div>'+
+		    '<dl>'+
+		      '<dt style="padding-right:60px;">'+name+'<i>￥'+price+'</i></dt>'+
+		      '<dd>'+introduce+'</dd>'+
+		    '</dl>'+
+		  '</a>';
+			          
+			        // alert(sli);
+				
+				//将sli字符串转换成jQuery对象li元素
+					var $li=$(sli);
+					//将li元素添加到笔记本ul列表区
+					$("#combo").append($li);
+				
+			}
+		},
+		error:function(){
+			//alert("加载失败！")
+		}
+	 }); 
+	
+});
+</script>
+
+
+    <!-- 标题 -->
+
+ 
+  <!-- 标题 -->
+  <div class="tcWrap" id="combo">
+
+  </div>
+  <div class="foot">
+    <div class="link" style="margin:0px auto 30px">
+      <a href="index.html">首页</a>
+      <a href="../my/index.html">会员中心</a>
+      <a href="../my/question.html">常见问题</a>
+    </div>
+    <!-- <div>
+    <img src="http:images/mob5.png" style="height:24px;width:89px;display:inline-block;"></div>
+  -->
+  <p class="copy">
+    © 2017 宁波夏天信息科技
+   </p>
+</div>
+<script>
+ var swiper = new Swiper('.swiper-container', {
+    loop: true,
+    autoplay:3500,
+    pagination:'.swiper-pagination',
+    paginationClickable:true,
+    preventClicks:false,
+    autoplayDisableOnInteraction: false,
+    effect:'slide',
+ });
+ $(".dialog-bg .dialog-close").click(function(event) {
+     $(this).parents(".dialog-bg").hide()
+ });
+$(".rolling-more").click(function(event) {
+   $(".dialog-bg").show();
+});
+$('#slide3,#slide4').swipeSlide({
+autoSwipe:true,//自动切换默认是
+speed:3000,//速度默认4000
+continuousScroll:true,//默认否
+transitionType:'ease-in',
+axisX:false
+});
+ </script>
+<script type="text/javascript">
+    $(function(){
+      
+      var submenu=$("#rolling1"),submenu_fixed=$("#rolling2");
+      if(submenu.length==0){
+        return;
+      }
+      submenu_fixed.css({opacity:0,background: "rgba(238,238,238,.97)"});
+      var submenuTop=submenu.offset().top;
+      var isHide=false;
+      window.addEventListener("scroll",function(){
+          var top=document.body.scrollTop||document.documentElement.scrollTop;
+          if(top>=submenuTop){
+            if(!isHide){
+              isHide=true;
+              submenu_fixed.css("opacity",1);
+              submenu.css("opacity",0);
+            }
+          }else{
+            if(isHide){
+              isHide=false;
+              submenu_fixed.css("opacity",0);
+              submenu.css("opacity",1);
+            }
+          }
+      },false);
+    });
+  </script>
+</body>
+</html>

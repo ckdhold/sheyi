@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)http://m.flowerplus.cn/product/detail?id=1186 -->
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>发红包</title>
+    <link rel="stylesheet" href="css/m_web.css">
+    <script charset="utf-8" src="js/v.js"></script>
+    <script async="" src="js/analytics.js"></script>
+    <script src="js/hm.js"></script>
+    <script async="" src="js/sensorsdata.min.js"></script>
+    <script>
+    var _web_base = "http://t.flowerplus.cn/".replace(/^https?:/, window.location.protocol);
+    document.domain = "flowerplus.cn";
+    </script>
+    <script src="js/jquery.js"></script>
+    <script src="js/jweixin-1.2.0.js"></script>
+    <script src="js/m.js"></script>
+</head>
+
+<body ontouchstart="">
+    <div class="page">
+        <link rel="stylesheet" type="text/css" href="css/globle.css">
+        <link rel="stylesheet" href="css/weui.min.css">
+        <style>
+        body {
+            background: #fff7ed;
+            font-weight: 300;
+        }
+        
+        .bestie-con li u {
+            text-decoration: none;
+            background: #c30e22;
+            width: 80%;
+            margin-left: 10%;
+            border-radius: 2%;
+            line-height: 19px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 27px;
+            color: #fff;
+        }
+        
+        .bestie-con li {
+            overflow: hidden;
+        }
+        
+        .bestie-con img {
+            transform: scale(1);
+            -webkit-transform: scale(1);
+            transition: transform .3s ease-out;
+            -webkit-transition: -webkit-transform .3s ease-out;
+            transform-origin: center;
+            -webkit-transform-origin: center;
+            position: relative;
+            -webkit-backface-visibility: hidden;
+            -webkit-transform-style: preserve-3d;
+        }
+        
+        .bestie-con li.on img {
+            transform: scale(1.2);
+            -webkit-transform: scale(1.2);
+        }
+        
+        .bestie-con li:after {
+            z-index: 1
+        }
+        
+        .bestie-con li:before {
+            z-index: 1
+        }
+        </style>
+        <div class="page">
+            <!-- <div class="bag-head">
+            <span></span>
+        </div>
+        <p class="H-photo" style="background-image:url(http://wx.qlogo.cn/mmopen/fgQEnibicHrzXOMmSiamH5eCIA3Kty0MBIiaX7llZnJ0icwsIaTgOwwXnsib1QKCcKOVNTZzKswpiaNp9Y8QDbIpCABO4A1yC65qlZf/0)"></p> -->
+            <!-- tab栏的开始 -->
+            <div class="red-tab">
+                <a href="javascript:void(0)" tap="1" class="current">闺蜜红包</a>
+                <a href="javascript:void(0)" tap="2" class="">拼手气红包</a>
+            </div>
+            <!-- tab栏的开始 -->
+            <!-- 底部的切换 -->
+            <div class="car-out">
+                <div class="carin" style="display: block;">
+                    <p class="choice-tip">选择放入红包的礼物</p>
+                    <ul class="bestie-con">
+                        <li huaping="2" data-key="i0" class="">
+                            <img src="picture/01.jpg">
+                            <p><span class="u-price">98</span>元猪肉礼包
+                            </p>
+                        </li>
+                        <li huaping="2" data-key="i1" class="on">
+                            <img src="picture/02.jpg">
+                            <p><span class="u-price">142</span>元猪肉礼包
+                            </p>
+                        </li>
+                        <li huaping="" data-key="i2" class="">
+                            <img src="picture/03.jpg">
+                            <p><span class="u-price">199</span>元蔬菜+肉类组合
+                            </p>
+                        </li>
+                        <li huaping="" data-key="i3">
+                            <img src="picture/04.jpg">
+                            <p><span class="u-price">299</span>元蔬菜+海鲜组合
+                            </p>
+                        </li>
+                        <li huaping="2" data-key="i5">
+                            <img src="picture/05.jpg">
+                            <p><span class="u-price"> 398</span>元蔬菜+海鲜+肉类组合
+                            </p>
+                        </li>
+                        <li huaping="" data-key="i7" class="">
+                            <img src="picture/06.jpg">
+                            <p><span class="u-price">489</span>元蔬菜+肉类+五谷+海鲜组合
+                            </p>
+                        </li>
+                    </ul>
+                    <!-- <div id="huaping_d" class="weui-cell weui-cell_switch" style="display: flex;">
+                        <div class="weui-cell__bd">蓝调花瓶+20元</div>
+                        <div class="weui-cell__ft">
+                            <input id="huaping" class="weui-switch" type="checkbox">
+                        </div>
+                        <input hidden="hidden" id="btn" name="btn1" type="radio" value="off" checked="checked">
+                    </div> -->
+                    <p class="t-are" id="t-are" style="margin-top:20px;">
+                        <textarea id="content1" maxlength="20" placeholder="美味的食物与你分享"></textarea>
+                    </p>
+                    <p class="c-gift-tip">单人领取</p>
+                    <p class="red-totmoney"><span>¥</span><span id="bestietotal">49.00</span></p>
+                    <a class="submit greate" href="http://m.flowerplus.cn/product/detail?id=1186#">生成红包</a>
+                    <p style="padding:15px;font-size:10px;">
+                        1.未领取的红包，将在7日后自动退款。
+                        <br> 2、红包兑换区域：仅限以下服务中地区兑换：江浙沪、广东、北京、四川、石家庄、天津、合肥、青岛、济南、重庆，超出服务地区请谨慎选择红包。
+                    </p>
+                </div>
+                <div id="car" class="carin" style="display: none;">
+                    <!-- <p class="c-gift-tit">共<span id="num">0</span>束花花</p> -->
+                    <!-- <p class="c-gift-tip">由<span id="p-num">0</span>人领取</p> -->
+                    <!-- <p class="c-gift-ztip"><span>专属红包</span></p> -->
+                    <p class="choice-tip">选择放入红包的礼物</p>
+                    <div class="gift-list">
+                        <div class="shop_items" data-key="i4">
+                            <div>
+                                <p class="item_img"><img src="picture/01.jpg"></p>
+                                <div class="headtit">
+                                    <p>98元猪肉礼包</p>
+                                    <p>¥<span class="price">98</span></p>
+                                </div>
+                            </div>
+                            <div class="num_l">
+                                <button type="button" class="minus">-</button>
+                                <input type="number" class="text_box" value="0">
+                                <button type="button" class="add">+</button>
+                            </div>
+                        </div>
+                        <div class="shop_items" data-key="i6">
+                            <div>
+                                <p class="item_img"><img src="picture/02.jpg"></p>
+                                <div class="headtit">
+                                    <p>142元猪肉礼包</p>
+                                    <p>¥<span class="price">142</span></p>
+                                </div>
+                            </div>
+                            <div class="num_l">
+                                <button type="button" class="minus">-</button>
+                                <input type="number" class="text_box" value="0">
+                                <button type="button" class="add">+</button>
+                            </div>
+                        </div>
+                        <div class="shop_items" data-key="i0">
+                            <div>
+                                <p class="item_img"><img src="picture/03.jpg"></p>
+                                <div class="headtit">
+                                    <p> 199元蔬菜+肉类组合</p>
+                                    <p>¥<span class="price">199</span></p>
+                                </div>
+                            </div>
+                            <div class="num_l">
+                                <button type="button" class="minus">-</button>
+                                <input type="number" class="text_box" value="0">
+                                <button type="button" class="add">+</button>
+                            </div>
+                        </div>
+                        <div class="shop_items" data-key="i7">
+                            <div>
+                                <p class="item_img"><img src="picture/04.jpg"></p>
+                                <div class="headtit">
+                                    <p> 299元蔬菜+海鲜组合</p>
+                                    <p>¥<span class="price">299</span></p>
+                                </div>
+                            </div>
+                            <div class="num_l">
+                                <button type="button" class="minus">-</button>
+                                <input type="number" class="text_box" value="0">
+                                <button type="button" class="add">+</button>
+                            </div>
+                        </div>
+                        <div class="shop_items" data-key="i5">
+                            <div>
+                                <p class="item_img"><img src="picture/05.jpg"></p>
+                                <div class="headtit">
+                                    <p>398元蔬菜+海鲜+肉类组合</p>
+                                    <p>¥<span class="price"> 398</span></p>
+                                </div>
+                            </div>
+                            <div class="num_l">
+                                <button type="button" class="minus">-</button>
+                                <input type="number" class="text_box" value="0">
+                                <button type="button" class="add">+</button>
+                            </div>
+                        </div>
+                        
+                        <div class="shop_items" data-key="i3">
+                            <div>
+                                <p class="item_img"><img src="picture/06.jpg"></p>
+                                <div class="headtit">
+                                    <p>489元蔬菜+肉类+五谷+海鲜组合</p>
+                                    <p>¥<span class="price">489</span></p>
+                                </div>
+                            </div>
+                            <div class="num_l">
+                                <button type="button" class="minus">-</button>
+                                <input type="number" class="text_box" value="0">
+                                <button type="button" class="add">+</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <p class="t-are" id="t-are">
+                        <textarea id="content" maxlength="20" placeholder="美味的食物与你分享"></textarea>
+                    </p>
+                    <p class="c-gift-tip">共<span id="p-num">2</span>人领取</p>
+                    <p class="red-totmoney"><span>¥</span><span id="total">208.00</span></p>
+                    <a class="submit greate" href="http://m.flowerplus.cn/product/detail?id=1186#">生成红包</a>
+                    <p style="padding:15px;font-size:10px;">
+                        1.未领取的红包，将在7日后自动退款。
+                        <br> 2、红包兑换区域：仅限以下服务中地区兑换：江浙沪、广东、北京、四川、石家庄、天津、合肥、青岛、济南、重庆，超出服务地区请谨慎选择红包。
+                    </p>
+                </div>
+            </div>
+            <!-- 底部的切换 -->
+            <p style="text-align:center;padding-bottom:15px;color:#aaa;font-size:12px;">奢忆</p>
+        </div>
+        <script type="text/javascript">
+        !(function() {
+            var supportTouch = function() {
+                try {
+                    document.createEvent("TouchEvent");
+                    return true;
+                } catch (e) {
+                    return false;
+                }
+            }();
+            var _old$On = $.fn.on;
+
+            $.fn.on = function() {
+                if (/click/.test(arguments[0]) && typeof arguments[1] == 'function' && supportTouch) { // 只扩展支持touch的当前元素的click事件
+                    var touchStartY, callback = arguments[1];
+                    _old$On.apply(this, ['touchstart', function(e) {
+                        touchStartY = e.originalEvent.changedTouches[0].clientY;
+                    }]);
+                    _old$On.apply(this, ['touchend', function(e) {
+                        if (Math.abs(e.originalEvent.changedTouches[0].clientY - touchStartY) > 10) return;
+                        e.preventDefault();
+                        callback.apply(this, [e]);
+                    }]);
+                } else {
+                    _old$On.apply(this, arguments);
+                }
+                return this;
+            };
+            $.fn.click = function(fun) {
+                $.fn.on.call(this, "click", fun);
+            }
+        })();
+
+        var sku = {};
+        var is_runing = false;
+        var sku_id = '';
+        var jsApiParameters = "";
+        var id = '';
+        var submitLimitTimes = 0;
+        var tap = 1;
+        var gift = 0;
+        var landiao = false;
+        $("#bestietotal").html($('.on').find('.u-price').html());
+        $("#huaping_d").bind("click", function() {
+            var huapingprice = $("#bestietotal").html();
+            if ($("#btn").val() == "off") {
+                $("#btn").val("on");
+                landiao = true;
+                gift = 2;
+                $("#bestietotal").html((parseFloat(huapingprice) + parseFloat(20)).toFixed(2));
+            } else {
+                $("#btn").val("off");
+                landiao = false;
+                gift = 0;
+                $("#bestietotal").html((parseFloat(huapingprice) - parseFloat(20)).toFixed(2));
+            }
+        })
+        $(".add").on("click", function() {
+            var t = $(this).parent().find('input[class*=text_box]');
+            var kctotle = $(this).parent(".num_l").siblings('div').find(".kc-totle").val();
+            t.val(parseInt(t.val()) + 1)
+            setTotal();
+        })
+        $(".minus").on("click", function() {
+            var t = $(this).parent().find('input[class*=text_box]');
+            var kctotle = $(this).parent(".num_l").siblings('div').find(".kc-totle").val();
+            if (t.val() == 0) {
+                t.val(parseInt(t.val()))
+            } else {
+                t.val(parseInt(t.val()) - 1)
+            }
+            setTotal();
+        })
+        $(".bestie-con li").click(function(event) {
+            $(this).addClass('on').siblings('li').removeClass('on');
+            if (landiao && $(this).attr('huaping') == 2) {
+                var pric = parseInt(20) + parseFloat($(this).find(".u-price").text());
+                gift = 2;
+            } else {
+                var pric = $(this).find(".u-price").text();
+                gift = 0;
+            }
+            $("#bestietotal").html(parseFloat(pric).toFixed(2));
+            if ($(this).attr('huaping') == 2) {
+                $("#huaping_d").show();
+            } else {
+                $("#huaping_d").hide();
+            }
+        });
+        $(".red-tab a").click(function(event) {
+            tap = $(this).attr('tap');
+            $(this).addClass('current').siblings().removeClass('current');
+            $(this).parent(".red-tab").siblings('.car-out').children('.carin').eq($(this).index()).show().siblings('.carin').hide();
+        });
+        // input的文本的输入
+        $(".text_box").focus(function() {
+            $(this).siblings('.minus').attr("disabled", "true")
+            $(this).siblings('.add').attr("disabled", "true")
+            $(this).val('');
+        });
+        $(".text_box").blur(function() {
+            var val = Number($(this).val());
+            $(this).siblings('.minus').removeAttr("disabled")
+            $(this).siblings('.add').removeAttr("disabled")
+            if (isNaN(val) || val <= 0 || val == '') {
+                val = 0;
+                $(this).val(0);
+            }
+            if (this.value != val) {
+                this.value = val;
+            }
+            var FirstChar = this.value.substr(0, 1);
+            if (FirstChar == "0") {
+
+            }
+            setTotal(); //更新总数
+        });
+
+        function setTotal() {
+            var s = 0;
+            var num = 0;
+            $(".shop_items").each(function() {
+                s += parseInt($(this).find('input[class*=text_box]').val()) * parseFloat($(this).find('span[class*=price]').text());
+                num += parseInt($(this).find('input[class*=text_box]').val());
+            });
+            $("#total").html(s.toFixed(2));
+            $("#num").html(num);
+            $("#p-num").html(num);
+            // flushskustatus();  
+        }
+        $('#t-are textarea').bind('input propertychange', function() {
+            if ($(this).val().length > 20) {
+                $(this).val()($(this).val().substring(0, 20) + '');
+            }
+        });
+
+        //创建sku_id
+        function flushskustatus() {
+            // var sku_id = '';
+            var new_skuid = '';
+            $('.shop_items').each(function() {
+                if ($(this).children().find('.text_box').val() > 0) {
+                    new_skuid = new_skuid + $(this).attr('data-key') + '_' + $(this).children().find('.text_box').val();
+                }
+            });
+            sku_id = data.id + new_skuid;
+        }
+
+        $(".submit").bind("click", function(e) {
+            e.preventDefault();
+            if (is_runing) {
+                return;
+            }
+            if (tap == 1) {
+                sku_id = data.id + $('.on').attr('data-key') + '_1';
+                var content = $('#content1').val();
+            }
+            if (tap == 2) {
+                if ($('#total').html() <= 0) {
+                    FP.showError("至少选择一份礼物");
+                    return;
+                }
+                flushskustatus();
+                var content = $('#content').val();
+                gift = 0;
+            }
+            if (data.status != 1) {
+                FP.showError("已下架");
+                return;
+            }
+            if (sku_id == '') {
+                FP.showError("至少选择一份礼物");
+                return;
+            }
+            if (jsApiParameters != "") {
+                return;
+            }
+            var submitLimitTimesDiff = Math.round(((new Date()).getTime() - submitLimitTimes) / 1000);
+            if (submitLimitTimesDiff < 5) {
+                FP.showError('提交过于频繁，' + (5 - submitLimitTimesDiff) + '秒后再试');
+                return;
+            }
+            submitLimitTimes = (new Date()).getTime();
+            $(".submit").html("微信支付启动中...").addClass("buttondisabled");
+            isruning = true;
+            FP.ajaxPost(
+                "/buy/redpacket_submit", {
+                    sku_id: sku_id,
+                    content: content,
+                    tap: tap,
+                    gift: gift
+                },
+                function(v) {
+                    isruning = false;
+                    if (v.f) {
+                        jsApiParameters = v.data;
+                        id = v.oid;
+                        wxpay();
+                    } else {
+                        FP.showError(v.data);
+                        $(".submit").html("微信支付").removeClass("buttondisabled");
+                    }
+                },
+                function() {
+                    isruning = false;
+                    FP.showError('请求失败,请重试');
+                    $(".submit").html("微信支付").removeClass("buttondisabled");
+                }
+
+            );
+            return;
+        });
+
+        function wxpay() {
+            if (typeof WeixinJSBridge == "undefined") {
+                if (document.addEventListener) {
+                    document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+                } else if (document.attachEvent) {
+                    document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+                    document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+                }
+            } else {
+                jsApiCall();
+            }
+        }
+
+        //调用微信JS api 支付
+        function jsApiCall() {
+            $(".submit").html("微信支付已启动,请完成支付");
+            WeixinJSBridge.invoke(
+                'getBrandWCPayRequest',
+                eval("(" + jsApiParameters + ")"),
+                function(res) {
+                    jsApiParameters = "";
+
+                    if (res.err_msg == "get_brand_wcpay_request:ok") {
+                        var whenpayok = function() {
+                            window.location.replace('/activity/my_redpacket?id=' + id);
+                            isruning = false;
+                            $(".submit").html("微信支付").removeClass("buttondisabled");
+                        };
+                        isruning = true;
+                        $(".submit").html("正在确认支付结果，请稍候！").addClass("buttondisabled");
+                        FP.ajaxPost(
+                            '/my/wxpaycheck/', {
+                                id: id
+                            },
+                            function(v) {
+                                whenpayok();
+                            },
+                            function(v) {
+                                whenpayok();
+                            }
+
+                        );
+
+                        //window.location.reload();
+
+                    } else {
+                        isruning = false;
+                        $(".submit").html("微信支付").removeClass("buttondisabled");
+                    }
+                }
+            );
+        }
+        </script>
+    </div>
+    <script>
+    var page_type = '';
+    var sat = 'cb037e036c03aad3';
+    var sap = 'default';
+    var sau = 'https://flowerplus.cloud.sensorsdata.cn:4006/sa?token=' + sat + '&project=' + sap;
+    (function(para) {
+        var p = para.sdk_url,
+            n = para.name,
+            w = window,
+            d = document,
+            s = 'script',
+            x = null,
+            y = null;
+        w['sensorsDataAnalytic201505'] = n;
+        w[n] = w[n] || function(a) {
+            return function() {
+                (w[n]._q = w[n]._q || []).push([a, arguments]);
+            }
+        };
+        var ifs = ['track', 'quick', 'register', 'registerPage', 'registerOnce', 'registerSession', 'registerSessionOnce', 'trackSignup', 'trackAbtest', 'setProfile', 'setOnceProfile', 'appendProfile', 'incrementProfile', 'deleteProfile', 'unsetProfile', 'identify', 'login', 'logout'];
+        for (var i = 0; i < ifs.length; i++) {
+            w[n][ifs[i]] = w[n].call(null, ifs[i]);
+        }
+        if (!w[n]._t) {
+            x = d.createElement(s), y = d.getElementsByTagName(s)[0];
+            x.async = 1;
+            x.src = p;
+            y.parentNode.insertBefore(x, y);
+            w[n].para = para;
+        }
+    })({
+        sdk_url: 'js/sensorsdata.min.js',
+        name: 'sa',
+        server_url: sau
+            // ,
+            // debug_mode:true,
+            // debug_mode_upload:false
+    });
+
+
+    sa.quick('autoTrackWithoutProfile', {});
+    </script>
+    <script>
+    function exist_ga() {
+        return typeof ga == 'function';
+    }
+
+    function ga_buy() {
+        if (!exist_ga()) return;
+        ga("send", {
+            hitType: "event",
+            eventCategory: "订购流程",
+            eventAction: "立即购买",
+            eventLabel: "详情页购买"
+        })
+    }
+
+    function ga_submit() {
+        if (!exist_ga()) return;
+        ga("send", {
+            hitType: "event",
+            eventCategory: "订购流程",
+            eventAction: "确认下单",
+            eventLabel: "订单填写页"
+        })
+    }
+
+    function ga_cancel() {
+        if (!exist_ga()) return;
+        ga("send", {
+            hitType: "event",
+            eventCategory: "订购流程",
+            eventAction: "取消订单",
+            eventLabel: "订单确认页"
+        })
+    }
+
+    function ga_pay(id, product_name, payment) {
+        if (!exist_ga()) return;
+        ga("send", {
+            hitType: "event",
+            eventCategory: "订购流程",
+            eventAction: "去支付",
+            eventLabel: "订单确认页"
+        });
+        ga("require", "ecommerce");
+        ga("ecommerce:addTransaction", {
+            "id": id,
+            "affiliation": product_name,
+            "revenue": payment,
+        });
+        ga("ecommerce:send")
+    };
+    </script>
+</body>
+
+</html>

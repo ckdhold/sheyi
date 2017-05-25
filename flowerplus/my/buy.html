@@ -1,549 +1,590 @@
 <!DOCTYPE html>
 <!-- saved from url=(0065)http://t.flowerplus.cn/buy/confirm?sku=0i2_1_0_0&_t=1489542385767 -->
 <html>
+
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-	<meta name="keywords" content="花+,花加,flowerplus,鲜花,鲜花订阅">
-	<meta name="description" content="一周一花，用鲜花点亮生活,提供98元单品鲜花包月服务、168元混合鲜花包月服务和花艺周边配件、花艺课程服务。">
-	<meta name="format-detection" content="telephone=no">
-	<meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
-	<title>购买</title>
-	<link rel="stylesheet" href="css/m_web.css">
-	<script charset="utf-8" src="js/v.js"></script>
-	<script async="" src="js/analytics.js"></script>
-	<script src="js/hm.js"></script>
-	<script async="" src="js/sensorsdata.min.js"></script>
-	<script src="js/jquery.js"></script>
-	<script src="js/jweixin-1.2.0.js"></script>
-	<script src="js/m.js"></script>
-	<script src="js/tongji.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="keywords" content="花+,花加,flowerplus,鲜花,鲜花订阅">
+    <meta name="description" content="一周一花，用鲜花点亮生活,提供98元单品鲜花包月服务、168元混合鲜花包月服务和花艺周边配件、花艺课程服务。">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>购买</title>
+    <link rel="stylesheet" href="css/m_web.css">
+    <script charset="utf-8" src="js/v.js"></script>
+    <script async="" src="js/analytics.js"></script>
+    <script src="js/hm.js"></script>
+    <script async="" src="js/sensorsdata.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/jweixin-1.2.0.js"></script>
+    <script src="js/m.js"></script>
+    <script src="js/tongji.js"></script>
 </head>
+
 <body ontouchstart="">
-	<div class="page">
-		<!--BEGIN 购买表单-->
+    <div class="page">
+        <!--BEGIN 购买表单-->
+        <link rel="stylesheet" type="text/css" href="css/zfk.css">
+        <style>
+        .delivery_date2 {
+            padding: 15px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        .delivery_date2 strong {
+            display: inline-block;
+            font-weight: normal;
+            padding-bottom: 15px;
+        }
+        
+        .delivery_date2 span {
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 4px;
+            border: 1px solid #ccd2d5;
+            margin: 0 10px 10px 0;
+            color: #404040;
+            font-size: 16px;
+            text-align: center;
+            cursor: default;
+            -webkit-tap-highlight-color: transparent;
+            transition: all .2s ease-out;
+        }
+        
+        .delivery_date2 p {
+            font-size: 12px;
+            color: #999;
+            border-top: 1px solid #e5e5e5;
+            margin-top: 7px;
+            padding-top: 7px;
+        }
+        
+        .delivery_date2 span.select {
+            border-color: #f73f65;
+            color: #f73f65;
+        }
+        /* 新加的样式 */
+        
+        .bt10 {
+            border-top: 10px solid #eee;
+        }
+        
+        .bb10 {
+            border-bottom: 10px solid #eee;
+        }
+        
+        .pinfo-wrap {
+            margin-left: 0;
+            width: 100%;
+            padding: 0;
+        }
+        
+        .flex {
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        </style>
+        <div id="buyWrap">
+            <!-- 头部的地址部位开始-->
+            <div class="delivery_wrap">
+                <!-- 没填写内容模块开始 -->
+                <div class="delivery_no_address">请填写收货地址</div>
+                <!-- 没填写内容模块结束 -->
+                <!-- 已写内容模块开始 -->
+                <div class="delivery_content" style="display:none">
+                    <div style="float:left;width:40px;font-weight:bold;color:#fff;">送至</div>
+                    <div style="margin-left:40px;overflow:hidden;color:#fcfcfc" id="addressinfo"></div>
+                    <div class="delivery_name" style='font-size:14px;'>
+                        收货人：
+                        <span></span>
+                    </div>
+                    <div class="delivery_address clearfix">
+                        <p class="f" style="width:90%">
+                            收货地址：
+                            <span></span>
+                        </p>
+                    </div>
+                    <div class="delivery_mob">
+                        <span style="color:#fff"></span>
+                    </div>
+                </div>
+                <!-- 已写内容模块结束-->
+            </div>
+            <!-- 代收点部分开始 -->
+            <div class="delivery_tip" style="display:none">
+                <span>收货不方便时，可选择免费代收服务</span>
+            </div>
+            <!-- 代收点部分结束 -->
+            <!-- 头部的地址部位结束-->
+            <script>
+            // 代收点的按钮点击效果
+            $(".delivery_tip").click(function(event) {
+                $("#buyWrap").hide();
+                ds_show_daishou_picker(data.address_id);
+            });
 
-		<link rel="stylesheet" type="text/css" href="css/zfk.css">
-		<style>
-.delivery_date2{
-	padding:15px;
-	border-bottom: 1px solid #e5e5e5;
-}
-.delivery_date2 strong{
-	display: inline-block;
-	font-weight: normal;
-	padding-bottom:15px;
-}
-.delivery_date2 span{
-	display: inline-block;
-	padding:6px 15px;
-	border-radius:4px;
-	border:1px solid #ccd2d5;
-	margin:0 10px 10px 0;
-	color:#404040;
-	font-size: 16px;
-	text-align: center;
-	cursor: default;
-	-webkit-tap-highlight-color:transparent;
-	transition: all .2s ease-out;
-
-}
-.delivery_date2 p{
-	font-size:12px;
-	color: #999;
-	border-top:1px solid #e5e5e5;
-	margin-top:7px;
-	padding-top:7px;
-}
-.delivery_date2 span.select{
-	border-color: #f73f65;
-	color:#f73f65;
-}
-/* 新加的样式 */
-.bt10{
-	border-top:10px solid #eee;
-}
-.bb10{
-	border-bottom:10px solid #eee;
-}
-.pinfo-wrap{
-	margin-left:0;
-	width:100%;
-	padding:0;
-}
-.flex{
-	display:-webkit-flex;
-  	display:flex;
-  	-webkit-flex-direction:row;
-	flex-direction:row;
-	justify-content:space-between;
-}
-</style>
-		<div id="buyWrap">
-			<!-- 头部的地址部位开始-->
-			<div class="delivery_wrap">
-				<!-- 没填写内容模块开始 -->
-				<div class="delivery_no_address">请填写收货地址</div>
-				<!-- 没填写内容模块结束 -->
-				<!-- 已写内容模块开始 -->
-				<div class="delivery_content" style="display:none">
-					<div style="float:left;width:40px;font-weight:bold;color:#fff;">送至</div>
-					<div style="margin-left:40px;overflow:hidden;color:#fcfcfc" id="addressinfo"></div>
-					<div class="delivery_name" style='font-size:14px;'>
-						收货人：
-						<span></span>
-					</div>
-					<div class="delivery_address clearfix">
-						<p class="f" style="width:90%">
-							收货地址：
-							<span></span>
-						</p>
-					</div>
-					<div class="delivery_mob">
-						<span style="color:#fff"></span>
-					</div>
-
-				</div>
-				<!-- 已写内容模块结束-->
-			</div>
-			<!-- 代收点部分开始 -->
-			<div class="delivery_tip" style="display:none">
-				<span>收货不方便时，可选择免费代收服务</span>
-			</div>
-			<!-- 代收点部分结束 -->
-			<!-- 头部的地址部位结束-->
-			<script>
-// 代收点的按钮点击效果
-$(".delivery_tip").click(function(event) {
-    $("#buyWrap").hide();
-    ds_show_daishou_picker(data.address_id);
-});
-
-function ds_hide_daishou_picker(){
-    $("#buyWrap").show();
-}
-
-</script>
-			<div class="pinfo-wrap p15 bb10 bt10" style="padding:15px!important">
-				<div class="pinfo-image">
-					<img src="imgs/zhutud20160908.jpg"></div>
-				<div class="pinfo-content">
-					<div class="pinfo-title">简花·单品鲜花月套餐</div>
-					<div class="pinfo-sku">6个月,花剪(魅惑紫)+59元,1组/4包+5元,蓝调花瓶+20元</div>
-				</div>
-				<div class="pinfo-price" style="font-size:18px">￥672</div>
-			</div>
-			<link rel="stylesheet" href="js/weui.css">
-			<link rel="stylesheet" href="js/jquery-weui.css">
-			<script src="js/jquery-2.1.4.js"></script>
-			<script src="js/jquery-weui.js"></script>
-			<style>
-.use-mode>p{
-	margin-left:15px;
-	padding:15px 0 8px 0;
-}
-.use-mode{
-	padding-bottom:15px;
-}
-.delivery_date-new .select-but,.use-mode .select-but{
-    display: flex;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    flex-wrap: wrap;
-    -webkit-flex-wrap:wrap;
-    flex-direction:row;
-    -webkit-flex-direction:row;
-    justify-content:space-between;
-    align-items:center;
-    line-height:50px;
-    height:50px;
-    padding: 0 15px;
-     
-}
-.delivery_date-new .select-but>span,.use-mode .select-but>span{
-    text-align:center;
-    display:block;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    border:1px solid #ccd2d5;
-    text-align: center;
-	cursor: default;
-   margin:0;
-   margin-left:-1px;
-   border-radius: 0;
-   padding:0;
-
-}
-.delivery_date-new .select-but>span:first-child,.use-mode .select-but>span:first-child{
-	margin-left:0;
-}
-.delivery_date-new .select-but>span.current,.use-mode .select-but>span.current{
-	border:1px solid #ff5d7c;
-	border-bottom:2px solid #ff5d7c;
-	line-height:50px;
-	color:#ff5d7c;
-	z-index:2;	
-}
-.delivery_date-new .select-but>span.select,.use-mode .select-but>span.select{
-	padding-right:0;
-}
-.use-mode>ul li.current:after{
-	position: absolute;
-	content:"";
-}
-.arrival-time{
-	width:100%;	
-	margin-bottom:5px;
-	padding:0 15px;
-}
-.arrival-time p.des{
-	color:#f27a93;
-	padding:15px;
-	font-size:14px;
-}
-.p15{
-	padding:20px 15px;
-}
-.pl15{
-    padding:0 15px;
-}
-.renew-but{
-	font-size:14px;
-	padding:15px 0;
-	border-top:1px solid #e5e5e5;
-	/* border-bottom:1px solid #e5e5e5; */
-	position:relative;
-		
-}
-.switch-but{
-	width:45px;
-	height:25px;
-	border-radius:20px;
-	background:#ccc;
-	position:absolute;
-	right:0;
-	top:50%;
-	transform:translate(0,-50%);
-	transform:translate(0,-50%);
-	transition: all .2s ease-out;
-}
-.switch-but.current{
-	background:#ff5d7c;
-}
-.switch-but:after{
-	position: absolute;
-	content:"";
-	left:5px;
-	top:50%;
-	width:20px;
-	height:20px;
-	border-radius:50%;
-	background:#fff;
-	transform:translate(0,-50%);
-	transform:translate(0,-50%);
-}
-.switch-but.current:after{	
-	left:20px;
-	background:#fff;
-}
-.xd-order{
-	border-top:1px solid #e5e5e5;
-	padding:18px 0;
-	position:relative;
-}
-.xd-order p span{
-	background:#f27a93;
-	font-size:12px;
-	color:#fff;
-	padding:0px 5px;
-	border-radius:2px;
-	margin: -1px 0 0 2px;
-	display:inline-block;
-}
-.xd-order>div{
-	padding-right:60px;
-}
-.xd-order.current:after{
-	position: absolute;
-	content:"";
-	right:5px;
-	top:50%;
-	display:block;
-	width:15px;
-	height:7px;
-	border:2px solid #ff5d7c;
-	border-width:0 0 2px 2px;
-	transform:rotate(-50deg) translate(0,-50%);
-	-webkit-transform:rotate(-50deg) translate(0,-50%);
-}
-.nbb{
-    border:0;
-}
-.renew-out>ul .other{
-	color:#15ada1;
-	padding:15px 0;
-}
-.xd-order p{
-	font-size:14px;
-}
-.xd-order p:nth-child(2){    
-	color:#666;
-	font-size:12px;
-}
-.delivery_date-new strong{
-   font-weight:normal;
-   position:relative;
-   padding:15px 0 8px 15px;
-   display:block;
-}
-.des{
-	padding:0px 15px 15px 35px;
-	color:#ff5d7c;
-	display:none;
-	background:url(/Static/img/zfk-dj.png) no-repeat;
-	background-position:15px 3px;
-	background-size:16px;
-	-webkit-background-size:16px;	
-}
-.delivery_date-new span.select{
-	line-height:50px;
-}
-</style>
-
-			<p class="des" id="select_week_day"></p>
-			<div class="arrival-time" style="display:none">
-				<!-- 在现有的基础续订 -->
-				<div class="renew-but">
-					<span>在已有订单结束后开始配送</span>
-					<p class="switch-but"></p>
-				</div>
-				<!-- 在现有的基础续订 -->
-				<div class="renew-out">
-					<!-- 无续订 -->
-					<!-- <p class="des des_1" style="display:none;">首次3月20号</p>
+            function ds_hide_daishou_picker() {
+                $("#buyWrap").show();
+            }
+            </script>
+            <div class="pinfo-wrap p15 bb10 bt10" style="padding:15px!important">
+                <div class="pinfo-image">
+                    <img src="imgs/zhutud20160908.jpg"></div>
+                <div class="pinfo-content">
+                    <div class="pinfo-title">简花·单品鲜花月套餐</div>
+                    <div class="pinfo-sku">6个月,花剪(魅惑紫)+59元,1组/4包+5元,蓝调花瓶+20元</div>
+                </div>
+                <div class="pinfo-price" style="font-size:18px">￥672</div>
+            </div>
+            <link rel="stylesheet" href="js/weui.css">
+            <link rel="stylesheet" href="js/jquery-weui.css">
+            <script src="js/jquery-2.1.4.js"></script>
+            <script src="js/jquery-weui.js"></script>
+            <style>
+            .use-mode>p {
+                margin-left: 15px;
+                padding: 15px 0 8px 0;
+            }
+            
+            .use-mode {
+                padding-bottom: 15px;
+            }
+            
+            .delivery_date-new .select-but,
+            .use-mode .select-but {
+                display: flex;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: -ms-flexbox;
+                flex-wrap: wrap;
+                -webkit-flex-wrap: wrap;
+                flex-direction: row;
+                -webkit-flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                line-height: 50px;
+                height: 50px;
+                padding: 0 15px;
+            }
+            
+            .delivery_date-new .select-but>span,
+            .use-mode .select-but>span {
+                text-align: center;
+                display: block;
+                -webkit-box-flex: 1;
+                -webkit-flex: 1;
+                -ms-flex: 1;
+                flex: 1;
+                border: 1px solid #ccd2d5;
+                text-align: center;
+                cursor: default;
+                margin: 0;
+                margin-left: -1px;
+                border-radius: 0;
+                padding: 0;
+            }
+            
+            .delivery_date-new .select-but>span:first-child,
+            .use-mode .select-but>span:first-child {
+                margin-left: 0;
+            }
+            
+            .delivery_date-new .select-but>span.current,
+            .use-mode .select-but>span.current {
+                border: 1px solid #ff5d7c;
+                border-bottom: 2px solid #ff5d7c;
+                line-height: 50px;
+                color: #ff5d7c;
+                z-index: 2;
+            }
+            
+            .delivery_date-new .select-but>span.select,
+            .use-mode .select-but>span.select {
+                padding-right: 0;
+            }
+            
+            .use-mode>ul li.current:after {
+                position: absolute;
+                content: "";
+            }
+            
+            .arrival-time {
+                width: 100%;
+                margin-bottom: 5px;
+                padding: 0 15px;
+            }
+            
+            .arrival-time p.des {
+                color: #f27a93;
+                padding: 15px;
+                font-size: 14px;
+            }
+            
+            .p15 {
+                padding: 20px 15px;
+            }
+            
+            .pl15 {
+                padding: 0 15px;
+            }
+            
+            .renew-but {
+                font-size: 14px;
+                padding: 15px 0;
+                border-top: 1px solid #e5e5e5;
+                /* border-bottom:1px solid #e5e5e5; */
+                position: relative;
+            }
+            
+            .switch-but {
+                width: 45px;
+                height: 25px;
+                border-radius: 20px;
+                background: #ccc;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translate(0, -50%);
+                transform: translate(0, -50%);
+                transition: all .2s ease-out;
+            }
+            
+            .switch-but.current {
+                background: #ff5d7c;
+            }
+            
+            .switch-but:after {
+                position: absolute;
+                content: "";
+                left: 5px;
+                top: 50%;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: #fff;
+                transform: translate(0, -50%);
+                transform: translate(0, -50%);
+            }
+            
+            .switch-but.current:after {
+                left: 20px;
+                background: #fff;
+            }
+            
+            .xd-order {
+                border-top: 1px solid #e5e5e5;
+                padding: 18px 0;
+                position: relative;
+            }
+            
+            .xd-order p span {
+                background: #f27a93;
+                font-size: 12px;
+                color: #fff;
+                padding: 0px 5px;
+                border-radius: 2px;
+                margin: -1px 0 0 2px;
+                display: inline-block;
+            }
+            
+            .xd-order>div {
+                padding-right: 60px;
+            }
+            
+            .xd-order.current:after {
+                position: absolute;
+                content: "";
+                right: 5px;
+                top: 50%;
+                display: block;
+                width: 15px;
+                height: 7px;
+                border: 2px solid #ff5d7c;
+                border-width: 0 0 2px 2px;
+                transform: rotate(-50deg) translate(0, -50%);
+                -webkit-transform: rotate(-50deg) translate(0, -50%);
+            }
+            
+            .nbb {
+                border: 0;
+            }
+            
+            .renew-out>ul .other {
+                color: #15ada1;
+                padding: 15px 0;
+            }
+            
+            .xd-order p {
+                font-size: 14px;
+            }
+            
+            .xd-order p:nth-child(2) {
+                color: #666;
+                font-size: 12px;
+            }
+            
+            .delivery_date-new strong {
+                font-weight: normal;
+                position: relative;
+                padding: 15px 0 8px 15px;
+                display: block;
+            }
+            
+            .des {
+                padding: 0px 15px 15px 35px;
+                color: #ff5d7c;
+                display: none;
+                background: url(/Static/img/zfk-dj.png) no-repeat;
+                background-position: 15px 3px;
+                background-size: 16px;
+                -webkit-background-size: 16px;
+            }
+            
+            .delivery_date-new span.select {
+                line-height: 50px;
+            }
+            </style>
+            <p class="des" id="select_week_day"></p>
+            <div class="arrival-time" style="display:none">
+                <!-- 在现有的基础续订 -->
+                <div class="renew-but">
+                    <span>在已有订单结束后开始配送</span>
+                    <p class="switch-but"></p>
+                </div>
+                <!-- 在现有的基础续订 -->
+                <div class="renew-out">
+                    <!-- 无续订 -->
+                    <!-- <p class="des des_1" style="display:none;">首次3月20号</p>
 				<p class="des des_2" style="display:none;">首次3月18号</p>
 				-->
-				<!-- 无续订 -->
-				<ul class="pl15" style="display:none">
-					<!-- <li class="xd-order nbb current">
+                    <!-- 无续订 -->
+                    <ul class="pl15" style="display:none">
+                        <!-- <li class="xd-order nbb current">
 					<div id="zuiyou"></div>
 				</li>
 				-->
-				<div class="order-bottom" style="display:none"></div>
-				<!-- <p class="other" onclick="select_other()">选择其他</p>
+                        <div class="order-bottom" style="display:none"></div>
+                        <!-- <p class="other" onclick="select_other()">选择其他</p>
 			-->
-		</ul>
-	</div>
-</div>
-<input type="hidden" id="orders_select_date">
-<input type="hidden" id="orders_select_week">
-<input type="hidden" id="orders_select_oid">
-<div class="use-mode bt10 bb10">
-	<p>用途</p>
-	<div class="select-but">
-		<span onclick="flower_use(this)">居家自用</span>
-		<span onclick="flower_use(this)">办公室自用</span>
-		<span onclick="flower_use(this)">礼物</span>
-	</div>
-</div>
-<script type="text/javascript">
-	$(".use-mode>.select-but span").click(function(event) {
-		$(this).addClass('current').siblings('span').removeClass('current');
-	});
-	// $(".delivery_date-new .select-but span").click(function(event) {
-	// 	$(this).addClass('current').siblings('span').removeClass('current');
-	// });
-	function xuangzhong(obj,sel_day,sel_week,oid) {
-		$(".xd-order").removeClass('current');
-		$(obj).addClass('current');
-		$('#orders_select_date').val(sel_day);
-		$('#orders_select_week').val(sel_week);
-		$('#orders_select_oid').val(oid);
-	}
-	function flower_use(obj) {
-		data.flower_use = $(obj).text();
-		if(data.flower_use != '礼物'){
-			if(data.add_lan == '蓝调花瓶+20元'){
-				$.confirm("切换用途,是否要同时删除您的蓝调花瓶？", function() {
-			      	delete data.items.add_lan;
-			      	delete data.add_lan;
-					if(data.delivery_date != ''){
-			    		$(".pinfo-sku").html(data.sku_title+","+data.delivery_date);
-			    	}else{
-			    		$(".pinfo-sku").html(data.sku_title);
-			    	}
-					updateFee();
-				}, function() {
+                    </ul>
+                </div>
+            </div>
+            <input type="hidden" id="orders_select_date">
+            <input type="hidden" id="orders_select_week">
+            <input type="hidden" id="orders_select_oid">
+            <div class="use-mode bt10 bb10">
+                <p>用途</p>
+                <div class="select-but">
+                    <span onclick="flower_use(this)">居家自用</span>
+                    <span onclick="flower_use(this)">办公室自用</span>
+                    <span onclick="flower_use(this)">礼物</span>
+                </div>
+            </div>
+            <script type="text/javascript">
+            $(".use-mode>.select-but span").click(function(event) {
+                $(this).addClass('current').siblings('span').removeClass('current');
+            });
+            // $(".delivery_date-new .select-but span").click(function(event) {
+            // 	$(this).addClass('current').siblings('span').removeClass('current');
+            // });
+            function xuangzhong(obj, sel_day, sel_week, oid) {
+                $(".xd-order").removeClass('current');
+                $(obj).addClass('current');
+                $('#orders_select_date').val(sel_day);
+                $('#orders_select_week').val(sel_week);
+                $('#orders_select_oid').val(oid);
+            }
 
-				});
-			}
-		}
-		//看是否选择蓝调花瓶
-		if(data.can_notselect == 1){
-			if(data.flower_use == '礼物'){
-				if(data.sku_title.indexOf('蓝调花瓶') < 0){
-					$.modal({
-					  title: "友情提示",
-					  text: "作为礼物您是否需要为他/她，加20元购买一个蓝调花瓶呢？",
-					  buttons: [
-					    {text: "加购花瓶", onClick: function(){
-					    	data.add_lan = '蓝调花瓶+20元';
-					    	data.items["add_lan"]={fee:20};
-					    	if(data.delivery_date != ''){
-					    		$(".pinfo-sku").html(data.sku_title+","+data.delivery_date+','+data.add_lan);
-					    	}else{
-					    		$(".pinfo-sku").html(data.sku_title+","+data.add_lan);
-					    	}
-					    	updateFee();
-					    }},
-					    {text: "不用了", className: "default", onClick: function(){
-					    	delete data.items.add_lan;
-					    	delete data.add_lan;
-					    	if(data.delivery_date != ''){
-					    		$(".pinfo-sku").html(data.sku_title+","+data.delivery_date);
-					    	}else{
-					    		$(".pinfo-sku").html(data.sku_title);
-					    	}
-					    	updateFee();
-					    }},
-					  ]
-					});
-				}
-			}
-		}
-	}
+            function flower_use(obj) {
+                data.flower_use = $(obj).text();
+                if (data.flower_use != '礼物') {
+                    if (data.add_lan == '蓝调花瓶+20元') {
+                        $.confirm("切换用途,是否要同时删除您的蓝调花瓶？", function() {
+                            delete data.items.add_lan;
+                            delete data.add_lan;
+                            if (data.delivery_date != '') {
+                                $(".pinfo-sku").html(data.sku_title + "," + data.delivery_date);
+                            } else {
+                                $(".pinfo-sku").html(data.sku_title);
+                            }
+                            updateFee();
+                        }, function() {
 
-	$(".delivery_date span").bind(FP.EVENT_CLICK,function(){
-		$(this).parent().find("span").removeClass("select");
-		$(this).addClass("select");
-		$(this).addClass('current').siblings('span').removeClass('current');
-		data.delivery_date=$(this).attr("data-key");
-		if(data.add_lan != undefined){
-			$(".pinfo-sku").html(data.sku_title+","+data.delivery_date+','+data.add_lan);
-		}else{
-			$(".pinfo-sku").html(data.sku_title+","+data.delivery_date);
-		}
-		var class_name = $(this).attr('class_name');
-		$('.des').show();
-		$('#xuding_delivery_date').val($('.'+class_name).text());
-		switch(class_name){
-			case 'des_1':
-				var xu_week = '星期一'
-				$('#select_week_day').text('首次3月20号')
-				$('#xuding_delivery_date').val('首次3月20号');
-				break;
-			case 'des_3':
-				var xu_week = '星期三'
-				$('#select_week_day').text('首次3月22号')
-				$('#xuding_delivery_date').val('首次3月22号');
-				break;
-			case 'des_2':
-				var xu_week = '星期六'
-				$('#select_week_day').text('首次3月18号')
-				$('#xuding_delivery_date').val('首次3月18号');
-				break;
-		}
+                        });
+                    }
+                }
+                //看是否选择蓝调花瓶
+                if (data.can_notselect == 1) {
+                    if (data.flower_use == '礼物') {
+                        if (data.sku_title.indexOf('蓝调花瓶') < 0) {
+                            $.modal({
+                                title: "友情提示",
+                                text: "作为礼物您是否需要为他/她，加20元购买一个蓝调花瓶呢？",
+                                buttons: [{
+                                    text: "加购花瓶",
+                                    onClick: function() {
+                                        data.add_lan = '蓝调花瓶+20元';
+                                        data.items["add_lan"] = {
+                                            fee: 20
+                                        };
+                                        if (data.delivery_date != '') {
+                                            $(".pinfo-sku").html(data.sku_title + "," + data.delivery_date + ',' + data.add_lan);
+                                        } else {
+                                            $(".pinfo-sku").html(data.sku_title + "," + data.add_lan);
+                                        }
+                                        updateFee();
+                                    }
+                                }, {
+                                    text: "不用了",
+                                    className: "default",
+                                    onClick: function() {
+                                        delete data.items.add_lan;
+                                        delete data.add_lan;
+                                        if (data.delivery_date != '') {
+                                            $(".pinfo-sku").html(data.sku_title + "," + data.delivery_date);
+                                        } else {
+                                            $(".pinfo-sku").html(data.sku_title);
+                                        }
+                                        updateFee();
+                                    }
+                                }, ]
+                            });
+                        }
+                    }
+                }
+            }
 
-		$('#xuding_delivery_week').val(xu_week);
-		if (sessionStorage.lastname) {
-		}else{
-			get_lis();
-		}
-		jiazai_shuju();
-		if ($('.renew-but').find('p').hasClass('current') && sessionStorage.lastname) {
-			$('.des').hide();
-		}
-		if (sessionStorage.lastname) {
-			$(".arrival-time").show();
-		}else{
-			$(".arrival-time").hide();
-		}
-	});
-	// function select_week(class_name) {
-		
-	// }
-	// 加载数据
-	function jiazai_shuju() {
-		if (sessionStorage.lastname) {
-			var html = '';
-			var d=JSON.parse(sessionStorage.lastname);
-			for (var i = 0; i <= d.length - 1; i++) {
-				var sel_day = d[0].delivery_date;
-				var sel_week = d[0].delivery_week;
-				var oid = d[0].oid;
-				
-				html +='<li class="xd-order" onclick=xuangzhong(this,"'+d[i].delivery_date+'","'+d[i].delivery_week+'",'+d[i].oid+')><div><p>'+d[i].title+'<span>'+d[i].delivery_week+'</span></p><p>最后一次送达日期为 '+d[i].delivery_date+'</p></div></li>';
-			}
-			$('.order-bottom').html(html);
-			$('.order-bottom').find('li:first').addClass('current');
-			$('#orders_select_date').val(sel_day);
-			$('#orders_select_week').val(sel_week);
-			$('#orders_select_oid').val(oid);
-			$(".order-bottom").show();
-		}else{
-			get_lis();
-		}
-	}
-	// 获取可以续订的订单
-	function get_lis() {
-		$.post('/buy/get_all_orders',{id:data.address_id,xuding_date:"首次03月15号"},function (d) {
-			if (d.f != false) {
-				// 将数据存放到sessionStorage存储中
-				sessionStorage.lastname=JSON.stringify(d);
-				// $(".arrival-time").show();
-			}else{
-				sessionStorage.removeItem('lastname');
-				$(".arrival-time").hide();
-			}
-		},'json')
-	}
-	// 打开或者关闭续订
-	$(".switch-but").click(function(event) {
-       $(this).toggleClass('current');
-       if($(this).hasClass('current'))
-       	
-       {
-       	if ($.trim(data.address_id) == '') {
-       		$.alert('请选择地址');
-       		return
-       	}
-		$(".arrival-time").show();
-       	$(".renew-out ul").show();
-       	$('.des').hide();
-       }
-       else{
-       	
-       	// 关闭续订后自动清空选择的日期 并且自动还原到原来的日期
-       	$('#orders_select_date').val('');
-		$('#orders_select_week').val('');
-		$('#orders_select_oid').val('');
-		$(".des").show();
-		// 并且显示出来
-		$('#select-but').find('span').each(function() {
-			// alert($(this).hasClass('current'))
-			if ($(this).hasClass('current')) {
-				switch($(this).text()){
-					case '周一送达':
-						$('#select_week_day').text('首次3月20号');
-						break;
-					case '周三送达':
-						$('#select_week_day').text('首次3月22号');
-						break;
-					case '周六送达':
-						$('#select_week_day').text('首次3月18号');
-						break;
-				}
-			}
-		})
-		// 隐藏掉不该显示的内容
-       	$(".renew-out ul").hide();
-       }
-	});
-</script>
-<!--  <div style="padding:30px 15px;border-bottom:1px solid #e5e5e5;display:none" id="landiao_201604">
+            $(".delivery_date span").bind(FP.EVENT_CLICK, function() {
+                $(this).parent().find("span").removeClass("select");
+                $(this).addClass("select");
+                $(this).addClass('current').siblings('span').removeClass('current');
+                data.delivery_date = $(this).attr("data-key");
+                if (data.add_lan != undefined) {
+                    $(".pinfo-sku").html(data.sku_title + "," + data.delivery_date + ',' + data.add_lan);
+                } else {
+                    $(".pinfo-sku").html(data.sku_title + "," + data.delivery_date);
+                }
+                var class_name = $(this).attr('class_name');
+                $('.des').show();
+                $('#xuding_delivery_date').val($('.' + class_name).text());
+                switch (class_name) {
+                    case 'des_1':
+                        var xu_week = '星期一'
+                        $('#select_week_day').text('首次3月20号')
+                        $('#xuding_delivery_date').val('首次3月20号');
+                        break;
+                    case 'des_3':
+                        var xu_week = '星期三'
+                        $('#select_week_day').text('首次3月22号')
+                        $('#xuding_delivery_date').val('首次3月22号');
+                        break;
+                    case 'des_2':
+                        var xu_week = '星期六'
+                        $('#select_week_day').text('首次3月18号')
+                        $('#xuding_delivery_date').val('首次3月18号');
+                        break;
+                }
+
+                $('#xuding_delivery_week').val(xu_week);
+                if (sessionStorage.lastname) {} else {
+                    get_lis();
+                }
+                jiazai_shuju();
+                if ($('.renew-but').find('p').hasClass('current') && sessionStorage.lastname) {
+                    $('.des').hide();
+                }
+                if (sessionStorage.lastname) {
+                    $(".arrival-time").show();
+                } else {
+                    $(".arrival-time").hide();
+                }
+            });
+            // function select_week(class_name) {
+
+            // }
+            // 加载数据
+            function jiazai_shuju() {
+                if (sessionStorage.lastname) {
+                    var html = '';
+                    var d = JSON.parse(sessionStorage.lastname);
+                    for (var i = 0; i <= d.length - 1; i++) {
+                        var sel_day = d[0].delivery_date;
+                        var sel_week = d[0].delivery_week;
+                        var oid = d[0].oid;
+
+                        html += '<li class="xd-order" onclick=xuangzhong(this,"' + d[i].delivery_date + '","' + d[i].delivery_week + '",' + d[i].oid + ')><div><p>' + d[i].title + '<span>' + d[i].delivery_week + '</span></p><p>最后一次送达日期为 ' + d[i].delivery_date + '</p></div></li>';
+                    }
+                    $('.order-bottom').html(html);
+                    $('.order-bottom').find('li:first').addClass('current');
+                    $('#orders_select_date').val(sel_day);
+                    $('#orders_select_week').val(sel_week);
+                    $('#orders_select_oid').val(oid);
+                    $(".order-bottom").show();
+                } else {
+                    get_lis();
+                }
+            }
+            // 获取可以续订的订单
+            function get_lis() {
+                $.post('/buy/get_all_orders', {
+                    id: data.address_id,
+                    xuding_date: "首次03月15号"
+                }, function(d) {
+                    if (d.f != false) {
+                        // 将数据存放到sessionStorage存储中
+                        sessionStorage.lastname = JSON.stringify(d);
+                        // $(".arrival-time").show();
+                    } else {
+                        sessionStorage.removeItem('lastname');
+                        $(".arrival-time").hide();
+                    }
+                }, 'json')
+            }
+            // 打开或者关闭续订
+            $(".switch-but").click(function(event) {
+                $(this).toggleClass('current');
+                if ($(this).hasClass('current'))
+
+                {
+                    if ($.trim(data.address_id) == '') {
+                        $.alert('请选择地址');
+                        return
+                    }
+                    $(".arrival-time").show();
+                    $(".renew-out ul").show();
+                    $('.des').hide();
+                } else {
+
+                    // 关闭续订后自动清空选择的日期 并且自动还原到原来的日期
+                    $('#orders_select_date').val('');
+                    $('#orders_select_week').val('');
+                    $('#orders_select_oid').val('');
+                    $(".des").show();
+                    // 并且显示出来
+                    $('#select-but').find('span').each(function() {
+                            // alert($(this).hasClass('current'))
+                            if ($(this).hasClass('current')) {
+                                switch ($(this).text()) {
+                                    case '周一送达':
+                                        $('#select_week_day').text('首次3月20号');
+                                        break;
+                                    case '周三送达':
+                                        $('#select_week_day').text('首次3月22号');
+                                        break;
+                                    case '周六送达':
+                                        $('#select_week_day').text('首次3月18号');
+                                        break;
+                                }
+                            }
+                        })
+                        // 隐藏掉不该显示的内容
+                    $(".renew-out ul").hide();
+                }
+            });
+            </script>
+            <!--  <div style="padding:30px 15px;border-bottom:1px solid #e5e5e5;display:none" id="landiao_201604">
 <div style="margin-bottom:30px">赠送蓝调玻璃花瓶:</div>
 <label id="landiao_201604_big" style="margin-right: 20px;border:1px solid #ccc;padding:10px 15px; border-radius: 5px">
 	<input type="radio" name="landiao_size" value="大号">
@@ -555,35 +596,36 @@ function ds_hide_daishou_picker(){
 </label>
 </div>
 -->
-<!--  <div  style="margin:15px 15px">
+            <!--  <div  style="margin:15px 15px">
 <input id="notlike" class="inp" placeholder="不喜欢的花(最多三种)"/>
 </div>
 -->
-<dl id="taboo">
-<dt class="borderBottom down">忌讳的花</dt>
-<dd style="display: block;">
-<label>
-	<input type="checkbox" value="孕妇不宜">孕妇不宜</label>
-<label>
-	<input type="checkbox" value="白色花">白色花</label>
-<label>
-	<input type="checkbox" value="菊花">菊花</label>
-<label>
-	<input type="checkbox" value="绣球">绣球</label>
-<label>
-	<input type="checkbox" value="百合">百合</label>
-<label>
-	<input type="checkbox" value="勿忘我">勿忘我</label>
-<label>
-	<input type="checkbox" value="康乃馨">康乃馨</label>
-<div style="border-top:1px dotted #ccc;padding-top:10px;color:#999;font-size: 12px">
-	<p>
-		为尽可能使您收到不同品种的花，忌讳的花最多可设置三项。
-		<br>孕妇不宜的花包括百合、郁金香等浓香品种。</p>
-</div>
-</dd>
-</dl>
-<!-- <div style="padding:30px 15px;border-bottom:1px solid #e5e5e5;display:none" id="landiao_201604">
+            <dl id="taboo">
+                <dt class="borderBottom down">忌讳的花</dt>
+                <dd style="display: block;">
+                   <!--  <label>
+                        <input type="checkbox" value="孕妇不宜">孕妇不宜</label>
+                    <label>
+                        <input type="checkbox" value="白色花">白色花</label>
+                    <label>
+                        <input type="checkbox" value="菊花">菊花</label>
+                    <label>
+                        <input type="checkbox" value="绣球">绣球</label>
+                    <label>
+                        <input type="checkbox" value="百合">百合</label>
+                    <label>
+                        <input type="checkbox" value="勿忘我">勿忘我</label>
+                    <label>
+                        <input type="checkbox" value="康乃馨">康乃馨</label>
+                    <div style="border-top:1px dotted #ccc;padding-top:10px;color:#999;font-size: 12px">
+                        <p>
+                            为尽可能使您收到不同品种的花，忌讳的花最多可设置三项。
+                            <br>孕妇不宜的花包括百合、郁金香等浓香品种。</p>
+                    </div> -->
+                    <input type="text">
+                </dd>
+            </dl>
+            <!-- <div style="padding:30px 15px;border-bottom:1px solid #e5e5e5;display:none" id="landiao_201604">
 <div style="margin-bottom:30px">赠送蓝调玻璃花瓶:</div>
 <label id="landiao_201604_big" style="margin-right: 20px;border:1px solid #ccc;padding:10px 15px; border-radius: 5px">
 <input type="radio" name="landiao_size" value="大号">
@@ -595,1911 +637,2010 @@ function ds_hide_daishou_picker(){
 </label>
 </div>
 -->
-<dl id="zhufu" class="zhufu Elec-greeting bb10">
-<dt>
-电子祝福卡（5元/张）
-<p class="switch-but"></p>
-</dt>
-<dd>
-<p>祝福卡全新设计，对方查收后您将收到微信通知</p>
-<p class="clearfix">
-<textarea maxlength="200" placeholder="请填写祝福内容必填。电子祝福卡将在首次配送时发送给收花人。" id="txtZhuFu"></textarea> <i>200</i>
-<span>送花人:</span>
-<input type="text" style＝"line-height:30px"="" id="txtZhuFu_name" placeholder="请填写您的称呼"></p>
-<p id="zfk_preview_btn1" style="display:none">点击预览</p>
-</dd>
-</dl>
-
-<dl id="handbook" class="zhufu Elec-greeting bb10">
-<dt>
-鲜花养护手册（2元/本）
-<p class="switch-but"></p>
-</dt>
-</dl>
-<dl id="anonymous" class="zhufu Elec-greeting bb10">
-<dt>
-匿名购买
-<p class="switch-but"></p>
-</dt>
-</dl>
-<div class="padding_15 bb10" style="border-top:0 none">
-<!--  <div style="margin:15px 0" id="yaoqingren_wrap">
+            <dl id="zhufu" class="zhufu Elec-greeting bb10">
+                <dt>
+                    电子祝福卡（5元/张）
+                    <p class="switch-but"></p>
+                </dt>
+                <dd>
+                    <p>祝福卡全新设计，对方查收后您将收到微信通知</p>
+                    <p class="clearfix">
+                        <textarea maxlength="200" placeholder="请填写祝福内容必填。电子祝福卡将在首次配送时发送给收花人。" id="txtZhuFu"></textarea> <i>200</i>
+                        <span>送花人:</span>
+                        <input type="text" style＝ "line-height:30px"="" id="txtZhuFu_name" placeholder="请填写您的称呼">
+                    </p>
+                    <p id="zfk_preview_btn1" style="display:none">点击预览</p>
+                </dd>
+            </dl>
+            <dl id="handbook" class="zhufu Elec-greeting bb10">
+                <dt>
+                    鲜花养护手册（2元/本）
+                    <p class="switch-but"></p>
+                </dt>
+            </dl>
+            <dl id="anonymous" class="zhufu Elec-greeting bb10">
+                <dt>
+                    匿名购买
+                    <p class="switch-but"></p>
+                </dt>
+            </dl>
+            <div class="padding_15 bb10" style="border-top:0 none">
+                <!--  <div style="margin:15px 0" id="yaoqingren_wrap">
 <input id="yaoqingren" type="tel" class="inp"  placeholder="填写邀请人手机送花瓶(限首次下单)">
 <p id="yaoqingren_tip"></p>
 </div>
 -->
-<ul id="comfirm-fee">
-<li>
-商品总额:
-<span class="confirm-price" id="totalfee" style="font-size:18px">￥672</span>
-</li>
-<li>
-运费:
-<span style="font-weight:normal;font-size:18px;color:#f6325b" id="postfee">￥0.00</span>
-</li>
-</ul>
-</div>
-<div style="padding:0 15px;">
-<a class="discount-item borderBottom" id="btnJifen">
+                <ul id="comfirm-fee">
+                    <li>
+                        商品总额:
+                        <span class="confirm-price" id="totalfee" style="font-size:18px">￥672</span>
+                    </li>
+                    <li>
+                        运费:
+                        <span style="font-weight:normal;font-size:18px;color:#f6325b" id="postfee">￥0.00</span>
+                    </li>
+                </ul>
+            </div>
+            <div style="padding:0 15px;">
+                <a class="discount-item borderBottom" id="btnJifen">
 积分抵扣 <b></b>
 </a>
-<div class="right-dialog-content acenter borderBottom" style="padding-bottom:20px;display:none">
-<!-- <div style="padding-top:20px;">
+                <div class="right-dialog-content acenter borderBottom" style="padding-bottom:20px;display:none">
+                    <!-- <div style="padding-top:20px;">
 可使用积分： <strong id="total_scores"></strong>
 分
 </div>
 -->
-<div style="width:200px;text-align:center;margin:20px auto 10px;position:relative"> <i class="jifen-jian"></i>
-<i class="jifen-jia"></i>
-<input id="inp_scores" style="width:100px;text-align:center;font-size:16px;color:#000" type="number" class="inp" placeholder="积分数量"></div>
-<p style="text-align:center;margin:10px 0;color:#999">
-可使用积分：
-<span id="total_scores">0</span>
-分，1积分可以抵扣1元人民币
-</p>
-<button id="btnusesocre" class="btn-sml" style="padding:5px 25px">确认</button>
-</div>
-</div>
-<!-- 积分 -->
-<div style="padding:0 15px;">
-<a class="discount-item borderBottom" id="btnQuan">
+                    <div style="width:200px;text-align:center;margin:20px auto 10px;position:relative"> <i class="jifen-jian"></i>
+                        <i class="jifen-jia"></i>
+                        <input id="inp_scores" style="width:100px;text-align:center;font-size:16px;color:#000" type="number" class="inp" placeholder="积分数量">
+                    </div>
+                    <p style="text-align:center;margin:10px 0;color:#999">
+                        可使用积分：
+                        <span id="total_scores">0</span> 分，1积分可以抵扣1元人民币
+                    </p>
+                    <button id="btnusesocre" class="btn-sml" style="padding:5px 25px">确认</button>
+                </div>
+            </div>
+            <!-- 积分 -->
+            <div style="padding:0 15px;">
+                <a class="discount-item borderBottom" id="btnQuan">
 优惠券 <b></b>
 </a>
-</div>
-<!-- 优惠券 -->
-<div style="padding:0 15px;">
-<a class="discount-item" id="btnMa">
+            </div>
+            <!-- 优惠券 -->
+            <div style="padding:0 15px;">
+                <a class="discount-item" id="btnMa">
 优惠码 / 兑换码
 <b></b>
 </a>
-<div class="right-dialog-content" style="display:none">
-<div class="flex" style="padding-bottom:20px">
-<input id="inp_ma" style="width:60%;text-align:center;font-size:16px;color:#000;margin-right:5%;background:#eee;border-radius:0;border:0" type="number" class="inp" placeholder="请输入优惠码/兑换码">
-<!-- <p style="text-align:center;margin:10px 0;color:#999">优惠码使用后不可退不找零。</p>
+                <div class="right-dialog-content" style="display:none">
+                    <div class="flex" style="padding-bottom:20px">
+                        <input id="inp_ma" style="width:60%;text-align:center;font-size:16px;color:#000;margin-right:5%;background:#eee;border-radius:0;border:0" type="number" class="inp" placeholder="请输入优惠码/兑换码">
+                        <!-- <p style="text-align:center;margin:10px 0;color:#999">优惠码使用后不可退不找零。</p>
 -->
-<button id="btnusema" class="btn-sml" style="width:35%;border-radius: 0;padding:10px 0;font-size:16px">确认使用</button>
-</div>
-<!-- <p style="padding:20px;text-align:center">
+                        <button id="btnusema" class="btn-sml" style="width:35%;border-radius: 0;padding:10px 0;font-size:16px">确认使用</button>
+                    </div>
+                    <!-- <p style="padding:20px;text-align:center">
 <a id="btnCancelMa" href="javascript:;" style="color:#777;">取消</a>
 </p>
 -->
-</div>
-</div>
-<!-- 优惠码 / 兑换码 -->
-<p class="bb10"></p>
-
-<div style="margin:20px 0 0 0;text-align:center;font-size:16px">
-付款金额:
-<span class="confirm-price" id="payment" style="font-size:18px">￥672</span>
-</div>
-<div style="text-align:center;display:none" id="event_xin">
-已优惠 <strong></strong>
-元，并免费获得一个花瓶。
-</div>
-<a id="payandsubmit" href="javascript:;">确认下单</a>
-<div style="text-align: center;padding:20px">
-<img src="imgs/ucenterlogo.png" style="height:24px;width:89px"></div>
-</div>
-
-<!--电子祝福卡预览-->
-<div class="Zfk_content_out" style="display:none">
-<div class="Zfk_content">
-<div class="Zfk_tit">祝福卡</div>
-<div class="Zfk_main_out" style="padding: 0 25px 15px;color: #666;font-family:PingFang-SC-Thin">
-<div class="Zfk_main" style="font-size:18px"></div>
-<div class="Zfk_name"></div>
-</div>
-<div class="Zfk_bottom">
-<div class="Zfk_bottom_top">
-<img src="imgs/zfk-page.png" height="79" width="100%" style="display:block"></div>
-<div class="Zfk_infor">
-<span>赠送内容：简花·单品鲜花月套餐</span>
-</div>
-<div class="Zfk_logo">
-<img src="imgs/zfk-logo.png" height="92" width="332" alt=""></div>
-</div>
-</div>
-
-<div>
-<img id="zfk_close_preview_btn" src="imgs/zfk_preview_close.png" alt="" style="width:30px;height:30px;position:fixed;top:10px;right:10px;"></div>
-</div>
-<input type="hidden" class="is_weixin" value="">
-<script type="text/javascript">
-function isLocalStorage(){
-	return typeof window.localStorage == "object";
-}
-
-function getMemoryZhufu(){
-	if(!isLocalStorage()){
-		return "";
-	}
-
-	return window.localStorage.getItem("flower_zhk_content");
-
-}
-function setMemoryZhufu(content){
-	if(!isLocalStorage()){
-		return;
-	}
-	window.localStorage.setItem("flower_zhk_content",content);
-
-}
-
-//设置默认的祝福卡内容
-$("#e_txtZhuFu").val(getMemoryZhufu());
-
-$("#zfk_preview_btn1").click(function(e) {
-	var content=$("#txtZhuFu").val();
-	if(content.length==0){
-		FP.showError("请填写电子祝福卡内容！");
-		return;
-	}
-
-	if(content.length<1){
-		FP.showError("祝福卡内容必填！");
-		return;
-	}
-
-	var name=$("#txtZhuFu_name").val();
-	if(name.length==0){
-		FP.showError("请正确输入您的称呼！");
-		return;
-	}
-
-	if(name.length>15){
-		FP.showError("输入称呼不能超过15个字！");
-		return;
-	}
-
-
-	$(".Zfk_main").html(content);
-	$(".Zfk_name").html(name);
-
-	//记忆默认的祝福卡内容
-	setMemoryZhufu(content);
-
-	(function(){
-	  $(".Zfk_content").css({
-	    "-webkit-transform": "scale(1,1)",
-	    "transform": "scale(1,1)"
-	  });
-
-	  $(".Zfk_content_out").css("display","block");
-	  setTimeout(function(){$(".Zfk_main").css({
-	  	"-webkit-transition":"min-height .5s ease-out",
-	  	 "transition":"min-height .5s ease-out",
-	     "min-height":$(".Zfk_content_out").height()-$(".Zfk_content").height()+$(".Zfk_main").height()-15
-	   }); },800);
-
-	})();
-});
-$("#zfk_preview_btn").click(function(e) {
-	var content=$("#e_txtZhuFu").val();
-	if(content.length==0){
-		FP.showError("请填写电子祝福卡内容！");
-		return;
-	}
-
-	if(content.length<1){
-		FP.showError("祝福卡内容必填！");
-		return;
-	}
-
-	var name=$("#e_txtZhuFu_name").val();
-	if(name.length==0){
-		FP.showError("请正确输入您的称呼！");
-		return;
-	}
-
-	if(name.length>15){
-		FP.showError("输入称呼不能超过15个字！");
-		return;
-	}
-
-
-	$(".Zfk_main").html(content);
-	$(".Zfk_name").html(name);
-
-	//记忆默认的祝福卡内容
-	setMemoryZhufu(content);
-
-	(function(){
-	  $(".Zfk_content").css({
-	    "-webkit-transform": "scale(1,1)",
-	    "transform": "scale(1,1)"
-	  });
-
-	  $(".Zfk_content_out").css("display","block");
-	  setTimeout(function(){$(".Zfk_main").css({
-	  	"-webkit-transition":"min-height .5s ease-out",
-	  	 "transition":"min-height .5s ease-out",
-	     "min-height":$(".Zfk_content_out").height()-$(".Zfk_content").height()+$(".Zfk_main").height()-15
-	   }); },800);
-
-	})();
-});
-
-$("#zfk_close_preview_btn").click(function(e) {
-	$(".Zfk_content_out").css("display","none");
-});
- </script>
-<!--电子祝福卡预览-->
-
-<script>
-var data={
-	id:0,
-	sku_id:"i2_1_0_0",
-	price:672,
-	total_fee:672,
-	payment:672,
-	order_type:1,
-	discount_fee:0,
-	post_fee:0,
-	items_fee:0,
-	delivery_date:"",
-	delivery_date2:"",
-	title:"简花·单品鲜花月套餐",
-	sku_title:"6个月,花剪(魅惑紫)+59元,1组/4包+5元,蓝调花瓶+20元",
-	sku_properties_name:"订几个月:6个月;花剪:花剪(魅惑紫)+59元;独家配方保鲜液:1组/4包+5元;加购花瓶:蓝调花瓶+20元",
-	total_month: "6个月",
-	yaoqingren:"",
-	notlike:"",
-	remark:"",
-	address_id:0,
-	xuding:0,
-	marketingid:"",
-	express_type:"",
-	daishou_station_id:0,
-	daishou_taker_name:"",
-	daishou_taker_mobile:"",
-	event_code:"",
-	discount:[],
-	items:{},
-	pingan:'',
-	landiao_size:'',
-	shanzhen:0,
-	gdhp:0,
-	kl1025:"",
-	kl1050:"",
-	receiver_name:"",
-	receiver_mobile:"",
-	baoxianye:0,
-	mifengtang:0,
-	flower_use:'',
-	no_address:"",
-	can_notselect:"1",
-	definite_date:"",
-	can_coupon:"1",
-	postfee_temp:"1"
-};
-var notlike_default=[];
-var data_postfee={"default":0,"sp":[]};
-var submitLimitTimes=0;
-var week1 = '首次3月20号';
-var week6 = '首次3月18号';
-var groupid = '';//团购变量
-if(data.id == 6667 || data.id == 6668 || data.id == 6669 || data.id == 6670){
-	var discount=[];
-	var dj = '';
-	var dj_id = '';
-			for(var i in data.discount){
-			if(data.discount[i].dtype!=10){
-				discount.push(data.discount[i]);
-			}
-		}
-		if(dj>0){
-			discount.push({dtype:10,dj_id:dj_id,discount_amount:parseInt(dj)});
-		}
-				var gl = '0';
-		var gl_id = '';
-		for(var i in data.discount){
-			if(data.discount[i].dtype!=11){
-				discount.push(data.discount[i]);
-			}
-		}
-		if(gl>0){
-			discount.push({dtype:11,gl_id:gl_id,discount_amount:parseFloat(gl)});
-		}
-		data.discount=discount;
-}
-function whenAddressChange(){
-	onAddressChangeUpdatePostFee();
-	data.daishou_station_id=0;
-	data.daishou_taker_name='';
-	data.daishou_taker_mobile='';
-	data.express_type='express';
-	$(".delivery_tip span").html('收货不方便时，可选择免费代收服务 ');
-	return;
-	if(data.id != 0 && data.id !=1 ){
-		return;
-	}
-	$("#event_xin").hide();
-	var discount=[];
-		for(var i in data.discount){
-			if(data.discount[i].dtype!=5){
-				discount.push(data.discount[i]);
-			}
-		}
-
-	if(['天津','河北','安徽','山东'].indexOf(selectedAddress.receiver_state)!=-1 || (selectedAddress.receiver_state=="江苏" && ['徐州市','宿迁市','连云港市'].indexOf(selectedAddress.receiver_city)!=-1)){
-		var discount_fee_xin=parseInt(data.sku_title.substr(0,1))*10;
-		discount.push({dtype:5,discount_amount:discount_fee_xin});
-		$("#event_xin strong").html(discount_fee_xin);
-		$("#event_xin").show();
-
-		if($("#yaoqingren_wrap").length==1){
-			$("#yaoqingren_wrap").hide();
-			$("#yaoqingren").val("");
-		}
-	}else{
-		if($("#yaoqingren_wrap").length==1){
-			$("#yaoqingren_wrap").show();
-		}
-
-	}
-	data.discount=discount;
-	flushPayment();
-
-	return;
-
-	landiao_size='';
-	$("#landiao_201604 input").prop("checked",false).prop("disabled",true);
-	$.get('/buy/lanhuaping201604/',{id:data.address_id,pid:data.id},function(v){
-		console.log(v);
-		if(v.can){
-			if(v.big){
-				$("#landiao_201604_big input").prop("disabled",false);
-				$("#landiao_201604_big span").html("大号");
-			}else{
-				$("#landiao_201604_big input").prop("disabled",true);
-				$("#landiao_201604_big span").html("大号(没有了)");
-			}
-			if(v.small){
-				$("#landiao_201604_small input").prop("disabled",false);
-				$("#landiao_201604_small span").html("小号");
-			}else{
-				$("#landiao_201604_small input").prop("disabled",true);
-				$("#landiao_201604_small span").html("小号(没有了)");
-			}
-			if(v.big){
-				$("#landiao_201604_big input").prop("checked",true);
-			}else if(v.small){
-				$("#landiao_201604_small input").prop("checked",true);
-			}
-			$("#landiao_201604").show();
-		}else{
-			$("#landiao_201604").hide();
-		}
-
-	},"json");
-
-	return;
-	delete data.items.lanhuaping;
-	updateFee();
-	$(".lanhuaping").removeClass("checked");
-	if(data.address_id==0){
-		$(".lanhuaping").hide();
-		return;
-	}
-	$.get('/buy/lanhuaping/',{id:data.address_id,pid:data.id,sku_id:data.sku_id},function(v){
-		console.log(v);
-		if(v.can){
-			$(".lanhuaping").show();
-			$("#lanhuaping_text").html(v.text);
-			$(".lanhuaping").attr("price",v.price);
-			$(".lanhuaping").attr("stock",v.stock);
-			if(v.stock<1){
-				$(".lanhuaping").addClass("disabled");
-				$("#lanhuaping_text").html(v.text+" - 已换完");
-			}else{
-				$(".lanhuaping").removeClass("disabled");
-			}
-		}else{
-			$(".lanhuaping").hide();
-		}
-	},"json");
-}
-
-function updatePostfee(fee){
-	data.post_fee=fee;
-	updateFee();
-}
-
-//统计运费
-function onAddressChangeUpdatePostFee(){
-	if(data.postfee_temp > 0){
-		var receiver_state = selectedAddress.receiver_state;
-		var receiver_city = selectedAddress.receiver_city;
-		var receiver_district = selectedAddress.receiver_district;
-		var fee=9999;
-		var postfee = parseFloat($.address_postfee[receiver_state][receiver_city][receiver_district]);
-		if(isNaN(postfee)){
-			postfee = 0.00;
-		}
-		if(data.id == 1193 || data.id == 1191 || data.id == 1192 || data.id == 1195){
-			fee = postfee/4;
-		}else{
-			switch(data.total_month){
-				case "1个月":
-				fee = postfee*1;
-				break;
-				case "3个月":
-				fee = postfee*3;
-				break;
-				case "6个月":
-				fee = postfee*6;
-				break;
-				case "12个月":
-				fee = postfee*12;
-				break;
-				default:
-			}
-		}
-		updatePostfee(fee);
-	}else{
-		if(data_postfee.sp.length==0){
-			updatePostfee(data_postfee.default);
-			return;
-		}
-		for(var i=data_postfee.sp.length-1;i>=0;i--){
-			var rs=data_postfee.sp[i]['area'].split(",");
-			for(var j=rs.length-1;j>=0;j--){
-				if(rs[j]==selectedAddress.receiver_state.substr(0,rs[j].length)){
-					updatePostfee(data_postfee.sp[i]['fee']);
-					return;
-				}
-			}
-		}
-		updatePostfee(data_postfee.default);
-	}
-
-
-}
-
-//选择完代收点的回调
-function ds_when_selected_daishou(daishou_data){
-	data.express_type='fetch';
-	data.address_id=0;
-	data.daishou_station_id=daishou_data.daishou_shop_id;
-	data.daishou_taker_name=daishou_data.receiver_name;
-	data.daishou_taker_mobile=daishou_data.receiver_mobile;
-
-	$(".delivery_name span").html(daishou_data.receiver_name);
-	$(".delivery_mob span").html(daishou_data.receiver_mobile);
-	$(".delivery_address span").html("<b>"+daishou_data.daishou_shop_name+"</b> "+daishou_data.daishou_shop_address);
-	$(".delivery_tip span").html('已经选择代收点：'+daishou_data.daishou_shop_name);
-}
-
-function updateFee(){
-	data.total_fee=data.price*1;
-	data.items_fee=0;
-	data.payment=0;
-	data.discount_fee=0;
-	for(var i in data.items){
-		data.items_fee+=data.items[i].fee;
-	}
-	data.total_fee+=data.items_fee;
-
-	for(var i in data.discount){
-		data.discount_fee+=data.discount[i].discount_amount;
-	}
-
-	data.payment=data.total_fee-data.discount_fee+data.post_fee;
-
-	if(data.payment<0){
-		data.payment=0;
-	}
-	$("#totalfee").html("￥"+FP.toMoney(data.total_fee));
-	$("#postfee").html("￥"+FP.toMoney(data.post_fee));
-	$("#payment").html("￥"+FP.toMoney(data.payment));
-
-}
-
-$(".lanhuaping").bind("click",function(){
-	if(parseInt($(this).attr("stock"))<1){
-		return;
-	}
-	var d=new Date();
-	if(d.getMonth()==0 && d.getDate()<17 && !$(this).hasClass("checked")){
-		if(!window.confirm("参加\"蓝调花瓶换购\"活动的订单，将于下周发货!!!")){
-			return;
-		}
-	}
-	delete data.items.lanhuaping;
-	$(this).toggleClass("checked");
-	if($(this).hasClass("checked")){
-		data.items["lanhuaping"]={"content":"",fee:parseFloat($(this).attr('price'))};
-	}
-	updateFee();
-});
-
-$("#taboo").delegate("input","change",function(){
-	if($(this).prop("checked")){
-		if($("#taboo input:checked").length>3){
-			FP.showError("最多选择三项");
-			$(this).prop("checked",false);
-		}
-	}
-});
-
-$("#taboo dt").bind("click",function(){
-	if($(this).hasClass("down")){
-		$(this).removeClass("down");
-		$("#taboo dd").hide();
-	}else{
-		$(this).addClass("down");
-		$("#taboo dd").show();
-	}
-});
-
-$("#btnMa,#btnJifen").bind("click",function(){
-	if($(this).hasClass("down")){
-		$(this).removeClass("down");
-		$(this).parent("div").children('.right-dialog-content').hide();
-	}else{
-		$(this).addClass("down");
-		$(this).parent("div").children('.right-dialog-content').show();
-	}
-});
-
-$("#zhufu dt").bind("click",function(){
-	delete data.items.zhufu;
-	$(this).toggleClass("checked");
-	if($(this).hasClass("checked")){
-		data.items["zhufu"]={"content":"",fee:5};
-		$("#zhufu dd").show();
-		$(this).children('.switch-but').addClass('current');
-	}else{
-		$("#zhufu dd").hide();
-		$(this).children('.switch-but').removeClass('current');
-	}
-	updateFee();
-
-});
-
-
-$("#e_txtZhuFu").bind("input",function(){
-	$("#e_zhufu i").html(200-$(this).val().length);
-	check_zf_content();
-});
-
-
-$("#e_txtZhuFu_name").bind("input",function(){
-	check_zf_content();
-})
-$("#txtZhuFu").bind("input",function(){
-	$("#zhufu i").html(200-$(this).val().length);
-	check_zftxt_content();
-});
-$("#txtZhuFu_name").bind("input",function(){
-	check_zftxt_content();
-})
-
-function check_zf_content(){
-	var content=$("#e_txtZhuFu").val();
-	var name=$("#e_txtZhuFu_name").val();
-	if(content.length<10||name.length<1){
-		$("#zfk_preview_btn").css("display","none");
-	}
-	else{
-		$("#zfk_preview_btn").css("display","inline-block");
-	}
-}
-
-function check_zftxt_content(){
-	var content=$("#txtZhuFu").val();
-	var name=$("#txtZhuFu_name").val();
-	if(content.length<10||name.length<1){
-		$("#zfk_preview_btn1").css("display","none");
-	}
-	else{
-		$("#zfk_preview_btn1").css("display","inline-block");
-	}
-}
-
-
-$(".delivery_date2 span").bind(FP.EVENT_CLICK,function(){
-	$(this).parent().find("span").removeClass("select");
-	$(this).addClass("select");
-	data.delivery_date2=$(this).attr("data-key");
-});
-
-
-$("#xuding").bind("click",function(){
-	data.xuding=data.xuding==0?1:0;
-	if(data.xuding==0){
-		$(this).removeClass("checked");
-	}else{
-		$(this).addClass("checked");
-	}
-});
-$("#yaoqingren").bind("blur",is_get_vase);
-function is_get_vase(){
-	var yaoqingren=$("#yaoqingren").val();
-	if(yaoqingren.length>0){
-		if(!/^1\d{10}$/.test(yaoqingren)){
-			$("#yaoqingren_tip").html("<span style='color:#e00'>请填写正确的手机号码！</span>");
-			return;
-		}
-		$.post("/buy/is_get_vase",{yaoqingren:yaoqingren},function(v){
-			if(v.f){
-				$("#yaoqingren_tip").html("<span style='color:#00e'>可以获得花瓶！</span>");
-			}else{
-				$("#yaoqingren_tip").html("<span style='color:#e00'>"+v.data+"</span>");
-			}
-		},"json");
-	}else{
-		$("#yaoqingren_tip").empty();
-	}
-}
-
-$("#payandsubmit").bind("click",function(){
-	var btn=$(this);
-	if(btn.attr("data-runing")=="1"){
-		return;
-	}
-
-	if(data.no_address !=1){
-		if(data.express_type==""){
-			FP.showError("请填写收货方式！");
-			return;
-		}else{
-			if(data.express_type=="express"&&data.address_id==0){
-				FP.showError("请填写收货地址！");
-				return;
-			}
-
-			if(data.express_type=="fetch"&&data.daishou_station_id==0){
-				FP.showError("请选择代收点！");
-				return;
-			}
-
-			if(data.express_type=="fetch"&&data.daishou_taker_name==""){
-				FP.showError("请添加提货人！");
-				return;
-			}
-
-			if(data.express_type=="fetch"&&data.daishou_taker_mobile==""){
-				FP.showError("请添加提货人手机号！");
-				return;
-			}
-		}
-	}
-
-	if(data.order_type!=11 && data.order_type !=6 && data.delivery_date==""){
-		if(data.definite_date != 1){
-			if(data.no_address != 1){
-				FP.showError("请选择送达日期!");
-				return;
-			}
-		}
-	}
-
-	if($("#event_code").length>0){
-		data.event_code=$("#event_code").val();
-	}
-
-	if($("#pingan").length>0){
-		data.pingan=$("#pingan").val();
-	}
-	var taboo=[];
-	$("#taboo input:checked").each(function(){
-		taboo.push($(this).val());
-	});
-	if(taboo.length>3){
-		FP.showError("忌讳的花最多可以选择三项!");
-		return;
-	}
-	data.notlike=taboo.join(",");
-	//判断是否开启了祝福卡 @auther quin
-	if(typeof data.items.e_zhufu != "undefined"){
-		if($('.void_play_write_out').css('display')=='none'&& $('.void_play_word').css('display')!=='none'){
-			//普通祝福卡
-			var content=$("#e_txtZhuFu").val();
-			if(content.length==0){
-				FP.showError("请填写传音祝福卡内容！");
-				return;
-			}
-			if(content.length<1){
-				FP.showError("祝福卡内容必填");
-				return;
-			}
-
-			var name=$("#e_txtZhuFu_name").val();
-			if(name.length==0){
-				FP.showError("请正确输入您的称呼！");
-				return;
-			}
-
-			if(name.length>15){
-				FP.showError("输入称呼不能超过15个字！");
-				return;
-			}
-
-			data.items.e_zhufu.content=content+"||送花人||"+name;
-			data.items.e_zhufu.type = 'e_text';
-		}
-		if($('.void_play_write_out').css('display')!=='none'&& $('.void_play_word').css('display')=='none'){
-			//语音祝福卡
-			var is_weixin = $('.is_weixin').val();
-			if(!is_weixin){
-				FP.showError("网页端不支持语音");
-				return;
-			}
-			if(voice.serverId==''){
-				FP.showError("请点击录音！");
-				return;
-			}
-			var name = $("#e_voiceZhuFu_name").val();
-			if(name.length>5){
-				FP.showError("输入称呼不能超过5个字！");
-				return;
-			}
-			data.items.e_zhufu.content = voice.serverId+"||送花人||"+name;
-			data.items.e_zhufu.type = 'e_voice';
-		}
-
-
-	}
-	if(typeof data.items.zhufu != "undefined"){
-		//开启普通祝福卡
-		var content=$("#txtZhuFu").val();
-			if(content.length==0){
-				FP.showError("请填写电子祝福卡内容！");
-				return;
-			}
-			if(content.length<1){
-				FP.showError("祝福卡内容必填");
-				return;
-			}
-
-			var name=$("#txtZhuFu_name").val();
-			if(name.length==0){
-				FP.showError("请正确输入您的称呼！");
-				return;
-			}
-
-			if(name.length>15){
-				FP.showError("输入称呼不能超过15个字！");
-				return;
-			}
-
-			data.items.zhufu.content=content+"||送花人||"+name;
-
-	}
-
-
-	if($("#yaoqingren").length==1){
-		data.yaoqingren=$("#yaoqingren").val();
-	}
-
-	if(data.yaoqingren!="" && !/^1\d{10}$/.test(data.yaoqingren)){
-		FP.showError("邀请人手机错误！");
-		return;
-	}
-
-	if($("#remark").length==1){
-		data.remark=$("#remark").val();
-	}
-	// 如果关闭了续订 则不续订
-	if ($('.renew-but').find('p').hasClass('current')) {
-		data.sel_day = $('#orders_select_date').val();
-		data.sel_week = $('#orders_select_week').val();
-		data.oid = $('#orders_select_oid').val();
-		data.selgo_week = $('#xuding_delivery_week').val();
-		data.text_day = $('#xuding_delivery_date').val();
-		/*if (data.oid == '') {
-			FP.showError('刷新页面试试');
-			return;
-		}*/
-	}else{
-		$('#orders_select_oid').val('');
-	}
-	// 鲜花用途
-	/*if (data.flower_use == '') {
-		FP.showError('请选择用途');
-		return;
-	}*/
-
-	if($("#kl1025").length==1){
-		data.kl1025=$("#kl1025").val();
-	}
-	if($("#kl1050").length==1){
-		data.kl1050=$("#kl1050").val();
-	}
-	data.groupid = groupid;//团购变量
-	var submitLimitTimesDiff=Math.round(((new Date()).getTime()-submitLimitTimes)/1000);
-	if(submitLimitTimesDiff<5){
-		FP.showError('提交过于频繁，'+(5-submitLimitTimesDiff)+'秒后再试');
-		return;
-	}
-	submitLimitTimes=(new Date()).getTime();
-	btn.attr("data-runing",1);
-	btn.html("正在创建订单，请稍候").addClass("buttondisabled");
-
-	//清空默认的祝福卡内容
-	setMemoryZhufu("");
-	FP.ajaxPost(
-		"/buy/submit",
-		data,
-		function(v){
-				if(v.f){
-					window.location.replace("/my/orderdetail/?id="+v.data+"#pay");
-				}else{
-					FP.showError(v.data);
-				}
-				btn.attr("data-runing",0);
-				btn.html("确认下单").removeClass("buttondisabled");
-			},
-		function(){
-				FP.showError('请求失败,请重试');
-				btn.attr("data-runing",0);
-				btn.html("确认下单").removeClass("buttondisabled");
-			}
-		);
-
-	ga_submit();
-});
-
-$("body").delegate("input[type='tel']","input",function(){$(this).val($(this).val().replace(/[^0-9]/g,'').replace(/^86/,''))});
-(function setNotLikeDefault(){
-	if(notlike_default.length==0){
-		return;
-	}
-	$("#taboo input").each(function(){
-		if($.inArray($(this).val(),notlike_default)>-1){
-			$(this).prop('checked',true);
-		}
-	});
-})();
-
-$('#handbook dt').click(function(){
-	delete data.items.handbook;
-	$(this).toggleClass("checked");
-	if($(this).hasClass("checked")){
-		data.items["handbook"]={fee:2};
-		$(this).children('.switch-but').addClass('current');
-	}else{
-		$(this).children('.switch-but').removeClass('current');
-	}
-	updateFee();
-});
-
-$('#anonymous dt').click(function(){
-	delete data.anonymous;
-	$(this).toggleClass("checked");
-	if($(this).hasClass("checked")){
-		data.anonymous=1;
-		$(this).children('.switch-but').addClass('current');
-	}else{
-		$(this).children('.switch-but').removeClass('current');
-	}
-});
-</script>
-<!--END 购买表单-->
-<!--BEGIN 选择地址-->
-<div class="Shipping_ads" style="display:none">
-<div class="deliver-address-title" style="padding:18px 0;font-weight: normal;font-size: 18px;height:auto;line-height:18px">
-收货地址
-<a class="deliver-close" href="javascript:;"></a>
-</div>
-
-<div id="deliver-address-con1" style="display:block">
-<dl class="deliver-item">
-<dt>收货人</dt>
-<dd>
-<input type="text" id="receiver_name" placeholder="姓名"></dd>
-</dl>
-<dl class="deliver-item">
-<dt>手机</dt>
-<dd>
-<input type="tel" id="receiver_mobile" placeholder="收货人手机"></dd>
-</dl>
-<dl class="deliver-item">
-<dt>所在地区</dt>
-<dd class="address_area">
-<select class="form-control" id="receiver_state" name="receiver_state">
-<option index="0" value="选择省份">选择省份</option>
-<option index="1" value="上海">上海</option>
-<option index="2" value="北京">北京</option>
-<option index="3" value="江苏">江苏</option>
-<option index="4" value="浙江">浙江</option>
-<option index="5" value="广东">广东</option>
-<option index="6" value="四川">四川</option>
-<option index="7" value="天津">天津</option>
-<option index="8" value="重庆">重庆</option>
-<option index="9" value="河南">河南</option>
-<option index="10" value="湖北">湖北</option>
-<option index="11" value="湖南">湖南</option>
-<option index="12" value="河北">河北</option>
-<option index="13" value="安徽">安徽</option>
-<option index="14" value="福建">福建</option>
-<option index="15" value="江西">江西</option>
-<option index="16" value="山东">山东</option>
-</select>
-<select class="form-control" id="receiver_city" name="receiver_city">
-<option index="0" value="选择城市">选择城市</option>
-</select>
-<select class="form-control" id="receiver_district" name="receiver_district">
-<option index="0" value="选择区县">选择区县</option>
-</select>
-</dd>
-</dl>
-<dl class="deliver-item">
-<dt>详细地址</dt>
-<dd>
-<input type="text" id="receiver_address" placeholder="街道门牌信息"></dd>
-</dl>
-<!-- <p style="color:#999;padding:5px 15px">目前开通的区域为江浙沪、北京、广东和四川。</p>
--->
-<div class="deliver-save-wrap">
-<button class="deliver-save">保存</button>
-</div>
-<dl class="address_log">
-<dt>历史</dt>
-</dl>
-</div>
-</div>
-
-<script type="text/html" id="address_tpl">
-<dd address-id="{id}">
-  	<div>{receiver_state}{receiver_city}{receiver_district}{receiver_address}</div>
-  	<div>{receiver_name} {receiver_mobile}</div>
-</dd>
-</script>
-<script type="text/javascript" src="js/address.b.js"></script>
-<!-- 运费 -->
-<script type="text/javascript" src="js/postfee.js.1"></script>
-<script>
-var adds=[];
-var selectedAddress={};
-$.address_b.list[0]={n:'选择省份',c:[{n:'选择城市',a:['选择区县']}]};
-$.address_b("receiver_state","receiver_city","receiver_district");
-$(".delivery_wrap").bind("click",function(e){e.stopPropagation();$("#buyWrap").hide();$(".Shipping_ads").show();return false;});
-$(".deliver-close").bind("click",function(e){e.stopPropagation();$("#buyWrap").show();$('body,html').scrollTop(0);$(".Shipping_ads").hide();});
-$(".deliver-save").bind("click",function(e){
-	var receiver_name = $("#receiver_name").val().replace('/^\s|\s$/g','');
-	var receiver_mobile = $("#receiver_mobile").val().replace('/^\s|\s$/g','');
-	var receiver_state = $("#receiver_state").val();
-	var receiver_city = $("#receiver_city").val();
-	var receiver_district = $("#receiver_district").val();
-	var receiver_address = $("#receiver_address").val().replace('/^\s|\s$/g','');
-	// if(!confirm('确认地址和手机准确吗？\n'+receiver_state+receiver_city+receiver_district+receiver_address+'\n'+receiver_name+receiver_mobile)){
-	// 	return;
-	// }
-	e.stopPropagation();
-	var address={
-		receiver_name:receiver_name,
-		receiver_mobile:receiver_mobile,
-		receiver_state:receiver_state,
-		receiver_city:receiver_city,
-		receiver_district:receiver_district,
-		receiver_address:receiver_address
-	};
-	if(address.receiver_name==""){
-		FP.showError("请填写收货人姓名！");
-		return;
-	}
-	if(address.receiver_mobile==""){
-		FP.showError("请填写收货人手机！");
-		return;
-	}
-	if(!/^1\d{10}$/.test(address.receiver_mobile)){
-		FP.showError("收货人手机号码格式错误！");
-		return;
-	}
-	if(address.receiver_state=="" || address.receiver_state=="选择省份"){
-		FP.showError("选择省份");
-		return;
-	}
-	if(address.receiver_city=="" || address.receiver_city=="选择城市"){
-		FP.showError("选择城市");
-		return;
-	}
-	if(address.receiver_district=="" || address.receiver_district=="选择区县"){
-		FP.showError("选择区县");
-		return;
-	}
-
-	if(address.receiver_address==""){
-		FP.showError("详细地址！");
-		return;
-	}
-	var btn=$(this).prop("disabled",true);
-	$.post('/buy/addaddress',address,function(v){
-		if(v.f){
-			//getAddress();
-			$("#receiver_name").val("");
-			$("#receiver_mobile").val("");
-			$("#receiver_address").val("");
-			$.address_b("receiver_state","receiver_city","receiver_district");
-			adds=v.list;
-			updateAddressList();
-			selectAddress(v.id);
-
-		}else{
-			FP.showError(v.data);
-		}
-		btn.prop("disabled",false);
-	},"json");
-});
-function selectAddress(id){
-	//用首页的data记录选择的配送类型
-	data.express_type="express";
-	data.address_id=id;
-	data.daishou_station_id=0;
-	data.daishou_taker_name="";
-	data.daishou_taker_mobile="";
-
-	$(".delivery_no_address").hide();
-	$(".delivery_content").show();
-	$(".address_log dd").removeClass("add-sel");
-	$(".address_log dd[address-id='"+id+"']").addClass("add-sel");
-
-	var address={};
-	for(var i in adds){
-		if(adds[i].id==id){
-			address=adds[i];
-		}
-	}
-	$(".delivery_name span").html(address.receiver_name);
-	$(".delivery_mob span").html(address.receiver_mobile);
-	$(".delivery_address span").html(address.receiver_state+" "+address.receiver_city+" "+address.receiver_district+" "+address.receiver_address);
-	$("#addressinfo").html(address.receiver_state+""+address.receiver_city+""+address.receiver_district+""+address.receiver_address+"<br>"+address.receiver_name+" "+address.receiver_mobile);
-	selectedAddress=address;
-	$.get('/buy/updateaddressusedtime/',{id:id},null);
-	whenAddressChange();
-	// 同时先刷新内容
-	get_lis();
-	$('.arrival-time').hide();
-	$('#select-but').find('span').removeClass('current select');
-	//关闭视图，推荐代收点。
-	closeViewWhenSeleted(address.receiver_city,address.receiver_address);
-}
-function getAddress(){
-	$.get("/buy/getaddress",null,function(v){
-		adds=v;
-		updateAddressList();
-		if(adds.length>0){
-			selectAddress(adds[0].id);
-		}
-	},"json");
-}
-function updateAddressList(){
-	var tpl=$("#address_tpl").html();
-	$(".address_log dd").remove();
-	for(var i in adds){
-		var item=tpl;
-		item=item.replace("{id}",adds[i].id);
-		item=item.replace("{receiver_name}",adds[i].receiver_name);
-		item=item.replace("{receiver_mobile}",adds[i].receiver_mobile);
-		item=item.replace("{receiver_state}",adds[i].receiver_state);
-		item=item.replace("{receiver_city}",adds[i].receiver_city);
-		item=item.replace("{receiver_district}",adds[i].receiver_district);
-		item=item.replace("{receiver_address}",adds[i].receiver_address);
-		$(".address_log").append(item);
-	}
-}
-
-$(".address_log").delegate("dd","click",function(){
-	selectAddress($(this).attr("address-id"));
-});
-
-function closeViewWhenSeleted(city,address){
-	//推荐代收点
-	$("#buyWrap").show();
-	$('body,html').scrollTop(0);
-	$(".Shipping_ads").hide();
-
-	var bool = city.indexOf("上海");
-	if (bool>=0) {
-		$(".delivery_tip").css('display', 'block');
-	}else{
-		$(".delivery_tip").css('display', 'none');
-	}
-}
-
-getAddress();
-</script>
-<!--END 选择地址-->
-<!-- 详细地址地图的页面开始 -->
-<div class="map_out" style="display:none;background:#fff">
-<!--  头部的部分开始 -->
-<div class="map_container_header">
-<label>代收点地址详情</label>
-<a class="map_close" href="http://t.flowerplus.cn/buy/confirm?sku=0i2_1_0_0&amp;_t=1489542385767#"></a>
-</div>
-<!--  头部的部分结束 -->
-<div class="BMap_mask" id="BMap_mask"></div>
-<div class="Tit p3">
-<p class="img">
-<img src="http://t.flowerplus.cn/buy/confirm?sku=0i2_1_0_0&amp;_t=1489542385767" alt="logo" id="map_shop_logo"></p>
-<ul>
-<li>
-<b id="map_shop_name"></b>
-<span id="map_shop_type"></span>
-</li>
-<li id="map_shop_time"></li>
-</ul>
-</div>
-<p class="map_ads" id="map_shop_address"></p>
-<a href="http://t.flowerplus.cn/buy/confirm?sku=0i2_1_0_0&amp;_t=1489542385767" id="map_shop_phone" class="tel p3 l40" style="display:block;color:#333"></a>
-<div class="Discount p3">
-<div class="top" id="map_shop_tip"></div>
-<p id="map_shop_detail">在设置为提货点的时间区间，您将获得合作门店认证卡，凭卡享受该门店优惠。</p>
-</div>
-</div>
-<!-- 详细地址地图的页面结束 -->
-
-<!-- 提货人的页面结束 -->
-<div class="taker_list_container" style="display:none;background:#fff">
-<div class="taker_list_header" style="position:relative;">
-<label>提货人管理</label>
-<a class="taker_close" href="javascript:;"></a>
-</div>
-<div class="taker_list_inputs">
-<dl class="taker-info-item">
-<dt>提货人</dt>
-<dd>
-<input type="text" id="taker_name" placeholder="姓名"></dd>
-</dl>
-<dl class="taker-info-item">
-<dt>电话</dt>
-<dd>
-<input type="tel" id="taker_mobile" placeholder="提货人手机"></dd>
-</dl>
-<div class="taker-save-wrap">
-<button class="taker-save">保存</button>
-</div>
-</div>
-<div class="taker_list_log">
-<div class="taker_list_log_title">历史提货人</div>
-<div class="taker_list_log_item">
-<table>
-<colgroup>
-<col style="width:20%">
-<col style="width:65%">
-<col style="width:15%"></colgroup>
-<tbody id="taker_list_items"></tbody>
-</table>
-</div>
-</div>
-</div>
-<!--  提货人的页面结束 -->
-
-<!-- 代收点的页面开始-->
-<div class="ds_wpage" style="display:none">
-<!-- 代收点显示一部分 -->
-<div class="wpage">
-<header style="font-size:16px;font-weight:bolder;color:#44450;line-height:45px">
-代收服务
-<a class="deliver-close first-deliver-close" style=""></a>
-</header>
-<!--div  class="daishou_promotion">代收点有优惠活动哦！</div-->
-<div class="banner" style="max-height: 300px;overflow: hidden;">
-<img src="imgs/daishou.png" style="width:100%;" alt="">
-<p>我们正与品牌门店合作提供免费代收服务。您可选择附近的代收点为收货地址，收花日收到短信后在营业时间内到店自提即可。</p>
-</div>
-<p class="ads">
-收货地址：
-<span id="ads_content">
-<span></span>
-</span>
-</p>
-<p class="p3 l45 bb ti-tit">附近的代收点</p>
-<div class="daishou_recommend_list">
-<!--代收点列表-->
-</div>
-<a href="javascript:void(0);" class="select l45" style="display:inline-block;width:100%;color:#333">查看全部代收点</a>
-</div>
-<!-- 代收点显示一部分 -->
-<!-- 全部的代收开始-->
-<div class="wpage" style="display:none;background:#fff">
-<!-- 头部的标签开始 -->
-<header clss="ALLds">
-<div class="header" style="font-size:1.6rem;font-weight:bolder;line-height:45px;">
-代收服务
-<a class="deliver-close second-deliver-close"></a>
-</div>
-<!-- 选择省份的输入框开始 -->
-<div class="daishou_address_area">
-<div class="daishou_address_div">
-<select class="form-control" id="daishou_state" name="daishou_state">
-<option index="0" value="选择省份">选择省份</option>
-<option index="1" value="上海">上海</option>
-<option index="2" value="北京">北京</option>
-<option index="3" value="江苏">江苏</option>
-<option index="4" value="浙江">浙江</option>
-<option index="5" value="广东">广东</option>
-<option index="6" value="四川">四川</option>
-<option index="7" value="天津">天津</option>
-<option index="8" value="重庆">重庆</option>
-<option index="9" value="河南">河南</option>
-<option index="10" value="湖北">湖北</option>
-<option index="11" value="湖南">湖南</option>
-<option index="12" value="河北">河北</option>
-<option index="13" value="安徽">安徽</option>
-<option index="14" value="福建">福建</option>
-<option index="15" value="江西">江西</option>
-<option index="16" value="山东">山东</option>
-</select>
-<select class="form-control" id="daishou_city" name="daishou_city">
-<option index="0" value="选择城市">选择城市</option>
-</select>
-<select class="form-control" id="daishou_district" name="daishou_district">
-<option index="0" value="选择区县">选择区县</option>
-</select>
-</div>
-<div class="daishou_address_search_area">
-<button class="address_search_button"></button>
-</div>
-</div>
-<!-- 选择省份的输入框结束 -->
-<!-- 搜索的功能开始 -->
-<div class="daishou_address_search" style="display:none">
-<div class="daishou_address_search_text">
-<input type="text" id="seach_keyword" name="seach_keyword" placeholder="请输入路名或代收点">
-<div class="daishou_address_search_button">
-<button onclick="searchWithKeyword()">搜索</button>
-<button onclick="cancelSearch()" style="background-color:#bbb">取消</button>
-</div>
-</div>
-</div>
-<!-- 搜索的功能结束 -->
-</header>
-<!-- 头部的标签结束 -->
-<div class="wrap-page full_daishou_list" style="diaplay:none"></div>
-</div>
-<!-- 全部的代收点结束 -->
-<!--  尾部的开始 -->
-<div class="trans"></div>
-<footer>
-<div class="p3 clearfix name bb">
-<p class="l" style="line-height:45px">
-<b>提货人:</b>
-<span id="taker_name_default"></span>
-</p>
-<p class="r" style="margin-right:30px;color:#413f47;line-height:45px">
-<span id="taker_mobile_default"></span>
-</p>
-</div>
-<button id="selected_daishou_btn">配送至代收点</button>
-</footer>
-<!--  尾部的结束-->
-</div>
-<!-- 代收点的页面结束 -->
-
-<!-- 弹出框 -->
-<style>
-.alert_clause {width: 100%;height: 100%;background: rgba(0,0,0,0.6);z-index:2222;position: fixed;left: 0;right: 0;bottom: 0;top: 0}
-.alert_clause_main { width:85%;background:#fff; position:fixed;border-radius: 4px; overflow: hidden;}
-.alert_clause_main_in{ padding:10px;}
-.alert_clause button{width:100%;height:30px;line-height:30px;background:#f6658f;text-align: center;color: white;border: 0;border-radius: 5px;margin-top: 10px}
-.alert_clause_main_in .center{height:100px;overflow-y:auto;-webkit-overflow-scrolling:touch;}
-.top span{position:absolute;right:10px;top:5px;background:url(image/iconfont-close-tiny.png);width:25px;height:25px;background-size:25px 25px;-moz-background-size:25px 25px;-webkit-background-size:25px 25px;}
-.center tr td{vertical-align:top;line-height: 18px}
-.center tr td:first-child{font-weight:bold;}
-</style>
-<div class="alert_clause" style="display:none">
-<div class="alert_clause_main">
-<div class="alert_clause_main_in">
-<div class="top">
-<p style="text-align:center;line-height:35px;font-size:16px">代收点活动介绍</p>
-<span class="close"></span>
-</div>
-<table class="center">
-<tbody>
-<tr>
-<td>1.</td>
-<td>在不方便收件或者对快递的服务不满意时可选择花+提供的免费代收点服务；</td>
-</tr>
-<tr>
-<td>2.</td>
-<td>
-新客户下单时选择门店代收，已下单的老客户在订单详情中更改配送方式均可领取“花+代收门店会员认证卡”，您可以在“会员中心”查看；
-</td>
-</tr>
-<tr>
-<td>3.</td>
-<td>订单结束或者更改为其他配送方式，“花+代收门店会员认证卡”将被收回；</td>
-</tr>
-<tr>
-<td>4.</td>
-<td>代收站点仅提供代收服务。合作门店除代收服务外，也将会不定期提供会员特权福利；</td>
-</tr>
-<tr>
-<td>5.</td>
-<td>
-凭认证卡可享受对应代收门店的优惠特权，详细信息可参考门店的红色文字提示或查看认证卡优惠说明；
-<b>4月13日-5月13日</b>
-凡选择代收的客户，在门店每签收一次都将
-<b style="color:red">获得2积分</b>
-（可累计获得多次积分，1积分可抵扣1元）；
-</td>
-</tr>
-</tbody>
-</table>
-<p style="text-align:center;font-weight:bold;color:#999">
-<br>
-花+对本活动保有最终解释权。
-<br></p>
-<button>知道了</button>
-</div>
-</div>
-</div>
-<script>
- jQuery(document).ready(function($) {
-        
-   $(".close,.alert_clause button").click(function(event) {
-       $(this).parents(".alert_clause").hide();
-   });
-
-    $(".daishou_promotion").click(function(){
-	 	$(".alert_clause").css('display','block');
-	 	var screenWidth = $(window).width();
-        var screenHeight = $(window).height();
-        var aW=$(".alert_clause_main").width();
-        var aH=$(".alert_clause_main").height();
-        $(".alert_clause_main").css({
-            left:screenWidth/2-aW/2,
-            top:screenHeight/2-aH/2
-	 	})
-  });
-});
-
-
-</script>
-<!-- 弹出框 -->
-
-<script type="text/html" id="daishou_list_item_tpl">
-	 	<div class="daishou_list_item pa bb" itemid="{id}">
-		<table style="width:100%">
-			<colgroup>
-				<col width="8%">
-				<col width="78%">
-				<col width="14%"></colgroup>
-			<tbody>
-				<tr style="height:20px">
-					<td>
-					<span class="daishou_list_item_radio"><b></b></span>
-					</td>
-					<td style="font-size:16px;font-weight:bold">{shop_name} <b class="smal-t" {type_style}>{daishou_type}</b></td>
-					<td style="font-size:12px;color:#ccc"></td>
-				</tr>
-			<tr>
-				<td></td>
-				<td style="font-size:14px;color:#888">{shop_address}<br></td>
-				<td style="text-align:center"><img item="{id}" class="daishou_list_item_pointer" src="/Static/img/dw.png"></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td style="font-size:14px;color:#888">营业时间 {shopping_time}  </td>
-				<td style="text-align:center;font-size:12px;color:#666">{shop_distance}</td>
-			</tr>
-		</tbody>	
-		 </table>
-		 <p style="color:#fc780b;padding-left:8%;margin-top:3px;display:{comment_block}"><span style="padding:0px 4px;display:inline-block;color:#fff;background:#fc780b;border-radius:3px;margin-right:5px">惠</span>
-		 	{comment} </p>
-		</div>
-</script>
-<script type="text/html" id="takerlist_tpl">
-    <tr item={id} item_name={taker_name}>
-        <td>{taker_name}</td>
-        <td style="text-align:right;">{taker_mobile}</td>
-        <td></td>
-    </tr>
-</script>
-
-<script type="text/javascript" src="js/api"></script>
-<script type="text/javascript" src="js/getscript"></script>
-<script>
-
-var daishou_data={
-	receiver_name:'',
-	receiver_mobile:'',
-	receiver_state:'',
-	daishou_shop_id:0,
-	daishou_shop_name:'',
-	daishou_shop_address:'',
-};
-
-var recommended_daishou_list;
-var full_daishou_list;
-var map=null;
-var map_marker;
-var map_info_window;
-
-$.address_b("daishou_state","daishou_city","daishou_district");
-$("#daishou_state").change(daishouCityChanged);
-$("#daishou_city").change(daishouCityChanged);
-$("#daishou_district").change(daishouCityChanged);
-
-
-//展示统一调用函数
-function ds_show_daishou_picker(address_id){
-	$('.ds_wpage').show();
-	//加载地址数据
-	if (address_id>0) {
-		var post={'address_id':address_id};
-		$.post('/buy/get_recommend_ds_shops',post,function(v){
-			if (v.f) {
-				var address=v.data.address;
-				$('#ads_content').html(address.receiver_state+address.receiver_district+' '+address.receiver_address);
-				$("#taker_name_default").html(address.receiver_name);
-				$("#taker_mobile_default").html(address.receiver_mobile);
-
-				daishou_data.receiver_name=address.receiver_name;
-				daishou_data.receiver_mobile=address.receiver_mobile;
-
-				$(".daishou_recommend_list").html('');
-				var tpl=$("#daishou_list_item_tpl").html();
-				recommended_daishou_list=v.data.shops;
-				var html=daishou_list_html(recommended_daishou_list);
-				$(".daishou_recommend_list").html(html);
-			}else{
-				alert(v.data);
-			}
-		},'json');
-	};
-}
-
-//展示统一调用函数
-function ds_show_daishou_picker_with_oid(order_id){
-	$('.ds_wpage').show();
-	//加载地址数据
-	if (order_id>0) {
-		var post={'order_id':order_id};
-		$.post('/buy/get_recommend_ds_shops_for_oid',post,function(v){
-			if (v.f) {
-				var address=v.data.address;
-				$('#ads_content').html(address.receiver_state+address.receiver_district+' '+address.receiver_address);
-				$("#taker_name_default").html(address.receiver_name);
-				$("#taker_mobile_default").html(address.receiver_mobile);
-
-				daishou_data.receiver_name=address.receiver_name;
-				daishou_data.receiver_mobile=address.receiver_mobile;
-
-				$(".daishou_recommend_list").html('');
-				var tpl=$("#daishou_list_item_tpl").html();
-				recommended_daishou_list=v.data.shops;
-				var html=daishou_list_html(recommended_daishou_list);
-				$(".daishou_recommend_list").html(html);
-			}else{
-				alert(v.data);
-			}
-		},'json');
-	};
-}
-
-//关闭统一调用函数,需要自己定义
-//function ds_hide_daishou_picker(){};
-
-//选择完成的统一回调,需要自己定义
-//function ds_when_selected_daishou(daishou_data){};
-
-$(".daishou_recommend_list").delegate(".daishou_list_item","click",function(event){
-	event.stopPropagation();
-	var check=$(this).find('.daishou_list_item_radio b')
-	 if( check.css("display")=='none'){
-	 	check.css('display', 'block');
-	 	$(this).siblings('.daishou_list_item').find('.daishou_list_item_radio b').css('display', 'none');
-	 	$(".full_daishou_list").find('.daishou_list_item_radio b').css('display', 'none');              
-	 }
-
-	var itemId=$(this).attr("itemid");
-	var items = $.grep(recommended_daishou_list, function(n){
-        return n.id==itemId;
-    });
-
-	var item=items[0];
-	daishou_data.daishou_shop_id=itemId;
-	daishou_data.daishou_shop_name=item.shop_name;
-	daishou_data.daishou_shop_address=item.city+item.district+item.address;
-	daishou_data.receiver_state=item.state;
-});
-
-$(".full_daishou_list").delegate(".daishou_list_item","click",function(event){
-	event.stopPropagation();
-	var check=$(this).find('.daishou_list_item_radio b')
-	 if( check.css("display")=='none'){
-	 	check.css('display', 'block');
-	 	$(this).siblings('.daishou_list_item').find('.daishou_list_item_radio b').css('display', 'none');
-	 	$(".daishou_recommend_list").find('.daishou_list_item_radio b').css('display', 'none');
-
-	 	var itemId=$(this).attr("itemid");
-		 var items = $.grep(full_daishou_list, function(n){
-	        return n.id==itemId;
-	    });
-
-		var item=items[0];
-		daishou_data.daishou_shop_id=itemId;
-		daishou_data.daishou_shop_name=item.shop_name;
-		daishou_data.daishou_shop_address=item.city+item.district+item.address;
-		daishou_data.receiver_state=item.state;       
-	 }
-	 else{
-	 	check.css('display', 'none');
-	 	daishou_data.daishou_shop_id=0;
-		daishou_data.daishou_shop_name="";
-		daishou_data.daishou_shop_address="";
-		daishou_data.receiver_state="";    
-	 }
-});
-
-// 定位的小点的事件
-$(".daishou_recommend_list").delegate(".daishou_list_item .daishou_list_item_pointer","click",function(e){	
-	e.stopPropagation();
-	$(this).parents('.ds_wpage').hide().siblings('.map_out').show();
-
-	var itemId=$(this).attr("item");
-	var items = $.grep(recommended_daishou_list, function(n){
-        return n.id==itemId;
-    });
-
-    var item=items[0];
-    bind_mapview_data(item);
- });
-
-$(".full_daishou_list").delegate(".daishou_list_item .daishou_list_item_pointer","click",function(e){	
-	e.stopPropagation();
-	$(this).parents('.ds_wpage').hide().siblings('.map_out').show();
-
-	var itemId=$(this).attr("item");
-	var items = $.grep(full_daishou_list, function(n){
-        return n.id==itemId;
-    });
-
-    var item=items[0];
-    bind_mapview_data(item);
- });
-
-$(".ds_wpage .first-deliver-close").click(function(event) {
-	$('.ds_wpage').hide();
-
-	//调用隐藏回调
-	ds_hide_daishou_picker();
-}); 
-$(".ds_wpage .second-deliver-close").click(function(event) {
-	$(this).parents(".wpage").hide().siblings('.wpage').show();
-}); 
-
-$(".ds_wpage .select").click(function(event) {
-	$(this).parents(".wpage").hide().siblings('.wpage').show();
-	searchAllSattion('上海');
-});
-
-
-function daishou_list_html(daishou_list){
-	if (daishou_list==null||daishou_list.length==0) {
-		var html="<table style=\"width:100%;border-bottom:1px solid #ddd\"><tr><td style=\"text-align:center;height:60px;color:#666\">没有找到代收点<td></tr></table>"
-		return html;
-	};
-	
-	var tpl=$("#daishou_list_item_tpl").html();
-	var html='';
-	for (var i = 0; i < daishou_list.length; i++) {
-		var shop=daishou_list[i];
-		var item=tpl;
-		item=item.replace(/\{id\}/ig,shop.id);
-		item=item.replace("{shop_name}",shop.shop_name);
-		item=item.replace("{shop_address}",shop.city
-											+shop.district
-											+shop.address);
-
-		item=item.replace("{shop_phone}",shop.shop_manager_phone);
-
-		var comment=shop.comment;
-		if (comment!=null&&$.trim(comment)!="") {
-			item=item.replace("{comment_block}","block");
-			item=item.replace("{comment}",comment);
-		}
-		else{
-			item=item.replace("{comment_block}","none");
-			item=item.replace("{comment}","");
-		}
-		
-		var daishou_type=shop.daishou_type;
-		if (parseInt(daishou_type)==1) {
-			item=item.replace("{daishou_type}","合作门店");
-			item=item.replace("{type_style}","style='background: #fb95ad;'");
-		}else if (parseInt(daishou_type)==2) {
-			item=item.replace("{daishou_type}","代收站点");
-			item=item.replace("{type_style}","style='background: #aaa;'");
-		}
-		else{
-			item=item.replace("{daishou_type}","");
-		}
-		
-		if (shop.distance!=null) {
-			item=item.replace("{shop_distance}",shop.distance+"米");
-		}
-		else{
-			item=item.replace("{shop_distance}"," ");
-		}
-
-		var shopping_time=shop.start_time.substring(0,5)+" ~ "+shop.end_time.substring(0,5)
-		item=item.replace("{shopping_time}",shopping_time);
-		html+=item;
-	}
-
-
-	return html;
-}
-
-function bind_mapview_data(item){
-	if (item.logo!=null) {
-		$("#map_shop_logo").attr("src",item.logo);
-		$(".map_info_logo").css("display","block");
-	}else{
-		$("#map_shop_logo").attr("src",'');
-		$(".map_info_logo").css("display","none");
-	}
-   
-    $("#map_shop_name").html(item.shop_name);
-
-    var daishou_type=item.daishou_type;
-    daishou_type=parseInt(daishou_type);
-	if (daishou_type==1) {
-		$("#map_shop_type").html("合作门店");
-		$("#map_shop_type").css("background","#fb95ad");
-	}else if (daishou_type==2) {
-		$("#map_shop_type").html("代收站点");
-		$("#map_shop_type").css("background","#aaa");
-	}
-
-	var shopping_time=item.start_time.substring(0,5)+" ~ "+item.end_time.substring(0,5);
-	$("#map_shop_time").html("营业时间："+shopping_time);
-
-	var fullAddress=item.city+item.district+item.address;
-	$("#map_shop_address").html("地址："+fullAddress);
-	$("#map_shop_phone").html(item.shop_manager_phone);
-	$("#map_shop_phone").attr("href","tel://"+item.shop_manager_phone);
-
-    if (item.comment!=null&& $.trim(item.comment).length>0) {
-        $("#map_shop_tip").html("<label>惠</label> "+item.comment);
-        $("#map_shop_detail").css("display","inline-block");
-    }
-    else{
-    	$("#map_shop_tip").html("");
-    	$("#map_shop_detail").css("display","none");
-    }
-
-    if($.isEmptyObject(map)){
-        map = new BMap.Map("BMap_mask");
-        map.addControl(new BMap.GeolocationControl());
-    	var opts = {type: BMAP_NAVIGATION_CONTROL_ZOOM};    
-    	map.addControl(new BMap.NavigationControl(opts));
-    	map.disableDragging();  
-    }
-
-    map_marker=null;
-    map.removeOverlay(map_marker);
-
-    var opts = {    
-        width:0,        
-        height:0,
-        offset:new BMap.Size(0, -25),    
-        title:"<h3>"+item.shop_name+"</h3>",
-        maxWidth:220 
-    }
-
-    var center = new BMap.Point(item.lng, item.lat);  
-    map_marker = new BMap.Marker(center);     
-    map.addOverlay(map_marker);  
-    map.centerAndZoom(center, 18);
-
-    map_info_window = new BMap.InfoWindow(fullAddress, opts);    
-    setTimeout(function (){
-        map.openInfoWindow(map_info_window, center);  
-    }, 500);
-}
-
-function daishouCityChanged(){
-	var address={
-		state:$("#daishou_state").val(),
-		city:$("#daishou_city").val(),
-		district:$("#daishou_district").val()
-	};
-
-	$.post('/buy/search_stations',address,function(v){
-		full_daishou_list=v;
-		var html=daishou_list_html(full_daishou_list);
-		$(".full_daishou_list").html(html);
-	},"json");
-}
-
-$(".address_search_button").click(function(event) {
-	$(".daishou_address_search").css('display', 'block');
-	$(".daishou_address_search_text input").focus();
-});
-
-function cancelSearch(){
-	$(".daishou_address_search").css("display","none");
-	$(".daishou_address_search_text input").focus();
-}
-
-function searchWithKeyword(){
-	var keyword= $("#seach_keyword").val();
-	keyword=$.trim(keyword);
-	if (keyword.length>=2) {
-		$(".daishou_address_search").css("display","none");
-
-		var info={
-			k:keyword
-		};
-
-		$.post('/buy/search_stations',info,function(v){
-			full_daishou_list=v;
-			var html=daishou_list_html(full_daishou_list);
-			$(".full_daishou_list").html(html);
-		},"json");
-	}
-	else{
-		alert("至少输入两个关键字");
-	}
-}
-
-function searchAllSattion(city){
-	var info={
-			k:"all",
-		};
-
-	if (city!=null) {
-		info.city=city;
-	};
-
-	$.post('/buy/search_stations',info,function(v){
-		full_daishou_list=v;
-		var html=daishou_list_html(full_daishou_list);
-		$(".full_daishou_list").html(html);
-	},"json");
-}
-
-$(".map_out .map_close").click(function(event) {
-	$(this).parents(".map_out").hide().siblings('.ds_wpage').show();
-});
-
-$("#selected_daishou_btn").click(function(e){
-	if (daishou_data.daishou_shop_id==0) {
-		FP.showError("请选择一个门店！");
-		return;
-	};
-
-	if (daishou_data.receiver_name=='') {
-		FP.showError("请填写提货人！");
-		return;
-	};
-
-	if (daishou_data.receiver_mobile=='') {
-		FP.showError("请填写提货人手机号！");
-		return;
-	};
-
-	ds_when_selected_daishou(daishou_data);
-	$(".taker_list_container").hide();
-	$(".ds_wpage").hide();
-	$(".map_out").hide();
-
-	//调用隐藏回调
-	ds_hide_daishou_picker();
-});
-
-</script>
-
-<script>
-var all_takers=[];
-$("footer .name").click(function(event) {
- 	$(this).parents(".ds_wpage").hide().siblings('.taker_list_container').show();
- 	if (all_takers.length==0){
-         updateAllTakersList();
-     };
-});
-
-$(".taker_list_container .taker_close").click(function(event) {
-	$(".taker_list_container").hide().siblings(".ds_wpage").show();
-});
-
-$(".taker-save").bind("click",function(e){
-    e.stopPropagation();
-    var info={
-        taker_name:$("#taker_name").val().replace('/^\s|\s$/g',''),
-        taker_mobile:$("#taker_mobile").val().replace('/^\s|\s$/g',''),
-    };
-
-    if(info.taker_name==""){
-        FP.showError("请填写提货人姓名！");
-        return;
-    }
-    if(info.taker_mobile==""){
-        FP.showError("请填写提货人手机！");
-        return;
-    }
-
-    var btn=$(this).prop("disabled",true);
-    $.post('/buy/add_daishou_takers',info,function(v){
-        if(v.f){
-            $("#taker_name").val("");
-            $("#taker_mobile").val("");
-            adds=v.list;
-            updateAllTakersList();
-        }else{
-            FP.showError(v.data);
+                </div>
+            </div>
+            <!-- 优惠码 / 兑换码 -->
+            <p class="bb10"></p>
+            <div style="margin:20px 0 0 0;text-align:center;font-size:16px">
+                付款金额:
+                <span class="confirm-price" id="payment" style="font-size:18px">￥672</span>
+            </div>
+            <div style="text-align:center;display:none" id="event_xin">
+                已优惠 <strong></strong> 元，并免费获得一个花瓶。
+            </div>
+            <a id="payandsubmit" href="javascript:;">确认下单</a>
+            <div style="text-align: center;padding:20px">
+                <img src="imgs/ucenterlogo.png" style="height:24px;width:89px"></div>
+        </div>
+        <!--电子祝福卡预览-->
+        <div class="Zfk_content_out" style="display:none">
+            <div class="Zfk_content">
+                <div class="Zfk_tit">祝福卡</div>
+                <div class="Zfk_main_out" style="padding: 0 25px 15px;color: #666;font-family:PingFang-SC-Thin">
+                    <div class="Zfk_main" style="font-size:18px"></div>
+                    <div class="Zfk_name"></div>
+                </div>
+                <div class="Zfk_bottom">
+                    <div class="Zfk_bottom_top">
+                        <img src="imgs/zfk-page.png" height="79" width="100%" style="display:block"></div>
+                    <div class="Zfk_infor">
+                        <span>赠送内容：简花·单品鲜花月套餐</span>
+                    </div>
+                    <div class="Zfk_logo">
+                        <img src="imgs/zfk-logo.png" height="92" width="332" alt=""></div>
+                </div>
+            </div>
+            <div>
+                <img id="zfk_close_preview_btn" src="imgs/zfk_preview_close.png" alt="" style="width:30px;height:30px;position:fixed;top:10px;right:10px;"></div>
+        </div>
+        <input type="hidden" class="is_weixin" value="">
+        <script type="text/javascript">
+        function isLocalStorage() {
+            return typeof window.localStorage == "object";
         }
-        btn.prop("disabled",false);
-    },"json");
-});
 
-function updateAllTakersList(){
-    $.get('/buy/get_daishou_takers',function(v){
-        if(v){
-            all_takers=v;
-            var tpl=$("#takerlist_tpl").html();
-            $("#taker_list_items").html('');
-            for(var i in all_takers){
-                var item=tpl;
-                item=item.replace(/\{id\}/ig,all_takers[i].id);
-                item=item.replace(/\{taker_name\}/ig,all_takers[i].taker_name);
-                item=item.replace("{taker_mobile}",all_takers[i].taker_mobile);
-                $("#taker_list_items").append(item);
+        function getMemoryZhufu() {
+            if (!isLocalStorage()) {
+                return "";
             }
 
-            //找到需要选中的dom然后选中
-            if (daishou_data.hasOwnProperty("daishou_taker_name")) {
-                $("#taker_list_items tr").each(function(){ 
-                    if ($(this).attr("item_name")==data.daishou_taker_name) {
-                        $(this).find("td:eq(2)").addClass("add-sel");
-                    }; 
+            return window.localStorage.getItem("flower_zhk_content");
+
+        }
+
+        function setMemoryZhufu(content) {
+            if (!isLocalStorage()) {
+                return;
+            }
+            window.localStorage.setItem("flower_zhk_content", content);
+
+        }
+
+        //设置默认的祝福卡内容
+        $("#e_txtZhuFu").val(getMemoryZhufu());
+
+        $("#zfk_preview_btn1").click(function(e) {
+            var content = $("#txtZhuFu").val();
+            if (content.length == 0) {
+                FP.showError("请填写电子祝福卡内容！");
+                return;
+            }
+
+            if (content.length < 1) {
+                FP.showError("祝福卡内容必填！");
+                return;
+            }
+
+            var name = $("#txtZhuFu_name").val();
+            if (name.length == 0) {
+                FP.showError("请正确输入您的称呼！");
+                return;
+            }
+
+            if (name.length > 15) {
+                FP.showError("输入称呼不能超过15个字！");
+                return;
+            }
+
+
+            $(".Zfk_main").html(content);
+            $(".Zfk_name").html(name);
+
+            //记忆默认的祝福卡内容
+            setMemoryZhufu(content);
+
+            (function() {
+                $(".Zfk_content").css({
+                    "-webkit-transform": "scale(1,1)",
+                    "transform": "scale(1,1)"
+                });
+
+                $(".Zfk_content_out").css("display", "block");
+                setTimeout(function() {
+                    $(".Zfk_main").css({
+                        "-webkit-transition": "min-height .5s ease-out",
+                        "transition": "min-height .5s ease-out",
+                        "min-height": $(".Zfk_content_out").height() - $(".Zfk_content").height() + $(".Zfk_main").height() - 15
+                    });
+                }, 800);
+
+            })();
+        });
+        $("#zfk_preview_btn").click(function(e) {
+            var content = $("#e_txtZhuFu").val();
+            if (content.length == 0) {
+                FP.showError("请填写电子祝福卡内容！");
+                return;
+            }
+
+            if (content.length < 1) {
+                FP.showError("祝福卡内容必填！");
+                return;
+            }
+
+            var name = $("#e_txtZhuFu_name").val();
+            if (name.length == 0) {
+                FP.showError("请正确输入您的称呼！");
+                return;
+            }
+
+            if (name.length > 15) {
+                FP.showError("输入称呼不能超过15个字！");
+                return;
+            }
+
+
+            $(".Zfk_main").html(content);
+            $(".Zfk_name").html(name);
+
+            //记忆默认的祝福卡内容
+            setMemoryZhufu(content);
+
+            (function() {
+                $(".Zfk_content").css({
+                    "-webkit-transform": "scale(1,1)",
+                    "transform": "scale(1,1)"
+                });
+
+                $(".Zfk_content_out").css("display", "block");
+                setTimeout(function() {
+                    $(".Zfk_main").css({
+                        "-webkit-transition": "min-height .5s ease-out",
+                        "transition": "min-height .5s ease-out",
+                        "min-height": $(".Zfk_content_out").height() - $(".Zfk_content").height() + $(".Zfk_main").height() - 15
+                    });
+                }, 800);
+
+            })();
+        });
+
+        $("#zfk_close_preview_btn").click(function(e) {
+            $(".Zfk_content_out").css("display", "none");
+        });
+        </script>
+        <!--电子祝福卡预览-->
+        <script>
+        var data = {
+            id: 0,
+            sku_id: "i2_1_0_0",
+            price: 672,
+            total_fee: 672,
+            payment: 672,
+            order_type: 1,
+            discount_fee: 0,
+            post_fee: 0,
+            items_fee: 0,
+            delivery_date: "",
+            delivery_date2: "",
+            title: "简花·单品鲜花月套餐",
+            sku_title: "6个月,花剪(魅惑紫)+59元,1组/4包+5元,蓝调花瓶+20元",
+            sku_properties_name: "订几个月:6个月;花剪:花剪(魅惑紫)+59元;独家配方保鲜液:1组/4包+5元;加购花瓶:蓝调花瓶+20元",
+            total_month: "6个月",
+            yaoqingren: "",
+            notlike: "",
+            remark: "",
+            address_id: 0,
+            xuding: 0,
+            marketingid: "",
+            express_type: "",
+            daishou_station_id: 0,
+            daishou_taker_name: "",
+            daishou_taker_mobile: "",
+            event_code: "",
+            discount: [],
+            items: {},
+            pingan: '',
+            landiao_size: '',
+            shanzhen: 0,
+            gdhp: 0,
+            kl1025: "",
+            kl1050: "",
+            receiver_name: "",
+            receiver_mobile: "",
+            baoxianye: 0,
+            mifengtang: 0,
+            flower_use: '',
+            no_address: "",
+            can_notselect: "1",
+            definite_date: "",
+            can_coupon: "1",
+            postfee_temp: "1"
+        };
+        var notlike_default = [];
+        var data_postfee = {
+            "default": 0,
+            "sp": []
+        };
+        var submitLimitTimes = 0;
+        var week1 = '首次3月20号';
+        var week6 = '首次3月18号';
+        var groupid = ''; //团购变量
+        if (data.id == 6667 || data.id == 6668 || data.id == 6669 || data.id == 6670) {
+            var discount = [];
+            var dj = '';
+            var dj_id = '';
+            for (var i in data.discount) {
+                if (data.discount[i].dtype != 10) {
+                    discount.push(data.discount[i]);
+                }
+            }
+            if (dj > 0) {
+                discount.push({
+                    dtype: 10,
+                    dj_id: dj_id,
+                    discount_amount: parseInt(dj)
                 });
             }
+            var gl = '0';
+            var gl_id = '';
+            for (var i in data.discount) {
+                if (data.discount[i].dtype != 11) {
+                    discount.push(data.discount[i]);
+                }
+            }
+            if (gl > 0) {
+                discount.push({
+                    dtype: 11,
+                    gl_id: gl_id,
+                    discount_amount: parseFloat(gl)
+                });
+            }
+            data.discount = discount;
         }
-    },"json");
-}
 
-$("#taker_list_items").delegate("tr","click",function(){
-    $("#taker_list_items tr td").removeClass("add-sel");
-    $(this).find("td:eq(2)").addClass("add-sel");
+        function whenAddressChange() {
+            onAddressChangeUpdatePostFee();
+            data.daishou_station_id = 0;
+            data.daishou_taker_name = '';
+            data.daishou_taker_mobile = '';
+            data.express_type = 'express';
+            $(".delivery_tip span").html('收货不方便时，可选择免费代收服务 ');
+            return;
+            if (data.id != 0 && data.id != 1) {
+                return;
+            }
+            $("#event_xin").hide();
+            var discount = [];
+            for (var i in data.discount) {
+                if (data.discount[i].dtype != 5) {
+                    discount.push(data.discount[i]);
+                }
+            }
 
-    //记录代收取货人id
-    var itemId=$(this).attr('item');
-    
-    //更新界面
-    var items = $.grep(all_takers, function(n){
-        return n.id==itemId;
-    });
+            if (['天津', '河北', '安徽', '山东'].indexOf(selectedAddress.receiver_state) != -1 || (selectedAddress.receiver_state == "江苏" && ['徐州市', '宿迁市', '连云港市'].indexOf(selectedAddress.receiver_city) != -1)) {
+                var discount_fee_xin = parseInt(data.sku_title.substr(0, 1)) * 10;
+                discount.push({
+                    dtype: 5,
+                    discount_amount: discount_fee_xin
+                });
+                $("#event_xin strong").html(discount_fee_xin);
+                $("#event_xin").show();
 
-    var item=items[0];
-    $("#taker_name_default").html(item.taker_name);
-	$("#taker_mobile_default").html(item.taker_mobile);
+                if ($("#yaoqingren_wrap").length == 1) {
+                    $("#yaoqingren_wrap").hide();
+                    $("#yaoqingren").val("");
+                }
+            } else {
+                if ($("#yaoqingren_wrap").length == 1) {
+                    $("#yaoqingren_wrap").show();
+                }
 
-	daishou_data.receiver_name=item.taker_name;
-	daishou_data.receiver_mobile=item.taker_mobile;
+            }
+            data.discount = discount;
+            flushPayment();
 
-    $(".taker_list_container").hide().siblings(".ds_wpage").show();
-});
+            return;
 
-</script>
-<!--BEGIN 积分优惠券抵扣-->
-<!-- <div class="right-dialog" id="jifenWrap">
+            landiao_size = '';
+            $("#landiao_201604 input").prop("checked", false).prop("disabled", true);
+            $.get('/buy/lanhuaping201604/', {
+                id: data.address_id,
+                pid: data.id
+            }, function(v) {
+                console.log(v);
+                if (v.can) {
+                    if (v.big) {
+                        $("#landiao_201604_big input").prop("disabled", false);
+                        $("#landiao_201604_big span").html("大号");
+                    } else {
+                        $("#landiao_201604_big input").prop("disabled", true);
+                        $("#landiao_201604_big span").html("大号(没有了)");
+                    }
+                    if (v.small) {
+                        $("#landiao_201604_small input").prop("disabled", false);
+                        $("#landiao_201604_small span").html("小号");
+                    } else {
+                        $("#landiao_201604_small input").prop("disabled", true);
+                        $("#landiao_201604_small span").html("小号(没有了)");
+                    }
+                    if (v.big) {
+                        $("#landiao_201604_big input").prop("checked", true);
+                    } else if (v.small) {
+                        $("#landiao_201604_small input").prop("checked", true);
+                    }
+                    $("#landiao_201604").show();
+                } else {
+                    $("#landiao_201604").hide();
+                }
+
+            }, "json");
+
+            return;
+            delete data.items.lanhuaping;
+            updateFee();
+            $(".lanhuaping").removeClass("checked");
+            if (data.address_id == 0) {
+                $(".lanhuaping").hide();
+                return;
+            }
+            $.get('/buy/lanhuaping/', {
+                id: data.address_id,
+                pid: data.id,
+                sku_id: data.sku_id
+            }, function(v) {
+                console.log(v);
+                if (v.can) {
+                    $(".lanhuaping").show();
+                    $("#lanhuaping_text").html(v.text);
+                    $(".lanhuaping").attr("price", v.price);
+                    $(".lanhuaping").attr("stock", v.stock);
+                    if (v.stock < 1) {
+                        $(".lanhuaping").addClass("disabled");
+                        $("#lanhuaping_text").html(v.text + " - 已换完");
+                    } else {
+                        $(".lanhuaping").removeClass("disabled");
+                    }
+                } else {
+                    $(".lanhuaping").hide();
+                }
+            }, "json");
+        }
+
+        function updatePostfee(fee) {
+            data.post_fee = fee;
+            updateFee();
+        }
+
+        //统计运费
+        function onAddressChangeUpdatePostFee() {
+            if (data.postfee_temp > 0) {
+                var receiver_state = selectedAddress.receiver_state;
+                var receiver_city = selectedAddress.receiver_city;
+                var receiver_district = selectedAddress.receiver_district;
+                var fee = 9999;
+                var postfee = parseFloat($.address_postfee[receiver_state][receiver_city][receiver_district]);
+                if (isNaN(postfee)) {
+                    postfee = 0.00;
+                }
+                if (data.id == 1193 || data.id == 1191 || data.id == 1192 || data.id == 1195) {
+                    fee = postfee / 4;
+                } else {
+                    switch (data.total_month) {
+                        case "1个月":
+                            fee = postfee * 1;
+                            break;
+                        case "3个月":
+                            fee = postfee * 3;
+                            break;
+                        case "6个月":
+                            fee = postfee * 6;
+                            break;
+                        case "12个月":
+                            fee = postfee * 12;
+                            break;
+                        default:
+                    }
+                }
+                updatePostfee(fee);
+            } else {
+                if (data_postfee.sp.length == 0) {
+                    updatePostfee(data_postfee.default);
+                    return;
+                }
+                for (var i = data_postfee.sp.length - 1; i >= 0; i--) {
+                    var rs = data_postfee.sp[i]['area'].split(",");
+                    for (var j = rs.length - 1; j >= 0; j--) {
+                        if (rs[j] == selectedAddress.receiver_state.substr(0, rs[j].length)) {
+                            updatePostfee(data_postfee.sp[i]['fee']);
+                            return;
+                        }
+                    }
+                }
+                updatePostfee(data_postfee.default);
+            }
+
+
+        }
+
+        //选择完代收点的回调
+        function ds_when_selected_daishou(daishou_data) {
+            data.express_type = 'fetch';
+            data.address_id = 0;
+            data.daishou_station_id = daishou_data.daishou_shop_id;
+            data.daishou_taker_name = daishou_data.receiver_name;
+            data.daishou_taker_mobile = daishou_data.receiver_mobile;
+
+            $(".delivery_name span").html(daishou_data.receiver_name);
+            $(".delivery_mob span").html(daishou_data.receiver_mobile);
+            $(".delivery_address span").html("<b>" + daishou_data.daishou_shop_name + "</b> " + daishou_data.daishou_shop_address);
+            $(".delivery_tip span").html('已经选择代收点：' + daishou_data.daishou_shop_name);
+        }
+
+        function updateFee() {
+            data.total_fee = data.price * 1;
+            data.items_fee = 0;
+            data.payment = 0;
+            data.discount_fee = 0;
+            for (var i in data.items) {
+                data.items_fee += data.items[i].fee;
+            }
+            data.total_fee += data.items_fee;
+
+            for (var i in data.discount) {
+                data.discount_fee += data.discount[i].discount_amount;
+            }
+
+            data.payment = data.total_fee - data.discount_fee + data.post_fee;
+
+            if (data.payment < 0) {
+                data.payment = 0;
+            }
+            $("#totalfee").html("￥" + FP.toMoney(data.total_fee));
+            $("#postfee").html("￥" + FP.toMoney(data.post_fee));
+            $("#payment").html("￥" + FP.toMoney(data.payment));
+
+        }
+
+        $(".lanhuaping").bind("click", function() {
+            if (parseInt($(this).attr("stock")) < 1) {
+                return;
+            }
+            var d = new Date();
+            if (d.getMonth() == 0 && d.getDate() < 17 && !$(this).hasClass("checked")) {
+                if (!window.confirm("参加\"蓝调花瓶换购\"活动的订单，将于下周发货!!!")) {
+                    return;
+                }
+            }
+            delete data.items.lanhuaping;
+            $(this).toggleClass("checked");
+            if ($(this).hasClass("checked")) {
+                data.items["lanhuaping"] = {
+                    "content": "",
+                    fee: parseFloat($(this).attr('price'))
+                };
+            }
+            updateFee();
+        });
+
+        $("#taboo").delegate("input", "change", function() {
+            if ($(this).prop("checked")) {
+                if ($("#taboo input:checked").length > 3) {
+                    FP.showError("最多选择三项");
+                    $(this).prop("checked", false);
+                }
+            }
+        });
+
+        $("#taboo dt").bind("click", function() {
+            if ($(this).hasClass("down")) {
+                $(this).removeClass("down");
+                $("#taboo dd").hide();
+            } else {
+                $(this).addClass("down");
+                $("#taboo dd").show();
+            }
+        });
+
+        $("#btnMa,#btnJifen").bind("click", function() {
+            if ($(this).hasClass("down")) {
+                $(this).removeClass("down");
+                $(this).parent("div").children('.right-dialog-content').hide();
+            } else {
+                $(this).addClass("down");
+                $(this).parent("div").children('.right-dialog-content').show();
+            }
+        });
+
+        $("#zhufu dt").bind("click", function() {
+            delete data.items.zhufu;
+            $(this).toggleClass("checked");
+            if ($(this).hasClass("checked")) {
+                data.items["zhufu"] = {
+                    "content": "",
+                    fee: 5
+                };
+                $("#zhufu dd").show();
+                $(this).children('.switch-but').addClass('current');
+            } else {
+                $("#zhufu dd").hide();
+                $(this).children('.switch-but').removeClass('current');
+            }
+            updateFee();
+
+        });
+
+
+        $("#e_txtZhuFu").bind("input", function() {
+            $("#e_zhufu i").html(200 - $(this).val().length);
+            check_zf_content();
+        });
+
+
+        $("#e_txtZhuFu_name").bind("input", function() {
+            check_zf_content();
+        })
+        $("#txtZhuFu").bind("input", function() {
+            $("#zhufu i").html(200 - $(this).val().length);
+            check_zftxt_content();
+        });
+        $("#txtZhuFu_name").bind("input", function() {
+            check_zftxt_content();
+        })
+
+        function check_zf_content() {
+            var content = $("#e_txtZhuFu").val();
+            var name = $("#e_txtZhuFu_name").val();
+            if (content.length < 10 || name.length < 1) {
+                $("#zfk_preview_btn").css("display", "none");
+            } else {
+                $("#zfk_preview_btn").css("display", "inline-block");
+            }
+        }
+
+        function check_zftxt_content() {
+            var content = $("#txtZhuFu").val();
+            var name = $("#txtZhuFu_name").val();
+            if (content.length < 10 || name.length < 1) {
+                $("#zfk_preview_btn1").css("display", "none");
+            } else {
+                $("#zfk_preview_btn1").css("display", "inline-block");
+            }
+        }
+
+
+        $(".delivery_date2 span").bind(FP.EVENT_CLICK, function() {
+            $(this).parent().find("span").removeClass("select");
+            $(this).addClass("select");
+            data.delivery_date2 = $(this).attr("data-key");
+        });
+
+
+        $("#xuding").bind("click", function() {
+            data.xuding = data.xuding == 0 ? 1 : 0;
+            if (data.xuding == 0) {
+                $(this).removeClass("checked");
+            } else {
+                $(this).addClass("checked");
+            }
+        });
+        $("#yaoqingren").bind("blur", is_get_vase);
+
+        function is_get_vase() {
+            var yaoqingren = $("#yaoqingren").val();
+            if (yaoqingren.length > 0) {
+                if (!/^1\d{10}$/.test(yaoqingren)) {
+                    $("#yaoqingren_tip").html("<span style='color:#e00'>请填写正确的手机号码！</span>");
+                    return;
+                }
+                $.post("/buy/is_get_vase", {
+                    yaoqingren: yaoqingren
+                }, function(v) {
+                    if (v.f) {
+                        $("#yaoqingren_tip").html("<span style='color:#00e'>可以获得花瓶！</span>");
+                    } else {
+                        $("#yaoqingren_tip").html("<span style='color:#e00'>" + v.data + "</span>");
+                    }
+                }, "json");
+            } else {
+                $("#yaoqingren_tip").empty();
+            }
+        }
+
+        $("#payandsubmit").bind("click", function() {
+            var btn = $(this);
+            if (btn.attr("data-runing") == "1") {
+                return;
+            }
+
+            if (data.no_address != 1) {
+                if (data.express_type == "") {
+                    FP.showError("请填写收货方式！");
+                    return;
+                } else {
+                    if (data.express_type == "express" && data.address_id == 0) {
+                        FP.showError("请填写收货地址！");
+                        return;
+                    }
+
+                    if (data.express_type == "fetch" && data.daishou_station_id == 0) {
+                        FP.showError("请选择代收点！");
+                        return;
+                    }
+
+                    if (data.express_type == "fetch" && data.daishou_taker_name == "") {
+                        FP.showError("请添加提货人！");
+                        return;
+                    }
+
+                    if (data.express_type == "fetch" && data.daishou_taker_mobile == "") {
+                        FP.showError("请添加提货人手机号！");
+                        return;
+                    }
+                }
+            }
+
+            if (data.order_type != 11 && data.order_type != 6 && data.delivery_date == "") {
+                if (data.definite_date != 1) {
+                    if (data.no_address != 1) {
+                        FP.showError("请选择送达日期!");
+                        return;
+                    }
+                }
+            }
+
+            if ($("#event_code").length > 0) {
+                data.event_code = $("#event_code").val();
+            }
+
+            if ($("#pingan").length > 0) {
+                data.pingan = $("#pingan").val();
+            }
+            var taboo = [];
+            $("#taboo input:checked").each(function() {
+                taboo.push($(this).val());
+            });
+            if (taboo.length > 3) {
+                FP.showError("忌讳的花最多可以选择三项!");
+                return;
+            }
+            data.notlike = taboo.join(",");
+            //判断是否开启了祝福卡 @auther quin
+            if (typeof data.items.e_zhufu != "undefined") {
+                if ($('.void_play_write_out').css('display') == 'none' && $('.void_play_word').css('display') !== 'none') {
+                    //普通祝福卡
+                    var content = $("#e_txtZhuFu").val();
+                    if (content.length == 0) {
+                        FP.showError("请填写传音祝福卡内容！");
+                        return;
+                    }
+                    if (content.length < 1) {
+                        FP.showError("祝福卡内容必填");
+                        return;
+                    }
+
+                    var name = $("#e_txtZhuFu_name").val();
+                    if (name.length == 0) {
+                        FP.showError("请正确输入您的称呼！");
+                        return;
+                    }
+
+                    if (name.length > 15) {
+                        FP.showError("输入称呼不能超过15个字！");
+                        return;
+                    }
+
+                    data.items.e_zhufu.content = content + "||送花人||" + name;
+                    data.items.e_zhufu.type = 'e_text';
+                }
+                if ($('.void_play_write_out').css('display') !== 'none' && $('.void_play_word').css('display') == 'none') {
+                    //语音祝福卡
+                    var is_weixin = $('.is_weixin').val();
+                    if (!is_weixin) {
+                        FP.showError("网页端不支持语音");
+                        return;
+                    }
+                    if (voice.serverId == '') {
+                        FP.showError("请点击录音！");
+                        return;
+                    }
+                    var name = $("#e_voiceZhuFu_name").val();
+                    if (name.length > 5) {
+                        FP.showError("输入称呼不能超过5个字！");
+                        return;
+                    }
+                    data.items.e_zhufu.content = voice.serverId + "||送花人||" + name;
+                    data.items.e_zhufu.type = 'e_voice';
+                }
+
+
+            }
+            if (typeof data.items.zhufu != "undefined") {
+                //开启普通祝福卡
+                var content = $("#txtZhuFu").val();
+                if (content.length == 0) {
+                    FP.showError("请填写电子祝福卡内容！");
+                    return;
+                }
+                if (content.length < 1) {
+                    FP.showError("祝福卡内容必填");
+                    return;
+                }
+
+                var name = $("#txtZhuFu_name").val();
+                if (name.length == 0) {
+                    FP.showError("请正确输入您的称呼！");
+                    return;
+                }
+
+                if (name.length > 15) {
+                    FP.showError("输入称呼不能超过15个字！");
+                    return;
+                }
+
+                data.items.zhufu.content = content + "||送花人||" + name;
+
+            }
+
+
+            if ($("#yaoqingren").length == 1) {
+                data.yaoqingren = $("#yaoqingren").val();
+            }
+
+            if (data.yaoqingren != "" && !/^1\d{10}$/.test(data.yaoqingren)) {
+                FP.showError("邀请人手机错误！");
+                return;
+            }
+
+            if ($("#remark").length == 1) {
+                data.remark = $("#remark").val();
+            }
+            // 如果关闭了续订 则不续订
+            if ($('.renew-but').find('p').hasClass('current')) {
+                data.sel_day = $('#orders_select_date').val();
+                data.sel_week = $('#orders_select_week').val();
+                data.oid = $('#orders_select_oid').val();
+                data.selgo_week = $('#xuding_delivery_week').val();
+                data.text_day = $('#xuding_delivery_date').val();
+                /*if (data.oid == '') {
+                	FP.showError('刷新页面试试');
+                	return;
+                }*/
+            } else {
+                $('#orders_select_oid').val('');
+            }
+            // 鲜花用途
+            /*if (data.flower_use == '') {
+            	FP.showError('请选择用途');
+            	return;
+            }*/
+
+            if ($("#kl1025").length == 1) {
+                data.kl1025 = $("#kl1025").val();
+            }
+            if ($("#kl1050").length == 1) {
+                data.kl1050 = $("#kl1050").val();
+            }
+            data.groupid = groupid; //团购变量
+            var submitLimitTimesDiff = Math.round(((new Date()).getTime() - submitLimitTimes) / 1000);
+            if (submitLimitTimesDiff < 5) {
+                FP.showError('提交过于频繁，' + (5 - submitLimitTimesDiff) + '秒后再试');
+                return;
+            }
+            submitLimitTimes = (new Date()).getTime();
+            btn.attr("data-runing", 1);
+            btn.html("正在创建订单，请稍候").addClass("buttondisabled");
+
+            //清空默认的祝福卡内容
+            setMemoryZhufu("");
+            FP.ajaxPost(
+                "/buy/submit",
+                data,
+                function(v) {
+                    if (v.f) {
+                        window.location.replace("/my/orderdetail/?id=" + v.data + "#pay");
+                    } else {
+                        FP.showError(v.data);
+                    }
+                    btn.attr("data-runing", 0);
+                    btn.html("确认下单").removeClass("buttondisabled");
+                },
+                function() {
+                    FP.showError('请求失败,请重试');
+                    btn.attr("data-runing", 0);
+                    btn.html("确认下单").removeClass("buttondisabled");
+                }
+            );
+
+            ga_submit();
+        });
+
+        $("body").delegate("input[type='tel']", "input", function() {
+            $(this).val($(this).val().replace(/[^0-9]/g, '').replace(/^86/, ''))
+        });
+        (function setNotLikeDefault() {
+            if (notlike_default.length == 0) {
+                return;
+            }
+            $("#taboo input").each(function() {
+                if ($.inArray($(this).val(), notlike_default) > -1) {
+                    $(this).prop('checked', true);
+                }
+            });
+        })();
+
+        $('#handbook dt').click(function() {
+            delete data.items.handbook;
+            $(this).toggleClass("checked");
+            if ($(this).hasClass("checked")) {
+                data.items["handbook"] = {
+                    fee: 2
+                };
+                $(this).children('.switch-but').addClass('current');
+            } else {
+                $(this).children('.switch-but').removeClass('current');
+            }
+            updateFee();
+        });
+
+        $('#anonymous dt').click(function() {
+            delete data.anonymous;
+            $(this).toggleClass("checked");
+            if ($(this).hasClass("checked")) {
+                data.anonymous = 1;
+                $(this).children('.switch-but').addClass('current');
+            } else {
+                $(this).children('.switch-but').removeClass('current');
+            }
+        });
+        </script>
+        <!--END 购买表单-->
+        <!--BEGIN 选择地址-->
+        <div class="Shipping_ads" style="display:none">
+            <div class="deliver-address-title" style="padding:18px 0;font-weight: normal;font-size: 18px;height:auto;line-height:18px">
+                收货地址
+                <a class="deliver-close" href="javascript:;"></a>
+            </div>
+            <div id="deliver-address-con1" style="display:block">
+                <dl class="deliver-item">
+                    <dt>收货人</dt>
+                    <dd>
+                        <input type="text" id="receiver_name" placeholder="姓名">
+                    </dd>
+                </dl>
+                <dl class="deliver-item">
+                    <dt>手机</dt>
+                    <dd>
+                        <input type="tel" id="receiver_mobile" placeholder="收货人手机">
+                    </dd>
+                </dl>
+                <dl class="deliver-item">
+                    <dt>所在地区</dt>
+                    <dd class="address_area">
+                        <select class="form-control" id="receiver_state" name="receiver_state">
+                            <option index="0" value="选择省份">选择省份</option>
+                            <option index="1" value="上海">上海</option>
+                            <option index="2" value="北京">北京</option>
+                            <option index="3" value="江苏">江苏</option>
+                            <option index="4" value="浙江">浙江</option>
+                            <option index="5" value="广东">广东</option>
+                            <option index="6" value="四川">四川</option>
+                            <option index="7" value="天津">天津</option>
+                            <option index="8" value="重庆">重庆</option>
+                            <option index="9" value="河南">河南</option>
+                            <option index="10" value="湖北">湖北</option>
+                            <option index="11" value="湖南">湖南</option>
+                            <option index="12" value="河北">河北</option>
+                            <option index="13" value="安徽">安徽</option>
+                            <option index="14" value="福建">福建</option>
+                            <option index="15" value="江西">江西</option>
+                            <option index="16" value="山东">山东</option>
+                        </select>
+                        <select class="form-control" id="receiver_city" name="receiver_city">
+                            <option index="0" value="选择城市">选择城市</option>
+                        </select>
+                        <select class="form-control" id="receiver_district" name="receiver_district">
+                            <option index="0" value="选择区县">选择区县</option>
+                        </select>
+                    </dd>
+                </dl>
+                <dl class="deliver-item">
+                    <dt>详细地址</dt>
+                    <dd>
+                        <input type="text" id="receiver_address" placeholder="街道门牌信息">
+                    </dd>
+                </dl>
+                <!-- <p style="color:#999;padding:5px 15px">目前开通的区域为江浙沪、北京、广东和四川。</p>
+-->
+                <div class="deliver-save-wrap">
+                    <button class="deliver-save">保存</button>
+                </div>
+                <dl class="address_log">
+                    <dt>历史</dt>
+                </dl>
+            </div>
+        </div>
+        <script type="text/html" id="address_tpl">
+            <dd address-id="{id}">
+                <div>{receiver_state}{receiver_city}{receiver_district}{receiver_address}</div>
+                <div>{receiver_name} {receiver_mobile}</div>
+            </dd>
+        </script>
+        <script type="text/javascript" src="js/address.b.js"></script>
+        <!-- 运费 -->
+        <script type="text/javascript" src="js/postfee.js.1"></script>
+        <script>
+        var adds = [];
+        var selectedAddress = {};
+        $.address_b.list[0] = {
+            n: '选择省份',
+            c: [{
+                n: '选择城市',
+                a: ['选择区县']
+            }]
+        };
+        $.address_b("receiver_state", "receiver_city", "receiver_district");
+        $(".delivery_wrap").bind("click", function(e) {
+            e.stopPropagation();
+            $("#buyWrap").hide();
+            $(".Shipping_ads").show();
+            return false;
+        });
+        $(".deliver-close").bind("click", function(e) {
+            e.stopPropagation();
+            $("#buyWrap").show();
+            $('body,html').scrollTop(0);
+            $(".Shipping_ads").hide();
+        });
+        $(".deliver-save").bind("click", function(e) {
+            var receiver_name = $("#receiver_name").val().replace('/^\s|\s$/g', '');
+            var receiver_mobile = $("#receiver_mobile").val().replace('/^\s|\s$/g', '');
+            var receiver_state = $("#receiver_state").val();
+            var receiver_city = $("#receiver_city").val();
+            var receiver_district = $("#receiver_district").val();
+            var receiver_address = $("#receiver_address").val().replace('/^\s|\s$/g', '');
+            // if(!confirm('确认地址和手机准确吗？\n'+receiver_state+receiver_city+receiver_district+receiver_address+'\n'+receiver_name+receiver_mobile)){
+            // 	return;
+            // }
+            e.stopPropagation();
+            var address = {
+                receiver_name: receiver_name,
+                receiver_mobile: receiver_mobile,
+                receiver_state: receiver_state,
+                receiver_city: receiver_city,
+                receiver_district: receiver_district,
+                receiver_address: receiver_address
+            };
+            if (address.receiver_name == "") {
+                FP.showError("请填写收货人姓名！");
+                return;
+            }
+            if (address.receiver_mobile == "") {
+                FP.showError("请填写收货人手机！");
+                return;
+            }
+            if (!/^1\d{10}$/.test(address.receiver_mobile)) {
+                FP.showError("收货人手机号码格式错误！");
+                return;
+            }
+            if (address.receiver_state == "" || address.receiver_state == "选择省份") {
+                FP.showError("选择省份");
+                return;
+            }
+            if (address.receiver_city == "" || address.receiver_city == "选择城市") {
+                FP.showError("选择城市");
+                return;
+            }
+            if (address.receiver_district == "" || address.receiver_district == "选择区县") {
+                FP.showError("选择区县");
+                return;
+            }
+
+            if (address.receiver_address == "") {
+                FP.showError("详细地址！");
+                return;
+            }
+            var btn = $(this).prop("disabled", true);
+            $.post('/buy/addaddress', address, function(v) {
+                if (v.f) {
+                    //getAddress();
+                    $("#receiver_name").val("");
+                    $("#receiver_mobile").val("");
+                    $("#receiver_address").val("");
+                    $.address_b("receiver_state", "receiver_city", "receiver_district");
+                    adds = v.list;
+                    updateAddressList();
+                    selectAddress(v.id);
+
+                } else {
+                    FP.showError(v.data);
+                }
+                btn.prop("disabled", false);
+            }, "json");
+        });
+
+        function selectAddress(id) {
+            //用首页的data记录选择的配送类型
+            data.express_type = "express";
+            data.address_id = id;
+            data.daishou_station_id = 0;
+            data.daishou_taker_name = "";
+            data.daishou_taker_mobile = "";
+
+            $(".delivery_no_address").hide();
+            $(".delivery_content").show();
+            $(".address_log dd").removeClass("add-sel");
+            $(".address_log dd[address-id='" + id + "']").addClass("add-sel");
+
+            var address = {};
+            for (var i in adds) {
+                if (adds[i].id == id) {
+                    address = adds[i];
+                }
+            }
+            $(".delivery_name span").html(address.receiver_name);
+            $(".delivery_mob span").html(address.receiver_mobile);
+            $(".delivery_address span").html(address.receiver_state + " " + address.receiver_city + " " + address.receiver_district + " " + address.receiver_address);
+            $("#addressinfo").html(address.receiver_state + "" + address.receiver_city + "" + address.receiver_district + "" + address.receiver_address + "<br>" + address.receiver_name + " " + address.receiver_mobile);
+            selectedAddress = address;
+            $.get('/buy/updateaddressusedtime/', {
+                id: id
+            }, null);
+            whenAddressChange();
+            // 同时先刷新内容
+            get_lis();
+            $('.arrival-time').hide();
+            $('#select-but').find('span').removeClass('current select');
+            //关闭视图，推荐代收点。
+            closeViewWhenSeleted(address.receiver_city, address.receiver_address);
+        }
+
+        function getAddress() {
+            $.get("/buy/getaddress", null, function(v) {
+                adds = v;
+                updateAddressList();
+                if (adds.length > 0) {
+                    selectAddress(adds[0].id);
+                }
+            }, "json");
+        }
+
+        function updateAddressList() {
+            var tpl = $("#address_tpl").html();
+            $(".address_log dd").remove();
+            for (var i in adds) {
+                var item = tpl;
+                item = item.replace("{id}", adds[i].id);
+                item = item.replace("{receiver_name}", adds[i].receiver_name);
+                item = item.replace("{receiver_mobile}", adds[i].receiver_mobile);
+                item = item.replace("{receiver_state}", adds[i].receiver_state);
+                item = item.replace("{receiver_city}", adds[i].receiver_city);
+                item = item.replace("{receiver_district}", adds[i].receiver_district);
+                item = item.replace("{receiver_address}", adds[i].receiver_address);
+                $(".address_log").append(item);
+            }
+        }
+
+        $(".address_log").delegate("dd", "click", function() {
+            selectAddress($(this).attr("address-id"));
+        });
+
+        function closeViewWhenSeleted(city, address) {
+            //推荐代收点
+            $("#buyWrap").show();
+            $('body,html').scrollTop(0);
+            $(".Shipping_ads").hide();
+
+            var bool = city.indexOf("上海");
+            if (bool >= 0) {
+                $(".delivery_tip").css('display', 'block');
+            } else {
+                $(".delivery_tip").css('display', 'none');
+            }
+        }
+
+        getAddress();
+        </script>
+        <!--END 选择地址-->
+        <!-- 详细地址地图的页面开始 -->
+        <div class="map_out" style="display:none;background:#fff">
+            <!--  头部的部分开始 -->
+            <div class="map_container_header">
+                <label>代收点地址详情</label>
+                <a class="map_close" href="http://t.flowerplus.cn/buy/confirm?sku=0i2_1_0_0&amp;_t=1489542385767#"></a>
+            </div>
+            <!--  头部的部分结束 -->
+            <div class="BMap_mask" id="BMap_mask"></div>
+            <div class="Tit p3">
+                <p class="img">
+                    <img src="http://t.flowerplus.cn/buy/confirm?sku=0i2_1_0_0&amp;_t=1489542385767" alt="logo" id="map_shop_logo"></p>
+                <ul>
+                    <li>
+                        <b id="map_shop_name"></b>
+                        <span id="map_shop_type"></span>
+                    </li>
+                    <li id="map_shop_time"></li>
+                </ul>
+            </div>
+            <p class="map_ads" id="map_shop_address"></p>
+            <a href="http://t.flowerplus.cn/buy/confirm?sku=0i2_1_0_0&amp;_t=1489542385767" id="map_shop_phone" class="tel p3 l40" style="display:block;color:#333"></a>
+            <div class="Discount p3">
+                <div class="top" id="map_shop_tip"></div>
+                <p id="map_shop_detail">在设置为提货点的时间区间，您将获得合作门店认证卡，凭卡享受该门店优惠。</p>
+            </div>
+        </div>
+        <!-- 详细地址地图的页面结束 -->
+        <!-- 提货人的页面结束 -->
+        <div class="taker_list_container" style="display:none;background:#fff">
+            <div class="taker_list_header" style="position:relative;">
+                <label>提货人管理</label>
+                <a class="taker_close" href="javascript:;"></a>
+            </div>
+            <div class="taker_list_inputs">
+                <dl class="taker-info-item">
+                    <dt>提货人</dt>
+                    <dd>
+                        <input type="text" id="taker_name" placeholder="姓名">
+                    </dd>
+                </dl>
+                <dl class="taker-info-item">
+                    <dt>电话</dt>
+                    <dd>
+                        <input type="tel" id="taker_mobile" placeholder="提货人手机">
+                    </dd>
+                </dl>
+                <div class="taker-save-wrap">
+                    <button class="taker-save">保存</button>
+                </div>
+            </div>
+            <div class="taker_list_log">
+                <div class="taker_list_log_title">历史提货人</div>
+                <div class="taker_list_log_item">
+                    <table>
+                        <colgroup>
+                            <col style="width:20%">
+                            <col style="width:65%">
+                            <col style="width:15%">
+                        </colgroup>
+                        <tbody id="taker_list_items"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!--  提货人的页面结束 -->
+        <!-- 代收点的页面开始-->
+        <div class="ds_wpage" style="display:none">
+            <!-- 代收点显示一部分 -->
+            <div class="wpage">
+                <header style="font-size:16px;font-weight:bolder;color:#44450;line-height:45px">
+                    代收服务
+                    <a class="deliver-close first-deliver-close" style=""></a>
+                </header>
+                <!--div  class="daishou_promotion">代收点有优惠活动哦！</div-->
+                <div class="banner" style="max-height: 300px;overflow: hidden;">
+                    <img src="imgs/daishou.png" style="width:100%;" alt="">
+                    <p>我们正与品牌门店合作提供免费代收服务。您可选择附近的代收点为收货地址，收花日收到短信后在营业时间内到店自提即可。</p>
+                </div>
+                <p class="ads">
+                    收货地址：
+                    <span id="ads_content">
+<span></span>
+                    </span>
+                </p>
+                <p class="p3 l45 bb ti-tit">附近的代收点</p>
+                <div class="daishou_recommend_list">
+                    <!--代收点列表-->
+                </div>
+                <a href="javascript:void(0);" class="select l45" style="display:inline-block;width:100%;color:#333">查看全部代收点</a>
+            </div>
+            <!-- 代收点显示一部分 -->
+            <!-- 全部的代收开始-->
+            <div class="wpage" style="display:none;background:#fff">
+                <!-- 头部的标签开始 -->
+                <header clss="ALLds">
+                    <div class="header" style="font-size:1.6rem;font-weight:bolder;line-height:45px;">
+                        代收服务
+                        <a class="deliver-close second-deliver-close"></a>
+                    </div>
+                    <!-- 选择省份的输入框开始 -->
+                    <div class="daishou_address_area">
+                        <div class="daishou_address_div">
+                            <select class="form-control" id="daishou_state" name="daishou_state">
+                                <option index="0" value="选择省份">选择省份</option>
+                                <option index="1" value="上海">上海</option>
+                                <option index="2" value="北京">北京</option>
+                                <option index="3" value="江苏">江苏</option>
+                                <option index="4" value="浙江">浙江</option>
+                                <option index="5" value="广东">广东</option>
+                                <option index="6" value="四川">四川</option>
+                                <option index="7" value="天津">天津</option>
+                                <option index="8" value="重庆">重庆</option>
+                                <option index="9" value="河南">河南</option>
+                                <option index="10" value="湖北">湖北</option>
+                                <option index="11" value="湖南">湖南</option>
+                                <option index="12" value="河北">河北</option>
+                                <option index="13" value="安徽">安徽</option>
+                                <option index="14" value="福建">福建</option>
+                                <option index="15" value="江西">江西</option>
+                                <option index="16" value="山东">山东</option>
+                            </select>
+                            <select class="form-control" id="daishou_city" name="daishou_city">
+                                <option index="0" value="选择城市">选择城市</option>
+                            </select>
+                            <select class="form-control" id="daishou_district" name="daishou_district">
+                                <option index="0" value="选择区县">选择区县</option>
+                            </select>
+                        </div>
+                        <div class="daishou_address_search_area">
+                            <button class="address_search_button"></button>
+                        </div>
+                    </div>
+                    <!-- 选择省份的输入框结束 -->
+                    <!-- 搜索的功能开始 -->
+                    <div class="daishou_address_search" style="display:none">
+                        <div class="daishou_address_search_text">
+                            <input type="text" id="seach_keyword" name="seach_keyword" placeholder="请输入路名或代收点">
+                            <div class="daishou_address_search_button">
+                                <button onclick="searchWithKeyword()">搜索</button>
+                                <button onclick="cancelSearch()" style="background-color:#bbb">取消</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 搜索的功能结束 -->
+                </header>
+                <!-- 头部的标签结束 -->
+                <div class="wrap-page full_daishou_list" style="diaplay:none"></div>
+            </div>
+            <!-- 全部的代收点结束 -->
+            <!--  尾部的开始 -->
+            <div class="trans"></div>
+            <footer>
+                <div class="p3 clearfix name bb">
+                    <p class="l" style="line-height:45px">
+                        <b>提货人:</b>
+                        <span id="taker_name_default"></span>
+                    </p>
+                    <p class="r" style="margin-right:30px;color:#413f47;line-height:45px">
+                        <span id="taker_mobile_default"></span>
+                    </p>
+                </div>
+                <button id="selected_daishou_btn">配送至代收点</button>
+            </footer>
+            <!--  尾部的结束-->
+        </div>
+        <!-- 代收点的页面结束 -->
+        <!-- 弹出框 -->
+        <style>
+        .alert_clause {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2222;
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0
+        }
+        
+        .alert_clause_main {
+            width: 85%;
+            background: #fff;
+            position: fixed;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .alert_clause_main_in {
+            padding: 10px;
+        }
+        
+        .alert_clause button {
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            background: #f6658f;
+            text-align: center;
+            color: white;
+            border: 0;
+            border-radius: 5px;
+            margin-top: 10px
+        }
+        
+        .alert_clause_main_in .center {
+            height: 100px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .top span {
+            position: absolute;
+            right: 10px;
+            top: 5px;
+            background: url(image/iconfont-close-tiny.png);
+            width: 25px;
+            height: 25px;
+            background-size: 25px 25px;
+            -moz-background-size: 25px 25px;
+            -webkit-background-size: 25px 25px;
+        }
+        
+        .center tr td {
+            vertical-align: top;
+            line-height: 18px
+        }
+        
+        .center tr td:first-child {
+            font-weight: bold;
+        }
+        </style>
+        <div class="alert_clause" style="display:none">
+            <div class="alert_clause_main">
+                <div class="alert_clause_main_in">
+                    <div class="top">
+                        <p style="text-align:center;line-height:35px;font-size:16px">代收点活动介绍</p>
+                        <span class="close"></span>
+                    </div>
+                    <table class="center">
+                        <tbody>
+                            <tr>
+                                <td>1.</td>
+                                <td>在不方便收件或者对快递的服务不满意时可选择花+提供的免费代收点服务；</td>
+                            </tr>
+                            <tr>
+                                <td>2.</td>
+                                <td>
+                                    新客户下单时选择门店代收，已下单的老客户在订单详情中更改配送方式均可领取“花+代收门店会员认证卡”，您可以在“会员中心”查看；
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3.</td>
+                                <td>订单结束或者更改为其他配送方式，“花+代收门店会员认证卡”将被收回；</td>
+                            </tr>
+                            <tr>
+                                <td>4.</td>
+                                <td>代收站点仅提供代收服务。合作门店除代收服务外，也将会不定期提供会员特权福利；</td>
+                            </tr>
+                            <tr>
+                                <td>5.</td>
+                                <td>
+                                    凭认证卡可享受对应代收门店的优惠特权，详细信息可参考门店的红色文字提示或查看认证卡优惠说明；
+                                    <b>4月13日-5月13日</b> 凡选择代收的客户，在门店每签收一次都将
+                                    <b style="color:red">获得2积分</b> （可累计获得多次积分，1积分可抵扣1元）；
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p style="text-align:center;font-weight:bold;color:#999">
+                        <br> 花+对本活动保有最终解释权。
+                        <br>
+                    </p>
+                    <button>知道了</button>
+                </div>
+            </div>
+        </div>
+        <script>
+        jQuery(document).ready(function($) {
+
+            $(".close,.alert_clause button").click(function(event) {
+                $(this).parents(".alert_clause").hide();
+            });
+
+            $(".daishou_promotion").click(function() {
+                $(".alert_clause").css('display', 'block');
+                var screenWidth = $(window).width();
+                var screenHeight = $(window).height();
+                var aW = $(".alert_clause_main").width();
+                var aH = $(".alert_clause_main").height();
+                $(".alert_clause_main").css({
+                    left: screenWidth / 2 - aW / 2,
+                    top: screenHeight / 2 - aH / 2
+                })
+            });
+        });
+        </script>
+        <!-- 弹出框 -->
+        <script type="text/html" id="daishou_list_item_tpl">
+            <div class="daishou_list_item pa bb" itemid="{id}">
+                <table style="width:100%">
+                    <colgroup>
+                        <col width="8%">
+                        <col width="78%">
+                        <col width="14%">
+                    </colgroup>
+                    <tbody>
+                        <tr style="height:20px">
+                            <td>
+                                <span class="daishou_list_item_radio"><b></b></span>
+                            </td>
+                            <td style="font-size:16px;font-weight:bold">{shop_name} <b class="smal-t" {type_style}>{daishou_type}</b></td>
+                            <td style="font-size:12px;color:#ccc"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td style="font-size:14px;color:#888">{shop_address}
+                                <br>
+                            </td>
+                            <td style="text-align:center"><img item="{id}" class="daishou_list_item_pointer" src="/Static/img/dw.png"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td style="font-size:14px;color:#888">营业时间 {shopping_time} </td>
+                            <td style="text-align:center;font-size:12px;color:#666">{shop_distance}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="color:#fc780b;padding-left:8%;margin-top:3px;display:{comment_block}"><span style="padding:0px 4px;display:inline-block;color:#fff;background:#fc780b;border-radius:3px;margin-right:5px">惠</span> {comment} </p>
+            </div>
+        </script>
+        <script type="text/html" id="takerlist_tpl">
+            <tr item={id} item_name={taker_name}>
+                <td>{taker_name}</td>
+                <td style="text-align:right;">{taker_mobile}</td>
+                <td></td>
+            </tr>
+        </script>
+        <script type="text/javascript" src="js/api"></script>
+        <script type="text/javascript" src="js/getscript"></script>
+        <script>
+        var daishou_data = {
+            receiver_name: '',
+            receiver_mobile: '',
+            receiver_state: '',
+            daishou_shop_id: 0,
+            daishou_shop_name: '',
+            daishou_shop_address: '',
+        };
+
+        var recommended_daishou_list;
+        var full_daishou_list;
+        var map = null;
+        var map_marker;
+        var map_info_window;
+
+        $.address_b("daishou_state", "daishou_city", "daishou_district");
+        $("#daishou_state").change(daishouCityChanged);
+        $("#daishou_city").change(daishouCityChanged);
+        $("#daishou_district").change(daishouCityChanged);
+
+
+        //展示统一调用函数
+        function ds_show_daishou_picker(address_id) {
+            $('.ds_wpage').show();
+            //加载地址数据
+            if (address_id > 0) {
+                var post = {
+                    'address_id': address_id
+                };
+                $.post('/buy/get_recommend_ds_shops', post, function(v) {
+                    if (v.f) {
+                        var address = v.data.address;
+                        $('#ads_content').html(address.receiver_state + address.receiver_district + ' ' + address.receiver_address);
+                        $("#taker_name_default").html(address.receiver_name);
+                        $("#taker_mobile_default").html(address.receiver_mobile);
+
+                        daishou_data.receiver_name = address.receiver_name;
+                        daishou_data.receiver_mobile = address.receiver_mobile;
+
+                        $(".daishou_recommend_list").html('');
+                        var tpl = $("#daishou_list_item_tpl").html();
+                        recommended_daishou_list = v.data.shops;
+                        var html = daishou_list_html(recommended_daishou_list);
+                        $(".daishou_recommend_list").html(html);
+                    } else {
+                        alert(v.data);
+                    }
+                }, 'json');
+            };
+        }
+
+        //展示统一调用函数
+        function ds_show_daishou_picker_with_oid(order_id) {
+            $('.ds_wpage').show();
+            //加载地址数据
+            if (order_id > 0) {
+                var post = {
+                    'order_id': order_id
+                };
+                $.post('/buy/get_recommend_ds_shops_for_oid', post, function(v) {
+                    if (v.f) {
+                        var address = v.data.address;
+                        $('#ads_content').html(address.receiver_state + address.receiver_district + ' ' + address.receiver_address);
+                        $("#taker_name_default").html(address.receiver_name);
+                        $("#taker_mobile_default").html(address.receiver_mobile);
+
+                        daishou_data.receiver_name = address.receiver_name;
+                        daishou_data.receiver_mobile = address.receiver_mobile;
+
+                        $(".daishou_recommend_list").html('');
+                        var tpl = $("#daishou_list_item_tpl").html();
+                        recommended_daishou_list = v.data.shops;
+                        var html = daishou_list_html(recommended_daishou_list);
+                        $(".daishou_recommend_list").html(html);
+                    } else {
+                        alert(v.data);
+                    }
+                }, 'json');
+            };
+        }
+
+        //关闭统一调用函数,需要自己定义
+        //function ds_hide_daishou_picker(){};
+
+        //选择完成的统一回调,需要自己定义
+        //function ds_when_selected_daishou(daishou_data){};
+
+        $(".daishou_recommend_list").delegate(".daishou_list_item", "click", function(event) {
+            event.stopPropagation();
+            var check = $(this).find('.daishou_list_item_radio b')
+            if (check.css("display") == 'none') {
+                check.css('display', 'block');
+                $(this).siblings('.daishou_list_item').find('.daishou_list_item_radio b').css('display', 'none');
+                $(".full_daishou_list").find('.daishou_list_item_radio b').css('display', 'none');
+            }
+
+            var itemId = $(this).attr("itemid");
+            var items = $.grep(recommended_daishou_list, function(n) {
+                return n.id == itemId;
+            });
+
+            var item = items[0];
+            daishou_data.daishou_shop_id = itemId;
+            daishou_data.daishou_shop_name = item.shop_name;
+            daishou_data.daishou_shop_address = item.city + item.district + item.address;
+            daishou_data.receiver_state = item.state;
+        });
+
+        $(".full_daishou_list").delegate(".daishou_list_item", "click", function(event) {
+            event.stopPropagation();
+            var check = $(this).find('.daishou_list_item_radio b')
+            if (check.css("display") == 'none') {
+                check.css('display', 'block');
+                $(this).siblings('.daishou_list_item').find('.daishou_list_item_radio b').css('display', 'none');
+                $(".daishou_recommend_list").find('.daishou_list_item_radio b').css('display', 'none');
+
+                var itemId = $(this).attr("itemid");
+                var items = $.grep(full_daishou_list, function(n) {
+                    return n.id == itemId;
+                });
+
+                var item = items[0];
+                daishou_data.daishou_shop_id = itemId;
+                daishou_data.daishou_shop_name = item.shop_name;
+                daishou_data.daishou_shop_address = item.city + item.district + item.address;
+                daishou_data.receiver_state = item.state;
+            } else {
+                check.css('display', 'none');
+                daishou_data.daishou_shop_id = 0;
+                daishou_data.daishou_shop_name = "";
+                daishou_data.daishou_shop_address = "";
+                daishou_data.receiver_state = "";
+            }
+        });
+
+        // 定位的小点的事件
+        $(".daishou_recommend_list").delegate(".daishou_list_item .daishou_list_item_pointer", "click", function(e) {
+            e.stopPropagation();
+            $(this).parents('.ds_wpage').hide().siblings('.map_out').show();
+
+            var itemId = $(this).attr("item");
+            var items = $.grep(recommended_daishou_list, function(n) {
+                return n.id == itemId;
+            });
+
+            var item = items[0];
+            bind_mapview_data(item);
+        });
+
+        $(".full_daishou_list").delegate(".daishou_list_item .daishou_list_item_pointer", "click", function(e) {
+            e.stopPropagation();
+            $(this).parents('.ds_wpage').hide().siblings('.map_out').show();
+
+            var itemId = $(this).attr("item");
+            var items = $.grep(full_daishou_list, function(n) {
+                return n.id == itemId;
+            });
+
+            var item = items[0];
+            bind_mapview_data(item);
+        });
+
+        $(".ds_wpage .first-deliver-close").click(function(event) {
+            $('.ds_wpage').hide();
+
+            //调用隐藏回调
+            ds_hide_daishou_picker();
+        });
+        $(".ds_wpage .second-deliver-close").click(function(event) {
+            $(this).parents(".wpage").hide().siblings('.wpage').show();
+        });
+
+        $(".ds_wpage .select").click(function(event) {
+            $(this).parents(".wpage").hide().siblings('.wpage').show();
+            searchAllSattion('上海');
+        });
+
+
+        function daishou_list_html(daishou_list) {
+            if (daishou_list == null || daishou_list.length == 0) {
+                var html = "<table style=\"width:100%;border-bottom:1px solid #ddd\"><tr><td style=\"text-align:center;height:60px;color:#666\">没有找到代收点<td></tr></table>"
+                return html;
+            };
+
+            var tpl = $("#daishou_list_item_tpl").html();
+            var html = '';
+            for (var i = 0; i < daishou_list.length; i++) {
+                var shop = daishou_list[i];
+                var item = tpl;
+                item = item.replace(/\{id\}/ig, shop.id);
+                item = item.replace("{shop_name}", shop.shop_name);
+                item = item.replace("{shop_address}", shop.city + shop.district + shop.address);
+
+                item = item.replace("{shop_phone}", shop.shop_manager_phone);
+
+                var comment = shop.comment;
+                if (comment != null && $.trim(comment) != "") {
+                    item = item.replace("{comment_block}", "block");
+                    item = item.replace("{comment}", comment);
+                } else {
+                    item = item.replace("{comment_block}", "none");
+                    item = item.replace("{comment}", "");
+                }
+
+                var daishou_type = shop.daishou_type;
+                if (parseInt(daishou_type) == 1) {
+                    item = item.replace("{daishou_type}", "合作门店");
+                    item = item.replace("{type_style}", "style='background: #fb95ad;'");
+                } else if (parseInt(daishou_type) == 2) {
+                    item = item.replace("{daishou_type}", "代收站点");
+                    item = item.replace("{type_style}", "style='background: #aaa;'");
+                } else {
+                    item = item.replace("{daishou_type}", "");
+                }
+
+                if (shop.distance != null) {
+                    item = item.replace("{shop_distance}", shop.distance + "米");
+                } else {
+                    item = item.replace("{shop_distance}", " ");
+                }
+
+                var shopping_time = shop.start_time.substring(0, 5) + " ~ " + shop.end_time.substring(0, 5)
+                item = item.replace("{shopping_time}", shopping_time);
+                html += item;
+            }
+
+
+            return html;
+        }
+
+        function bind_mapview_data(item) {
+            if (item.logo != null) {
+                $("#map_shop_logo").attr("src", item.logo);
+                $(".map_info_logo").css("display", "block");
+            } else {
+                $("#map_shop_logo").attr("src", '');
+                $(".map_info_logo").css("display", "none");
+            }
+
+            $("#map_shop_name").html(item.shop_name);
+
+            var daishou_type = item.daishou_type;
+            daishou_type = parseInt(daishou_type);
+            if (daishou_type == 1) {
+                $("#map_shop_type").html("合作门店");
+                $("#map_shop_type").css("background", "#fb95ad");
+            } else if (daishou_type == 2) {
+                $("#map_shop_type").html("代收站点");
+                $("#map_shop_type").css("background", "#aaa");
+            }
+
+            var shopping_time = item.start_time.substring(0, 5) + " ~ " + item.end_time.substring(0, 5);
+            $("#map_shop_time").html("营业时间：" + shopping_time);
+
+            var fullAddress = item.city + item.district + item.address;
+            $("#map_shop_address").html("地址：" + fullAddress);
+            $("#map_shop_phone").html(item.shop_manager_phone);
+            $("#map_shop_phone").attr("href", "tel://" + item.shop_manager_phone);
+
+            if (item.comment != null && $.trim(item.comment).length > 0) {
+                $("#map_shop_tip").html("<label>惠</label> " + item.comment);
+                $("#map_shop_detail").css("display", "inline-block");
+            } else {
+                $("#map_shop_tip").html("");
+                $("#map_shop_detail").css("display", "none");
+            }
+
+            if ($.isEmptyObject(map)) {
+                map = new BMap.Map("BMap_mask");
+                map.addControl(new BMap.GeolocationControl());
+                var opts = {
+                    type: BMAP_NAVIGATION_CONTROL_ZOOM
+                };
+                map.addControl(new BMap.NavigationControl(opts));
+                map.disableDragging();
+            }
+
+            map_marker = null;
+            map.removeOverlay(map_marker);
+
+            var opts = {
+                width: 0,
+                height: 0,
+                offset: new BMap.Size(0, -25),
+                title: "<h3>" + item.shop_name + "</h3>",
+                maxWidth: 220
+            }
+
+            var center = new BMap.Point(item.lng, item.lat);
+            map_marker = new BMap.Marker(center);
+            map.addOverlay(map_marker);
+            map.centerAndZoom(center, 18);
+
+            map_info_window = new BMap.InfoWindow(fullAddress, opts);
+            setTimeout(function() {
+                map.openInfoWindow(map_info_window, center);
+            }, 500);
+        }
+
+        function daishouCityChanged() {
+            var address = {
+                state: $("#daishou_state").val(),
+                city: $("#daishou_city").val(),
+                district: $("#daishou_district").val()
+            };
+
+            $.post('/buy/search_stations', address, function(v) {
+                full_daishou_list = v;
+                var html = daishou_list_html(full_daishou_list);
+                $(".full_daishou_list").html(html);
+            }, "json");
+        }
+
+        $(".address_search_button").click(function(event) {
+            $(".daishou_address_search").css('display', 'block');
+            $(".daishou_address_search_text input").focus();
+        });
+
+        function cancelSearch() {
+            $(".daishou_address_search").css("display", "none");
+            $(".daishou_address_search_text input").focus();
+        }
+
+        function searchWithKeyword() {
+            var keyword = $("#seach_keyword").val();
+            keyword = $.trim(keyword);
+            if (keyword.length >= 2) {
+                $(".daishou_address_search").css("display", "none");
+
+                var info = {
+                    k: keyword
+                };
+
+                $.post('/buy/search_stations', info, function(v) {
+                    full_daishou_list = v;
+                    var html = daishou_list_html(full_daishou_list);
+                    $(".full_daishou_list").html(html);
+                }, "json");
+            } else {
+                alert("至少输入两个关键字");
+            }
+        }
+
+        function searchAllSattion(city) {
+            var info = {
+                k: "all",
+            };
+
+            if (city != null) {
+                info.city = city;
+            };
+
+            $.post('/buy/search_stations', info, function(v) {
+                full_daishou_list = v;
+                var html = daishou_list_html(full_daishou_list);
+                $(".full_daishou_list").html(html);
+            }, "json");
+        }
+
+        $(".map_out .map_close").click(function(event) {
+            $(this).parents(".map_out").hide().siblings('.ds_wpage').show();
+        });
+
+        $("#selected_daishou_btn").click(function(e) {
+            if (daishou_data.daishou_shop_id == 0) {
+                FP.showError("请选择一个门店！");
+                return;
+            };
+
+            if (daishou_data.receiver_name == '') {
+                FP.showError("请填写提货人！");
+                return;
+            };
+
+            if (daishou_data.receiver_mobile == '') {
+                FP.showError("请填写提货人手机号！");
+                return;
+            };
+
+            ds_when_selected_daishou(daishou_data);
+            $(".taker_list_container").hide();
+            $(".ds_wpage").hide();
+            $(".map_out").hide();
+
+            //调用隐藏回调
+            ds_hide_daishou_picker();
+        });
+        </script>
+        <script>
+        var all_takers = [];
+        $("footer .name").click(function(event) {
+            $(this).parents(".ds_wpage").hide().siblings('.taker_list_container').show();
+            if (all_takers.length == 0) {
+                updateAllTakersList();
+            };
+        });
+
+        $(".taker_list_container .taker_close").click(function(event) {
+            $(".taker_list_container").hide().siblings(".ds_wpage").show();
+        });
+
+        $(".taker-save").bind("click", function(e) {
+            e.stopPropagation();
+            var info = {
+                taker_name: $("#taker_name").val().replace('/^\s|\s$/g', ''),
+                taker_mobile: $("#taker_mobile").val().replace('/^\s|\s$/g', ''),
+            };
+
+            if (info.taker_name == "") {
+                FP.showError("请填写提货人姓名！");
+                return;
+            }
+            if (info.taker_mobile == "") {
+                FP.showError("请填写提货人手机！");
+                return;
+            }
+
+            var btn = $(this).prop("disabled", true);
+            $.post('/buy/add_daishou_takers', info, function(v) {
+                if (v.f) {
+                    $("#taker_name").val("");
+                    $("#taker_mobile").val("");
+                    adds = v.list;
+                    updateAllTakersList();
+                } else {
+                    FP.showError(v.data);
+                }
+                btn.prop("disabled", false);
+            }, "json");
+        });
+
+        function updateAllTakersList() {
+            $.get('/buy/get_daishou_takers', function(v) {
+                if (v) {
+                    all_takers = v;
+                    var tpl = $("#takerlist_tpl").html();
+                    $("#taker_list_items").html('');
+                    for (var i in all_takers) {
+                        var item = tpl;
+                        item = item.replace(/\{id\}/ig, all_takers[i].id);
+                        item = item.replace(/\{taker_name\}/ig, all_takers[i].taker_name);
+                        item = item.replace("{taker_mobile}", all_takers[i].taker_mobile);
+                        $("#taker_list_items").append(item);
+                    }
+
+                    //找到需要选中的dom然后选中
+                    if (daishou_data.hasOwnProperty("daishou_taker_name")) {
+                        $("#taker_list_items tr").each(function() {
+                            if ($(this).attr("item_name") == data.daishou_taker_name) {
+                                $(this).find("td:eq(2)").addClass("add-sel");
+                            };
+                        });
+                    }
+                }
+            }, "json");
+        }
+
+        $("#taker_list_items").delegate("tr", "click", function() {
+            $("#taker_list_items tr td").removeClass("add-sel");
+            $(this).find("td:eq(2)").addClass("add-sel");
+
+            //记录代收取货人id
+            var itemId = $(this).attr('item');
+
+            //更新界面
+            var items = $.grep(all_takers, function(n) {
+                return n.id == itemId;
+            });
+
+            var item = items[0];
+            $("#taker_name_default").html(item.taker_name);
+            $("#taker_mobile_default").html(item.taker_mobile);
+
+            daishou_data.receiver_name = item.taker_name;
+            daishou_data.receiver_mobile = item.taker_mobile;
+
+            $(".taker_list_container").hide().siblings(".ds_wpage").show();
+        });
+        </script>
+        <!--BEGIN 积分优惠券抵扣-->
+        <!-- <div class="right-dialog" id="jifenWrap">
 <h2>积分抵扣</h2>
 <a class="right-dialog-close" href="javascript:;"></a>
 <div class="right-dialog-content acenter" style="padding:20px 0">
@@ -2517,15 +2658,14 @@ $("#taker_list_items").delegate("tr","click",function(){
 </div>
 </div>
 -->
-<div class="right-dialog" id="quanWrap" style="z-index:3;">
-<h2>优惠券</h2>
-<a class="right-dialog-close" href="javascript:;"></a>
-<div class="right-dialog-content" id="quanlist">
-<p class="acenter" style="color:#999;padding:20px 0">暂无可使用的优惠券</p>
-</div>
-</div>
-
-<!-- <div class="right-dialog" id="maWrap">
+        <div class="right-dialog" id="quanWrap" style="z-index:3;">
+            <h2>优惠券</h2>
+            <a class="right-dialog-close" href="javascript:;"></a>
+            <div class="right-dialog-content" id="quanlist">
+                <p class="acenter" style="color:#999;padding:20px 0">暂无可使用的优惠券</p>
+            </div>
+        </div>
+        <!-- <div class="right-dialog" id="maWrap">
 <h2>优惠码</h2>
 <a class="right-dialog-close" href="javascript:;"></a>
 <div class="right-dialog-content acenter" style="padding:20px 0">
@@ -2539,231 +2679,266 @@ $("#taker_list_items").delegate("tr","click",function(){
 </div>
 </div>
 -->
-</div>
-<script type="text/html" id="quanitemTpl">
-<div class="quanitem {a}" data-id="{data-id}" data-amount="{data-amount}">
-{title} 可抵扣{amount}元<p>有效期: {youxiaoqi}</p>
-</div>
-</script>
-<script>
-var total_scores=0;
-$("#btnJifen").bind("click",function(e){e.stopPropagation();$("#jifenWrap").addClass("right-dialog-show");return false;});
-$("#btnQuan").bind("click",function(e){e.stopPropagation();$("#quanWrap").addClass("right-dialog-show");return false;});
-$("#btnMa").bind("click",function(e){e.stopPropagation();$("#maWrap").addClass("right-dialog-show");return false;});
-$(".right-dialog-close").bind(FP.EVENT_CLICK,function(e){e.stopPropagation();$(".right-dialog").removeClass("right-dialog-show");return false;});
+    </div>
+    <script type="text/html" id="quanitemTpl">
+        <div class="quanitem {a}" data-id="{data-id}" data-amount="{data-amount}">
+            {title} 可抵扣{amount}元
+            <p>有效期: {youxiaoqi}</p>
+        </div>
+    </script>
+    <script>
+    var total_scores = 0;
+    $("#btnJifen").bind("click", function(e) {
+        e.stopPropagation();
+        $("#jifenWrap").addClass("right-dialog-show");
+        return false;
+    });
+    $("#btnQuan").bind("click", function(e) {
+        e.stopPropagation();
+        $("#quanWrap").addClass("right-dialog-show");
+        return false;
+    });
+    $("#btnMa").bind("click", function(e) {
+        e.stopPropagation();
+        $("#maWrap").addClass("right-dialog-show");
+        return false;
+    });
+    $(".right-dialog-close").bind(FP.EVENT_CLICK, function(e) {
+        e.stopPropagation();
+        $(".right-dialog").removeClass("right-dialog-show");
+        return false;
+    });
 
-$(function(){
-	$.get("/buy/getscores",null,function(v){
-		total_scores=v;
-		$("#total_scores").html(total_scores);
-	});
+    $(function() {
+        $.get("/buy/getscores", null, function(v) {
+            total_scores = v;
+            $("#total_scores").html(total_scores);
+        });
 
-	$.get("/buy/getquan",{total_fee:data.total_fee,pid:data.id},function(v){
-		if(v.length==0){
-			$("#quanlist").html("<p class='acenter' style='color:#999;padding:20px 0'>暂无可使用的优惠券</p>");
-		}else{
-			var quanitemtpl=$("#quanitemTpl").html();
-			for(var i in v){
-				var item=quanitemtpl;
-				item=item.replace("{data-id}",v[i].id);
-				item=item.replace("{data-amount}",v[i].amount);
-				item=item.replace("{title}",v[i].title);
-				item=item.replace("{amount}",v[i].amount);
-				item=item.replace("{youxiaoqi}",v[i].end_time);
-				if(data.can_coupon == 1){
-					if(i == 0){
-						item=item.replace("{a}","checked");
-						useQuan(parseInt(v[i].id),parseFloat(v[i].amount));
-					}
-				}
-				$("#quanlist").append(item);
-			}
-		}
-	},"json");
+        $.get("/buy/getquan", {
+            total_fee: data.total_fee,
+            pid: data.id
+        }, function(v) {
+            if (v.length == 0) {
+                $("#quanlist").html("<p class='acenter' style='color:#999;padding:20px 0'>暂无可使用的优惠券</p>");
+            } else {
+                var quanitemtpl = $("#quanitemTpl").html();
+                for (var i in v) {
+                    var item = quanitemtpl;
+                    item = item.replace("{data-id}", v[i].id);
+                    item = item.replace("{data-amount}", v[i].amount);
+                    item = item.replace("{title}", v[i].title);
+                    item = item.replace("{amount}", v[i].amount);
+                    item = item.replace("{youxiaoqi}", v[i].end_time);
+                    if (data.can_coupon == 1) {
+                        if (i == 0) {
+                            item = item.replace("{a}", "checked");
+                            useQuan(parseInt(v[i].id), parseFloat(v[i].amount));
+                        }
+                    }
+                    $("#quanlist").append(item);
+                }
+            }
+        }, "json");
 
-});
+    });
 
-$("#btnusesocre").bind("click",function(){
-	var scores=$("#inp_scores").val();
-	if(!/^\d+$/.test(scores)){
-		FP.showError("请填写整数");
-		return;
-	}
-	scores=parseInt(scores);
-	if(scores>total_scores){
-		FP.showError("余额不足");
-		return;
-	}
+    $("#btnusesocre").bind("click", function() {
+        var scores = $("#inp_scores").val();
+        if (!/^\d+$/.test(scores)) {
+            FP.showError("请填写整数");
+            return;
+        }
+        scores = parseInt(scores);
+        if (scores > total_scores) {
+            FP.showError("余额不足");
+            return;
+        }
 
-	if(scores>data.total_fee/2){
-		FP.showError("不能超过订单总金额的一半");
-		return;
-	}
-	useScores(scores);
-	// $(".right-dialog").removeClass("right-dialog-show");
-	$(this).parents(".right-dialog-content").siblings('a').removeClass('down');
-	$(this).parents(".right-dialog-content").hide(); 
-});
-$(".jifen-jia").bind(FP.EVENT_CLICK,function(e){
-	e.stopPropagation();
-	var scores=$("#inp_scores").val();
-	scores=parseInt(scores);
-	if(!scores){
-		scores=0;
-	}
-	scores++;
-	if(scores>total_scores){
-		scores=total_scores;
-	}
-	$("#inp_scores").val(scores);
-	return false;
-})
-$(".jifen-jian").bind(FP.EVENT_CLICK,function(e){
-	e.stopPropagation();
-	var scores=$("#inp_scores").val();
-	scores=parseInt(scores);
-	if(!scores){
-		scores=0;
-	}
-	scores--;
-	if(scores<0){
-		scores=0;
-	}
-	$("#inp_scores").val(scores);
-	return false;
-})
-$("#quanlist").delegate(".quanitem","click",function(){
-	if($(this).hasClass("checked")){
-		$(this).removeClass("checked");
-		useQuan(0,0);
-	}else{
-		$(".quanitem").removeClass("checked");
-		$(this).addClass("checked");
-		useQuan(parseInt($(this).attr("data-id")),parseFloat($(this).attr("data-amount")));
-	}
-	$(".right-dialog").removeClass("right-dialog-show");
-})
+        if (scores > data.total_fee / 2) {
+            FP.showError("不能超过订单总金额的一半");
+            return;
+        }
+        useScores(scores);
+        // $(".right-dialog").removeClass("right-dialog-show");
+        $(this).parents(".right-dialog-content").siblings('a').removeClass('down');
+        $(this).parents(".right-dialog-content").hide();
+    });
+    $(".jifen-jia").bind(FP.EVENT_CLICK, function(e) {
+        e.stopPropagation();
+        var scores = $("#inp_scores").val();
+        scores = parseInt(scores);
+        if (!scores) {
+            scores = 0;
+        }
+        scores++;
+        if (scores > total_scores) {
+            scores = total_scores;
+        }
+        $("#inp_scores").val(scores);
+        return false;
+    })
+    $(".jifen-jian").bind(FP.EVENT_CLICK, function(e) {
+        e.stopPropagation();
+        var scores = $("#inp_scores").val();
+        scores = parseInt(scores);
+        if (!scores) {
+            scores = 0;
+        }
+        scores--;
+        if (scores < 0) {
+            scores = 0;
+        }
+        $("#inp_scores").val(scores);
+        return false;
+    })
+    $("#quanlist").delegate(".quanitem", "click", function() {
+        if ($(this).hasClass("checked")) {
+            $(this).removeClass("checked");
+            useQuan(0, 0);
+        } else {
+            $(".quanitem").removeClass("checked");
+            $(this).addClass("checked");
+            useQuan(parseInt($(this).attr("data-id")), parseFloat($(this).attr("data-amount")));
+        }
+        $(".right-dialog").removeClass("right-dialog-show");
+    })
 
-$("#btnusema").bind("click",function(){
-	var ma_id=$("#inp_ma").val();
-	if (ma_id=="") {
-      $(this).parents(".right-dialog-content").siblings('a').removeClass('down');
-      $(this).parents(".right-dialog-content").hide(); 
-      return false;
+    $("#btnusema").bind("click", function() {
+        var ma_id = $("#inp_ma").val();
+        if (ma_id == "") {
+            $(this).parents(".right-dialog-content").siblings('a').removeClass('down');
+            $(this).parents(".right-dialog-content").hide();
+            return false;
+        }
+        if (!/^\d+$/.test(ma_id)) {
+            //alert(arg1);
+            FP.showError("请填写正确的优惠码");
+            return;
+        }
+        var btn = $(this).prop("disabled", true);
+        $.get('/buy/checkma/', {
+            id: ma_id
+        }, function(v) {
+            if (v.f) {
+                useMa(ma_id, parseFloat(v.data));
+                // $(".right-dialog").removeClass("right-dialog-show");
+                $(this).parents(".right-dialog-content").siblings('a').removeClass('down');
+                $(this).parents(".right-dialog-content").hide();
+            } else {
+                FP.showError(v.data);
+            }
+            btn.prop("disabled", false);
+        }, "json");
+
+    });
+
+    // $("#btnusema").bind("click",function(){
+    // 	cancelMa();
+    // 	$("#inp_ma").val("");
+    // 	$(this).parents(".right-dialog-content").siblings('a').removeClass('down');
+    // });
+
+
+    // $("#btnCancelMa").bind("click",function(){
+    // 	cancelMa();
+    // 	$("#inp_ma").val("");
+    // 	$(".right-dialog").removeClass("right-dialog-show");
+
+    // });
+
+    function useScores(scores) {
+        var discount = [];
+        for (var i in data.discount) {
+            if (data.discount[i].dtype != 1) {
+                discount.push(data.discount[i]);
+            }
+        }
+        if (scores > 0) {
+            discount.push({
+                dtype: 1,
+                use_scores: scores,
+                discount_amount: scores
+            });
+        }
+        data.discount = discount;
+        flushPayment();
     }
-	if(!/^\d+$/.test(ma_id)){
-		//alert(arg1);
-		FP.showError("请填写正确的优惠码");
-		return;
-	}
-	var btn=$(this).prop("disabled",true);
-	$.get('/buy/checkma/',{id:ma_id},function(v){
-		if(v.f){
-			useMa(ma_id,parseFloat(v.data));
-			// $(".right-dialog").removeClass("right-dialog-show");
-			$(this).parents(".right-dialog-content").siblings('a').removeClass('down');
-			$(this).parents(".right-dialog-content").hide();
-		}else{
-			FP.showError(v.data);
-		}
-		btn.prop("disabled",false);
-	},"json");
 
-});
+    function useQuan(coupon_id, amount) {
+        var discount = [];
+        for (var i in data.discount) {
+            if (data.discount[i].dtype != 2) {
+                discount.push(data.discount[i]);
+            }
+        }
+        if (coupon_id > 0) {
+            discount.push({
+                dtype: 2,
+                coupon_id: coupon_id,
+                discount_amount: amount
+            });
+        }
+        data.discount = discount;
+        flushPayment();
+    }
 
-// $("#btnusema").bind("click",function(){
-// 	cancelMa();
-// 	$("#inp_ma").val("");
-// 	$(this).parents(".right-dialog-content").siblings('a').removeClass('down');
-// });
+    function useMa(ma_id, amount) {
+        var discount = [];
+        for (var i in data.discount) {
+            if (data.discount[i].dtype != 3) {
+                discount.push(data.discount[i]);
+            }
+        }
+        if (ma_id != "") {
+            discount.push({
+                dtype: 3,
+                ma_id: ma_id,
+                discount_amount: amount
+            });
+        }
+        data.discount = discount;
+        flushPayment();
+    }
 
+    function cancelMa() {
+        var discount = [];
+        for (var i in data.discount) {
+            if (data.discount[i].dtype != 3) {
+                discount.push(data.discount[i]);
+            }
+        }
+        data.discount = discount;
+        flushPayment();
+    }
 
-// $("#btnCancelMa").bind("click",function(){
-// 	cancelMa();
-// 	$("#inp_ma").val("");
-// 	$(".right-dialog").removeClass("right-dialog-show");
-
-// });
-
-function useScores(scores){
-	var discount=[];
-	for(var i in data.discount){
-		if(data.discount[i].dtype!=1){
-			discount.push(data.discount[i]);
-		}
-	}
-	if(scores>0){
-		discount.push({dtype:1,use_scores:scores,discount_amount:scores});
-	}
-	data.discount=discount;
-	flushPayment();
-}
-
-function useQuan(coupon_id,amount){
-	var discount=[];
-	for(var i in data.discount){
-		if(data.discount[i].dtype!=2){
-			discount.push(data.discount[i]);
-		}
-	}
-	if(coupon_id>0){
-		discount.push({dtype:2,coupon_id:coupon_id,discount_amount:amount});
-	}
-	data.discount=discount;
-	flushPayment();
-}
-
-function useMa(ma_id,amount){
-	var discount=[];
-	for(var i in data.discount){
-		if(data.discount[i].dtype!=3){
-			discount.push(data.discount[i]);
-		}
-	}
-	if(ma_id!=""){
-		discount.push({dtype:3,ma_id:ma_id,discount_amount:amount});
-	}
-	data.discount=discount;
-	flushPayment();
-} 
-
-function cancelMa(){
-	var discount=[];
-	for(var i in data.discount){
-		if(data.discount[i].dtype!=3){
-			discount.push(data.discount[i]);
-		}
-	}
-	data.discount=discount;
-	flushPayment();
-}
-function flushPayment(){
-	$(".discount-item b").empty();
-	for(var i in data.discount){
-		switch(data.discount[i].dtype){
-			case 1:
-				if(data.discount[i].discount_amount>0){
-					$("#btnJifen b").html("-"+data.discount[i].discount_amount+"元");
-				}
-				break;
-			case 2:
-				if(data.discount[i].discount_amount>0){
-					$("#btnQuan b").html("-"+data.discount[i].discount_amount+"元");
-				}
-				break;
-			case 3:
-				if(data.discount[i].discount_amount>0){
-					$("#btnMa b").html("-"+data.discount[i].discount_amount+"元");
-				}
-				break;
-			default:
-				break;
-		}
-	}
-	updateFee();
-}
-</script>
-<!--END 积分优惠券抵扣-->
-
+    function flushPayment() {
+        $(".discount-item b").empty();
+        for (var i in data.discount) {
+            switch (data.discount[i].dtype) {
+                case 1:
+                    if (data.discount[i].discount_amount > 0) {
+                        $("#btnJifen b").html("-" + data.discount[i].discount_amount + "元");
+                    }
+                    break;
+                case 2:
+                    if (data.discount[i].discount_amount > 0) {
+                        $("#btnQuan b").html("-" + data.discount[i].discount_amount + "元");
+                    }
+                    break;
+                case 3:
+                    if (data.discount[i].discount_amount > 0) {
+                        $("#btnMa b").html("-" + data.discount[i].discount_amount + "元");
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+        updateFee();
+    }
+    </script>
+    <!--END 积分优惠券抵扣-->
 </body>
+
 </html>

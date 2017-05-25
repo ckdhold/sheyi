@@ -1,0 +1,231 @@
+/*
+* @Author: yy
+* @Date:   2016-10-31 13:37:48
+* @Last Modified by:   yy
+* @Last Modified time: 2016-11-01 17:20:48
+*/
+
+.header-top{
+	height:45px;
+	line-height:45px;
+	background:#ff94b7;
+	/* display:flex;
+	-webkit-display:flex; */
+	position:fixed;
+	top: 0;
+	left:0;
+	width:100%;
+	z-index:3;
+}
+.header-top li{
+	text-align:center;
+	border-right: 1px solid #fff;
+	float:left;
+	width:33.3%;	
+	 /*display: block;*/
+    /* -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;  */
+}
+.header-top li a{
+	color:#fff;
+}
+.header-top li.current{
+  background:#ff6699;
+  color:#fff;
+}
+.header-top li.current a{
+  color:rgba(255,255,255,1);
+}
+.yqm-conout{
+	padding-top:50px;
+	overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.yqm-conout .tit{
+	font-size:18px;
+	line-height:40px;
+	/* margin:5px 0; */
+	text-align:center;
+}
+.w90{
+	width:90%;
+	margin:0 auto;
+}
+.p15{
+	padding:0 15px;
+}
+.Img{
+	width:100%;
+	margin:0 auto;
+}
+.Img img{
+    width:100%;
+    height:auto;
+    display:block;
+    margin:0 auto;
+}
+.mb20{
+	margin-bottom:10px;
+}
+.m5{
+	margin:5px 0;
+}
+.tc{
+	text-align:center;
+}
+.yqm-conout dt{
+	padding:10px 15px;
+	border-bottom:1px solid #e5e5e5;
+}
+.reward-con{
+	overflow:hidden;
+	padding:6px 0;
+	/* display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+  justify-content:space-between; */
+  /*border-bottom:1px solid #e5e5e5;*/
+}
+.reward-con li:first-child{
+  width:40%;
+  text-align:center;
+  
+}
+.pt10{
+	padding-top: 10px;
+}
+.reward-con li{
+  text-align:center;
+  width:28%;
+  float:left;
+}
+.yqm-conout dd{
+	padding:10px 15px;
+	/*border-bottom:1px solid #e5e5e5;*/
+	overflow:hidden;
+	position:relative;
+}
+.yqm-conout .head-img{
+   width:40px;
+   height:40px;
+   background:pink;
+   float:left;
+}
+.yqm-conout dd span{
+	position:absolute;
+	top:50%;
+	left:60px;
+	transform:translate(0,-50%);
+	-webkit-transform:translate(0,-50%);
+}
+.reward-con a{
+	color:#ff6699;
+}
+.reward-con a.over{
+	color:#444450;
+}
+.yqm-but{
+	text-align:left;
+	margin:10px auto;
+	padding-left:15px;
+	color:#999;
+}
+
+.yqm-but a{
+	border: 0 none;
+	color: #ff6699;
+	font-size:18px; 
+}
+.w-out{
+	position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index:999;
+    background-color: rgba(0,0,0,0.6);
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
+}
+.w-in{padding: 1rem;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.5);
+    -webkit-transition: all .3s ease;
+    position:relative;
+}
+.w-in-header {
+    width: 50px;
+    height: 50px;
+    background: none;
+    border-radius: 50%;
+    margin: 0 auto;  
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
+}
+.w-in-header.waiting{
+	background:url(/Static/img/jz.gif) center center no-repeat;
+    background-size:40px;
+}
+.w-in-header.ok{
+	 border: 2px solid #fff;
+}
+.w-in-header.waining{
+	 border: 2px solid #fff;
+	 transform:rotate(-90deg);
+	-webkit-transform:rotate(-90deg);
+}
+.w-in-header.waining:before{
+	content:"";
+	display:block;
+	width: 20px;
+	height: 5px;
+	background:#fff;
+}
+.w-in-header.waining:after{
+	content:"";
+	display:block;
+	width: 5px;
+	height: 5px;
+	background:#fff;
+    margin-left:5px
+}
+.w-in-header.ok:after{
+	content:"";
+	display:block;
+	width: 23px;
+	height: 8px;
+	border:2px solid #fff;
+	border-width:0 0 2px 2px;
+	transform:rotate(-50deg);
+	-webkit-transform:rotate(-50deg);
+}
+.w-in p{
+   color:#fff;
+   font-size:12px;
+   text-align:center;
+   line-height:25px;
+}
+.w-out .close{
+	border:1px solid rgba(0,0,0,0.5);
+	width:35px;
+	height:35px;
+    background:url(/Static/img/yqmclose_01.png) center center no-repeat;
+	border-radius:50%;
+	background-size:18px;
+	position:absolute;
+	top:-10px;
+	right:-10px;
+}
+@media screen and (min-width: 960px){
+	.header-top{
+    position: fixed;
+    width: 640px;
+    left: 50%!important;
+    margin-left: -320px;
+	}
+}
