@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>商品分类</title>
+    <meta charset="utf-8" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="bookmark" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <meta content=" width = device-width , initial-scale = 1.0 , maximum-scale = 1.0 , user-scalable = no " id="viewport" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+</head>
+
+<body>
+    <link rel="stylesheet" type="text/css" href="css/classify.css?4" />
+    <link type="text/css" rel="stylesheet" href="css/com1-3.css" />
+    <script src="js/jquery.js"></script>
+    <style type="text/css">
+    .m_bg {
+        background-image: url(imgs/base.png);
+        background-size: 345px 350px;
+    }
+    
+    .holdspace {
+        height: 50px;
+    }
+    
+    .com-title {
+        position: fixed;
+        height: 45px;
+        left: 0;
+        z-index: 3;
+        top: 0;
+        width: 100%;
+        font-family: 微软雅黑 !important;
+    }
+    
+    .com-title .home_menu {
+        display: inline-block;
+        vertical-align: middle;
+        right: 2%;
+        top: -4%;
+        width: 10%;
+    }
+    
+    .com-title .home_menu span:after,
+    .com-title .home_menu span:before,
+    .com-title .home_menu span {
+        display: inline-block;
+        vertical-align: middle;
+        width: 6px;
+        height: 6px;
+        border-radius: 3px;
+        background: #188F19;
+        position: relative;
+    }
+    
+    .com-title .home_menu span:after {
+        content: ' ';
+        position: absolute;
+        right: -10px;
+        top: 0;
+    }
+    
+    .com-title .home_menu span:before {
+        content: ' ';
+        position: absolute;
+        left: -10px;
+        top: 0;
+    }
+    
+    .rotate45 {
+        -webkit-transform: rotate(45deg) scale(1.00, 1.00) translate(0px, 0px) skew(0deg, 0deg);
+        transform: rotate(45deg) scale(1.00, 1.00) translate(0px, 0px) skew(0deg, 0deg);
+    }
+    
+    .m_menu {
+        z-index: 20;
+        position: fixed;
+        top: 45px;
+        right: 5px;
+        margin-left: -320px;
+    }
+    
+    .m_menu>div {
+        margin-left: 340px;
+        width: 160px;
+        background: #292c33;
+        border-radius: 6px;
+    }
+    
+    .m_menu>div>i {
+        width: 26px;
+        height: 26px;
+        position: absolute;
+        right: 15px;
+        top: -12px;
+        background: #292c33;
+    }
+    
+    .m_menu>div>a {
+        color: #949599;
+        text-decoration: none;
+        display: block;
+        height: 50px;
+        line-height: 50px;
+        border-bottom: 2px solid #1f2126;
+        padding-left: 65px;
+        position: relative;
+    }
+    
+    .m_menu>div>a:last-child {
+        border-bottom: 0;
+        line-height: 50px;
+    }
+    
+    .m_menu>div>a>span {
+        position: absolute;
+        top: 0;
+        left: 24px;
+    }
+    
+    .m_menu>div>a>span>i {
+        width: 23px;
+        height: 21px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    
+    .m_menu>div>a:nth-child(2)>span>i {
+        background-position: 0 -251px;
+    }
+    
+    .m_menu>div>a:nth-child(3)>span>i {
+        background-position: -25px -251px;
+    }
+    
+    .m_menu>div>a:nth-child(4)>span>i {
+        background-position: -52px -251px;
+    }
+    
+    .m_menu>div>a:nth-child(5)>span>i {
+        background-position: -78px -251px;
+    }
+    
+    .spaceholder {
+        height: 45px;
+    }
+    
+    .hidden {
+        display: none;
+    }
+    
+    .mask {
+        background: #FFF;
+        opacity: 0.01;
+        z-index: 19;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    </style>
+    <div class="com-title">
+        <a title="返回" href="javascript:history.back();void(0)" class="return"></a>
+        <span></span>
+        </a>
+        私家定制
+    </div>
+    <div class="spaceholder"></div>
+    <div class="p-area">
+        <div class="p-search-box" id="js-searchbox">
+            <form action="" method="post">
+                <input name="keyword" class="p-search" id="js-search" type="search" value="" placeholder="搜索商品" />
+                <input class="p-submit" type="submit" value="搜索" />
+                <div class="clearboth"></div>
+            </form>
+        </div>
+        <div class="p-content">
+            <div class="p-conleft">
+                <ul class="classify-title" id="js-classify-title">
+                    <li class="on">蔬菜</li>
+                    <li>肉类</li>
+                    <li>水产</li>
+                    <li>蛋类</li>
+                    <li>粗粮</li>
+                </ul>
+            </div>
+            <div class="p-conright">
+                <!--分类 -->
+                <div class="js-con-0">
+                    <div class="hand_i"><img style="width:90%;margin-left:10%; margin-bottom:5px;margin-top:10px;" src="imgs/hand.png"></div>
+                    <div class="p-two-title">
+                        <p style="margin-left:5%;color:#;text-align: center; font-size:20px;font-weight:bold;">&nbsp;蔬菜&nbsp;</p>
+                        <ul class="p-three-title">
+                            <li>
+                                <a href="#">
+                                    <img src="imgs/product/pro01.png" truesrc="" />
+                                    <span style="color:#040404;font-weight:500;margin-left: 15px; ">朝天椒</span>
+                                    <span style="color:#CC643D; ">￥14</span>
+                                    <span>*<input type="number" style="width:7.5%;height:1px;" name=""></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="imgs/product/pro01.png" truesrc="" />
+                                    <span style="color:#040404;font-weight:500;margin-left: 15px; ">朝天椒</span>
+                                    <span style="color:#CC643D; ">￥14</span>
+                                    <span>*<input type="number" style="width:7.5%;height:1px;" name=""></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="imgs/product/pro01.png" truesrc="" />
+                                    <span style="color:#040404;font-weight:500;margin-left: 15px; ">朝天椒</span>
+                                    <span style="color:#CC643D; ">￥14</span>
+                                    <span>*<input type="number" style="width:7.5%;height:1px;" name=""></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="imgs/product/pro01.png" truesrc="" />
+                                    <span style="color:#040404;font-weight:500;margin-left: 15px; ">朝天椒</span>
+                                    <span style="color:#CC643D; ">￥14</span>
+                                    <span>*<input type="number" style="width:7.5%;height:1px;" name=""></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="imgs/product/pro01.png" truesrc="" />
+                                    <span style="color:#040404;font-weight:500;margin-left: 15px; ">朝天椒</span>
+                                    <span style="color:#CC643D; ">￥14</span>
+                                    <span>*<input type="number" style="width:7.5%;height:1px;" name=""></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="imgs/product/pro01.png" truesrc="" />
+                                    <span style="color:#040404;font-weight:500;margin-left: 15px; ">朝天椒</span>
+                                    <span style="color:#CC643D; ">￥14</span>
+                                    <span>*<input type="number" style="width:7.5%;height:1px;" name=""></span>
+                                </a>
+                            </li>
+                            <div class="clearboth"></div>
+                        </ul>
+                    </div>
+                    <!--二级分类单元- end -->
+                </div>
+                <div class="js-con-1" style="display:none;">
+                    <!--二级分类单元- end -->
+                </div>
+                <div class="js-con-2" style="display:none;"></div>
+            </div>
+        </div>
+    </div>
+    <!--content-end-->
+    </div>
+    </div>
+    <script src="js/classify.js"></script>
+</body>
+
+</html>

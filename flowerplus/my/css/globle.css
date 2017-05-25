@@ -271,17 +271,14 @@
 	font-size:16px;
 	color:#333;
 }
-.shop_items .headtit p{
+.shop_items  .headtit p{
 	margin-bottom:5px;
 }
 .shop_items .item_img{
-	width:60px;
-	height:60px;
-	background:#eee;
+    padding-top: 10px;
 }
 .shop_items .item_img img{
-	width:100%;
-	height:auto;
+        width:80px;
 }
 .num_l {
     display: -webkit-flex;
@@ -498,7 +495,7 @@ textarea {
 }
 .bestie-con li{
     width:44%;
-    padding-bottom:44%;
+    padding-bottom:35%;
     height:0;
     margin-left:4%;
     margin-bottom:4%;

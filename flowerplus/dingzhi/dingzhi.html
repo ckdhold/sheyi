@@ -1,0 +1,263 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1 maximum-scale=2, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Add to Home">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="x-rim-auto-match" content="none">
+    <title>私家定制</title>
+    <meta name="keywords" content="私家定制">
+    <meta name="description" content="私家定制">
+    <meta name="Copyright" content="私家定制">
+    <meta name="author" content="私家定制">
+    <!-- 网站的ico图标 -->
+    <link rel="shortcut icon" href="img/favicon.jpg" type="image/x-icon">
+    <link href="css/publi.css" rel="stylesheet" type="text/css">
+    <link href="css/question.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript" src="js/num-alignment_1.js"></script>
+    <style type="text/css">
+    h2 {
+        font-size: 14px;
+    }
+    .queinput{
+        float: right;
+        padding-right: 40%;
+    }
+    .ainput {
+        width: 47%;
+    }
+    </style>
+</head>
+
+<body>
+    <section class="question">
+        <form action="post">
+            <ul>
+                <li class="que_chex que_ac">
+                    <h2>1、您所购买的套餐享用人数？</h2>
+                    <div class="shadow">
+                        儿童
+                        <div class="queinput">
+                        <input data_step="1" data_min="0" data_digit="0" value="0" class="ainput" id="1" name="children" /></div>
+                        </br>
+                        成人
+                        <div class="queinput">
+                        <input data_step="1" data_min="0" data_digit="0" value="0" class="ainput" id="2" name="adult" /></div>
+                        </br>
+                         孕妇
+                        <div class="queinput">
+                        <input data_step="1" data_min="0" data_digit="0" value="0" class="ainput" id="3" name="pregnant" /></div>
+                        </br>
+                        产妇
+                        <div class="queinput">
+                        <input data_step="1" data_min="0" data_digit="0" value="0" class="ainput" id="4" name="maternal" /></div>
+                        </br>
+                        老人
+                        <div class="queinput">
+                        <input data_step="1" data_min="0" data_digit="0" value="0" class="ainput" id="5" name="old" /></div>
+                    </div>
+                </li>
+                <li class="que_ra que_ac">
+                    <h2>2、您需要的食材量是每天单餐还是双餐？（单选）</h2>
+                    <div class="shadow">
+                        <label class="que2_01">
+                            <input type="radio" name="que2_1" class="que" />
+                            <span>晚餐</span>
+                            <i class="icon_ra"></i>
+                        </label>
+                        <label class="que2_01">
+                            <input type="radio" name="que2_2" class="que" />
+                            <span>午餐和晚餐</span>
+                            <i class="icon_ra"></i>
+                        </label>
+                    </div>
+                </li>
+                <li class="que_chex que_ac">
+                    <h2>3、我们的食材有素菜、杂粮、海鲜、禽肉、畜肉、蜂蜜、山茶油，您需要哪些?（多选）</h2>
+                    <div class="shadow">
+                        <input type="checkbox" class="qu_chex" id="q1" name="que3_1" />
+                        <label class="que2_01" for="q1">
+                            <span>素菜</span>
+                            <i class="icon_chex"></i>
+                        </label>
+                        <input type="checkbox" class="qu_chex" id="q2" name="que3_2" />
+                        <label class="que2_02" for="q2">
+                            <span>杂粮</span>
+                            <i class="icon_chex"></i>
+                        </label>
+                        <input type="checkbox" class="qu_chex" id="q3" name="que3_3" />
+                        <label class="que2_01" for="q3">
+                            <span>海鲜</span>
+                            <i class="icon_chex"></i>
+                        </label>
+                        <input type="checkbox" class="qu_chex" id="q4" name="que3_4" />
+                        <label class="que2_01" for="q4">
+                            <span>禽肉</span>
+                            <i class="icon_chex"></i>
+                        </label>
+                        <br />
+                        <input type="checkbox" class="qu_chex" id="q5" name="que3_5" />
+                        <label class="que2_01" for="q5">
+                            <span>畜肉</span>
+                            <i class="icon_chex"></i>
+                        </label>
+                        <input type="checkbox" class="qu_chex" id="q6" name="que3_6" />
+                        <label class="que2_01" for="q6">
+                            <span>蜂蜜</span>
+                            <i class="icon_chex"></i>
+                        </label>
+                        <input type="checkbox" class="qu_chex" id="q7" name="que3_7" />
+                        <label class="que2_01" for="q7">
+                            <span>山茶油</span>
+                            <i class="icon_chex"></i>
+                        </label>
+                    </div>
+                </li>
+                <li class="que_ra que_ac">
+                    <h2>4、套餐享用对象平均每周在家用餐的天数？（单选）</h2>
+                    <div class="shadow">
+                        <label class="que2_01">
+                            <input type="radio" name="que4_1" class="que" />
+                            <span>1～2天</span>
+                            <i class="icon_ra"></i>
+                        </label>
+                        <label class="que2_01">
+                            <input type="radio" name="que4_2" class="que" />
+                            <span>3～4天</span>
+                            <i class="icon_ra"></i>
+                        </label>
+                        <label class="que2_01">
+                            <input type="radio" name="que4_3" class="que" />
+                            <span>5～6天</span>
+                            <i class="icon_ra"></i>
+                        </label>
+                        <label class="que2_01">
+                            <input type="radio" name="que4_4" class="que" />
+                            <span>每天</span>
+                            <i class="icon_ra"></i>
+                        </label>
+                    </div>
+                </li>
+                <li class="que_chex que_ac">
+                    <h2>5、套餐享用对象忌口食材？</h2>
+                    <div class="shadow">
+                        <input type="text" class="chex_01" name="que5" />
+                    </div>
+                </li>
+                <li class="que_ra que_ac">
+                    <h2>6、我们每周一和周四发货，一般周二和周五可以收到食材，确定下您的时间？（单选）</h2>
+                    <div class="shadow">
+                        <label class="que2_01">
+                            <input type="radio" name="que2" class="que" name="que6_1" />
+                            <span>下单后第一个发货日发货</span>
+                            <i class="icon_ra"></i>
+                        </label>
+                        </br>
+                        <label class="que2_01">
+                            <input type="radio" name="que2" class="que" name="que6_2" />
+                            <span>下单后我再确认下时间</span>
+                            <i class="icon_ra"></i>
+                        </label>
+                    </div>
+                </li>
+                <li class="que_ra que_ac">
+                    <h2>7、您还有其他哪些要求？（单选）</h2>
+                    <div class="shadow">
+                        <label class="que2_01">
+                            <input type="radio" name="que2" class="que" name="que7_1" />
+                            <span>一周单配</span>
+                            <i class="icon_ra"></i>
+                        </label>
+                        <label class="que2_01">
+                            <input type="radio" name="que2" class="que" name="que7_2" />
+                            <span>其他</span>
+                            <i class="icon_ra"></i>
+                        </label>
+                    </div>
+                </li>
+                <li id="litest"></li>
+            </ul>
+        </form>
+        <a href="javascript:;" class="que_receive tc" id="tijiao" style="color:#fff;" type="submit">提交</a>
+    </section>
+    <!-- 网站要用到的一些类库 -->
+    <script type="text/javascript">
+    new Vue({
+        el: '.question',
+        data: {
+            checkedNames: []
+        }
+    })
+
+    $(window).on("load", function() {
+            $("#loading").fadeOut();
+        })
+        // ========================================浮层控制
+    $("#tip .pack a").on("click", function() {
+        $("#tip").fadeOut()
+        $("#tip .pack p").html("")
+        return false;
+    })
+
+    function alerths(str) {
+        $("#tip").fadeIn()
+        $("#tip .pack p").html(str)
+        return false;
+    }
+    /*判断单选框选中状态，并且父级添加active*/
+    $(".question ul .que_ra label").click(function() {
+        $(this).addClass("icon_raa").siblings().removeClass("icon_raa");
+        $(this).parent().addClass("active");
+    });
+    /*判断复选框选中状态，并且父级添加删除active*/
+    $(".question ul .que_chex label").click(function() {
+        if ($(this).hasClass("icon_chexa")) {
+            $(this).removeClass("icon_chexa");
+        } else {
+            $(this).addClass("icon_chexa");
+        };
+        if ($(this).parent().children().hasClass("icon_chexa")) {
+            $(this).parent().addClass("active");
+        } else {
+            $(this).parent().removeClass("active");
+        };
+        /*return false;*/
+    })
+    </script>
+    <script type="text/javascript">
+    $(function() {
+        $("#tijiao").bind("click", function() {
+            $("#litest").html($("form").serialize());
+        })
+    })
+    </script>
+    <script type="text/javascript">
+    $(function() {
+                $("#tijiao").click(function() {
+
+                        $.ajax({
+                                url: '',
+                                type: "post",
+                                data: $("form").serialize(),
+                                async: false,
+                                success: function() {
+
+                                    alert("已提交，谢谢");
+                                },
+                                error: function() {
+                                    alert("网络异常，请稍后重试");
+                                }
+
+                            }
+                        });
+                });
+    </script>
+</body>
+
+</html>
